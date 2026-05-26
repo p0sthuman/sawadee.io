@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sawadee — Thailand Holiday Planner</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script>
 tailwind.config={theme:{extend:{colors:{gold:'#D4A843','gold-light':'#E8C96A','gold-dark':'#B08A2A',emerald:'#2D6A4F','emerald-light':'#40916C',warm:'#F5F0E8','warm-muted':'#A89F93',surface:'#121212','surface-up':'#1a1a1a','surface-up2':'#242424'},fontFamily:{display:['"Playfair Display"','serif'],body:['"DM Sans"','sans-serif']}}}}
@@ -13,22 +13,31 @@ tailwind.config={theme:{extend:{colors:{gold:'#D4A843','gold-light':'#E8C96A','g
 <style>
 *{box-sizing:border-box;margin:0}body{font-family:'DM Sans',sans-serif;background:#0c0c0c;color:#F5F0E8;overflow-x:hidden}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#121212}::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
-.bg-orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0}
-.orb1{width:500px;height:500px;background:rgba(212,168,67,.05);top:-120px;right:-100px}
-.orb2{width:400px;height:400px;background:rgba(45,106,79,.05);bottom:10%;left:-80px}
+.bg-orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0}.orb1{width:500px;height:500px;background:rgba(212,168,67,.05);top:-120px;right:-100px}.orb2{width:400px;height:400px;background:rgba(45,106,79,.05);bottom:10%;left:-80px}
 .bg-dots{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.025;background-image:radial-gradient(circle,#D4A843 1px,transparent 1px);background-size:36px 36px}
 .card-h{transition:transform .3s,box-shadow .3s,border-color .3s}.card-h:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,0,0,.4);border-color:rgba(212,168,67,.25)}
 .tab-b{position:relative;transition:color .3s;cursor:pointer;background:none;border:none;font-family:inherit}.tab-b.on{color:#D4A843}.tab-b.on::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:#D4A843;border-radius:1px}
 .tabs-s{overflow-x:auto;scrollbar-width:none}.tabs-s::-webkit-scrollbar{display:none}
-.b-agoda{background:#E8590C;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700}
-.b-booking{background:#003580;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700}
-.b-12go{background:#1DB48D;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700}
+.b-agoda{background:#E8590C;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:4px}.b-booking{background:#003580;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+.b-12go{background:#1DB48D;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+.b-traveloka{background:#5D3FD3;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+.b-kkday{background:#FF6B00;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+.b-gyg{background:'#FF5722;color:#fff;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
 .star{color:#D4A843}.star-e{color:#2a2a2a}
-.route-ln{position:absolute;top:18px;left:18px;right:18px;height:3px;background:#222;z-index:0}
-.route-fill{height:100%;background:linear-gradient(90deg,#D4A843,#2D6A4F);border-radius:2px}
-.rn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;position:relative;z-index:1;transition:transform .3s;flex-shrink:0}.rn:hover{transform:scale(1.15)}
+.route-ln{position:absolute;top:18px;left:18px;right:18px;height:3px;background:#222;z-index:0}.route-fill{height:100%;background:linear-gradient(90deg,#D4A843,#2D6A4F);border-radius:2px}
+.rn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;position:relative;z-index:1;flex-shrink:0;transition:transform .3s}.rn:hover{transform:scale(1.15)}
 .rn-m{background:linear-gradient(135deg,#D4A843,#B08A2A);color:#0c0c0c;box-shadow:0 0 18px rgba(212,168,67,.25)}.rn-s{background:#1a1a1a;border:2px solid #2D6A4F;color:#40916C}
 .s-tag{background:rgba(45,106,79,.12);border:1px solid rgba(45,106,79,.25);color:#40916C;padding:3px 9px;border-radius:16px;font-size:11px;white-space:nowrap}
+.aff-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.aff-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:6px 12px;border-radius:8px;cursor:pointer;transition:all .2s;text-decoration:none;border:1px solid transparent}
+.aff-btn:hover{border-color:rgba(212,168,67,.4);transform:translateY(-1px)}
+.aff-btn.agoda{background:rgba(232,89,12,.08);color:#E8590C}.aff-btn.agoda:hover{background:rgba(232,89,12,.15)}
+.aff-btn.booking{background:rgba(0,53,128,.08);color:#6BA4D8}.aff-btn.booking:hover{background:rgba(0,53,128,.15)}
+.aff-btn.go12go{background:rgba(29,180,141,.08);color:#1DB48D}.aff-btn.go12go:hover{background:rgba(29,180,141,.15)}
+.aff-btn.traveloka{background:rgba(93,63,211,.08);color:#5D3FD3}.aff-btn.traveloka:hover{background:rgba(93,63,211,.15)}
+.aff-btn.kkday{background:rgba(255,107,0,.08);color:#FF6B00}.aff-btn.kkday:hover{background:rgba(255,107,0,.15)}
+.aff-btn.gyg{background:rgba(255,87,34,.08);color:#FF5722}.aff-btn.gyg:hover{background:rgba(255,87,34,.15)}
+.aff-label{font-size:8px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;opacity:.6}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fu{opacity:0;transform:translateY(16px);animation:fadeUp .5s ease forwards}
 @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
@@ -49,35 +58,11 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.75);cursor:
 .btn-g:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(212,168,67,.3)}.btn-g:active{transform:translateY(0)}
 .btn-o{background:transparent;border:1px solid #D4A843;color:#D4A843;border-radius:7px;padding:7px 14px;font-size:12px;cursor:pointer;transition:background .2s;font-family:'DM Sans',sans-serif}
 .btn-o:hover{background:rgba(212,168,67,.1)}.btn-o.act{background:rgba(212,168,67,.12)}
-.btn-ext{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:5px 10px;border-radius:6px;border:1px solid #333;color:#A89F93;background:#1a1a1a;cursor:pointer;transition:border-color .2s,color .2s;text-decoration:none}
-.btn-ext:hover{border-color:#555;color:#F5F0E8}
 .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;animation:lp 2s infinite}
 .live-on{background:#40916C}.live-off{background:#666;animation:none}.live-try{background:#D4A843}
 @keyframes lp{0%,100%{opacity:1}50%{opacity:.3}}
-.lang-btn{display:flex;align-items:center;gap:6px;background:#1a1a1a;border:1px solid #2a2a2a;color:#F5F0E8;padding:6px 12px;border-radius:8px;font-size:12px;cursor:pointer;transition:border-color .2s;font-family:'DM Sans',sans-serif}
-.lang-btn:hover{border-color:#D4A843}
-.lang-menu{position:absolute;top:calc(100% + 6px);right:0;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:4px;min-width:160px;z-index:100;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:fadeUp .2s ease}
-.lang-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:8px 12px;background:none;border:none;color:#A89F93;font-size:13px;cursor:pointer;border-radius:6px;transition:background .15s,color .15s;font-family:'DM Sans',sans-serif;text-align:left}
-.lang-menu button:hover{background:#242424;color:#F5F0E8}
-.lang-menu button.act{color:#D4A843;background:rgba(212,168,67,.08)}
-
-/* ===== AD STYLES ===== */
-.ad-slot{background:#161616;border:1px solid #222;border-radius:10px;overflow:hidden;position:relative;transition:opacity .3s}
-.ad-slot:hover{opacity:.85}
-.ad-label{position:absolute;top:6px;right:8px;font-size:9px;color:#555;letter-spacing:.5px;font-weight:600;z-index:2;pointer-events:none}
-.ad-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#333;font-size:11px;text-align:center;padding:20px 10px}
-.ad-placeholder i{font-size:20px;opacity:.4}
-.ad-banner{width:100%;min-height:90px}
-.ad-rect{width:100%;min-height:250px}
-.ad-leader{width:100%;min-height:90px}
-.ad-infeed{width:100%;min-height:120px;border-radius:10px}
-.ad-anchor{position:fixed;bottom:0;left:0;right:0;z-index:50;background:#161616;border-top:1px solid #222;padding:4px 0;transform:translateY(100%);transition:transform .4s ease}
-.ad-anchor.visible{transform:translateY(0)}
-.ad-anchor-inner{max-width:728px;margin:0 auto}
-.ad-anchor-close{position:absolute;top:-28px;right:12px;background:#242424;border:1px solid #333;color:#999;font-size:11px;padding:2px 8px;border-radius:4px 4px 0 0;cursor:pointer;border-bottom:none}
-.ad-anchor-close:hover{color:#F5F0E8}
-@media(min-width:768px){.ad-anchor{display:none!important}.ad-rect-sidebar{display:block!important}}
-@media(max-width:767px){.ad-rect-sidebar{display:none!important}.ad-banner{min-height:60px}}
+.rate-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(45,106,79,.1);border:1px solid rgba(45,106,79,.25);color:#40916C;font-size:10px;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.rate-badge.fallback{background:rgba(212,168,67,.1);border-color:rgba(212,168,67,.25);color:#D4A843}
 @media(prefers-reduced-motion:reduce){.t-shim,.fu,.live-dot{animation:none!important;opacity:1!important;transform:none!important}.card-h:hover{transform:none}}
 </style>
 </head>
@@ -86,402 +71,189 @@ input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.75);cursor:
 <div class="toast-c" id="toastC"></div>
 
 <header class="relative z-10 px-5 py-4 flex items-center justify-between max-w-7xl mx-auto">
-<div class="flex items-center gap-2.5">
-<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center"><i class="fa-solid fa-sun text-surface text-xs"></i></div>
-<span class="font-display text-lg font-bold tracking-wide text-warm">Sawadee</span>
-</div>
-<div class="flex items-center gap-2">
-<div class="relative" id="langWrap">
-<button class="lang-btn" id="langBtn" aria-label="Language"><i class="fa-solid fa-globe text-gold text-xs"></i><span id="langLabel">English</span><i class="fa-solid fa-chevron-down text-[9px] text-warm-muted"></i></button>
-<div class="lang-menu hidden" id="langMenu"></div>
-</div>
+<div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center"><i class="fa-solid fa-sun text-surface text-xs"></i></div><span class="font-display text-lg font-bold tracking-wide text-warm">Sawadee</span></div>
 <div class="w-7 h-7 rounded-full bg-surface-up flex items-center justify-center cursor-pointer hover:bg-surface-up2 transition-colors" id="infoBtn" aria-label="Info"><i class="fa-solid fa-circle-info text-warm-muted text-[10px]"></i></div>
-</div>
 </header>
-
 <main class="relative z-10">
-<!-- AD SLOT 1: Top Banner (highest viewability — first screen) -->
-<div class="max-w-7xl mx-auto px-5 mb-4" id="ad-top"></div>
-
-<section class="max-w-7xl mx-auto px-5 pb-8 text-center">
-<p class="text-warm-muted text-xs tracking-[.3em] uppercase mb-3 fu" style="animation-delay:.1s" id="hL">THAILAND HOLIDAY PLANNER</p>
-<h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5 fu t-shim" style="animation-delay:.2s"><span id="hT1">Plan Your Dream</span><br><span id="hT2">Thailand Getaway</span></h1>
-<p class="text-warm-muted text-base max-w-xl mx-auto mb-8 fu" style="animation-delay:.35s" id="hD">Enter your travel dates, compare transport and accommodation from real sources, discover hidden gems along the route, and choose from curated packages.</p>
+<section class="max-w-7xl mx-auto px-5 pt-6 pb-8 text-center">
+<p class="text-warm-muted text-xs tracking-[.3em] uppercase mb-3 fu" style="animation-delay:.1s">THAILAND HOLIDAY PLANNER</p>
+<h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5 fu t-shim" style="animation-delay:.2s"><span>Plan Your Dream</span><br><span>Thailand Getaway</span></h1>
+<p class="text-warm-muted text-base max-w-xl mx-auto mb-4 fu" style="animation-delay:.35s">Compare transport and accommodation from real sources, discover hidden gems along the route, and choose from curated packages with affiliate booking links.</p>
+<div class="fu flex items-center justify-center gap-2 mb-6" style="animation-delay:.4s" id="rateIndicator"></div>
 <div class="max-w-5xl mx-auto bg-surface-up border border-[#222] rounded-2xl p-5 sm:p-7 fu" style="animation-delay:.5s">
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-5">
-<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase" id="lDep">DEPARTURE CITY</label><select id="fOrigin"><option value="" id="selPh">Select</option><option value="Bangkok">Bangkok</option><option value="Chiang Mai">Chiang Mai</option><option value="Phuket">Phuket</option><option value="Koh Samui">Koh Samui</option><option value="Krabi">Krabi</option><option value="Pattaya">Pattaya</option></select></div>
-<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase" id="lDes">DESTINATION CITY</label><select id="fDest"><option value="" id="selPh2">Select</option><option value="Bangkok">Bangkok</option><option value="Chiang Mai">Chiang Mai</option><option value="Phuket">Phuket</option><option value="Koh Samui">Koh Samui</option><option value="Krabi">Krabi</option><option value="Pattaya">Pattaya</option></select></div>
-<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase" id="lCur">CURRENCY</label><select id="fCurr"><option value="TRY">TRY</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="THB">THB</option></select></div>
-<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase" id="lCI">CHECK-IN</label><input type="date" id="fIn"></div>
-<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase" id="lCO">CHECK-OUT</label><input type="date" id="fOut"></div>
-<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase" id="lG">GUESTS</label><input type="number" id="fGuests" min="1" max="10" value="2"></div>
+<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase">DEPARTURE CITY</label><select id="fOrigin"><option value="">Select</option><option value="Bangkok">Bangkok</option><option value="Chiang Mai">Chiang Mai</option><option value="Phuket">Phuket</option><option value="Koh Samui">Koh Samui</option><option value="Krabi">Krabi</option><option value="Pattaya">Pattaya</option></select></div>
+<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase">DESTINATION CITY</label><select id="fDest"><option value="">Select</option><option value="Bangkok">Bangkok</option><option value="Chiang Mai">Chiang Mai</option><option value="Phuket">Phuket</option><option value="Koh Samui">Koh Samui</option><option value="Krabi">Krabi</option><option value="Pattaya">Pattaya</option></select></div>
+<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase">CURRENCY</label><select id="fCurr"><option value="TRY">TRY — Turkish Lira</option><option value="USD">USD — US Dollar</option><option value="EUR">EUR — Euro</option><option value="GBP">GBP — British Pound</option><option value="THB">THB — Thai Baht</option></select></div>
+<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase">CHECK-IN</label><input type="date" id="fIn"></div>
+<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase">CHECK-OUT</label><input type="date" id="fOut"></div>
+<div class="text-left"><label class="block text-[10px] text-warm-muted mb-1 font-semibold tracking-wider uppercase">GUESTS</label><input type="number" id="fGuests" min="1" max="10" value="2"></div>
 </div>
-<button class="btn-g w-full sm:w-auto" id="searchBtn"><i class="fa-solid fa-magnifying-glass mr-2"></i><span id="btnS">Build My Trip Plan</span></button>
-</div>
-</section>
-
-<!-- AD SLOT 2: Post-search leaderboard (user just committed — high engagement) -->
-<div class="max-w-7xl mx-auto px-5 mb-6 hidden" id="ad-post-search"></div>
-
+<button class="btn-g w-full sm:w-auto" id="searchBtn"><i class="fa-solid fa-magnifying-glass mr-2"></i>Build My Trip Plan</button>
+</div></section>
 <section class="max-w-7xl mx-auto px-5 pb-20 hidden" id="resSec">
 <div class="bg-surface-up border border-[#222] rounded-xl p-3.5 mb-5 flex flex-wrap items-center justify-between gap-2" id="sumBar"></div>
-<!-- AD SLOT 3: Below summary, above tabs (natural content break) -->
-<div class="mb-5 hidden" id="ad-pre-tabs"></div>
 <div class="tabs-s flex gap-5 mb-7 border-b border-[#222] pb-0" id="tabBar"></div>
-<!-- AD SLOT 4: Below tabs, above content (highest in-content viewability) -->
-<div class="mb-5 hidden" id="ad-in-content"></div>
 <div id="tabC"></div>
-</section>
-</main>
-
-<!-- AD SLOT 5: Mobile bottom anchor (always visible on mobile = highest mobile CTR) -->
-<div class="ad-anchor" id="ad-anchor">
-<button class="ad-anchor-close" id="ad-anchor-close">Close</button>
-<div class="ad-anchor-inner" id="ad-anchor-inner"></div>
-</div>
-
-<div class="relative z-10 border-t border-[#151515] py-6 text-center text-warm-muted text-[11px]"><p id="foot">Sawadee Thailand Holiday Planner — Click platform links to verify and book at live prices.</p></div>
-
-<!-- Info modal -->
+</section></main>
 <div class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm" id="infoM">
 <div class="bg-surface-up border border-[#2a2a2a] rounded-2xl p-7 max-w-md mx-4 relative">
 <button class="absolute top-3 right-3 text-warm-muted hover:text-warm transition-colors" id="closeInfo" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-<h3 class="font-display text-lg font-bold text-gold mb-2" id="mT">How It Works</h3>
-<p class="text-warm-muted text-sm leading-relaxed mb-4" id="mD">Results appear instantly. The app connects to Agoda, Booking.com and 12go.asia in the background for live prices.</p>
+<h3 class="font-display text-lg font-bold text-gold mb-2">How It Works</h3>
+<p class="text-warm-muted text-sm leading-relaxed mb-4">All booking links go directly to Agoda, Booking.com, 12go.asia, Traveloka, KKday, and GetYourGuide with your affiliate tracking. Replace YOUR_*_ID placeholders with your actual affiliate IDs to start earning commissions.</p>
 <div class="space-y-2 text-sm">
-<div class="flex items-center gap-2"><span class="b-agoda">AGODA</span><span class="text-warm-muted">Hotels + direct link</span></div>
-<div class="flex items-center gap-2"><span class="b-booking">BOOKING</span><span class="text-warm-muted">Hotels + direct link</span></div>
-<div class="flex items-center gap-2"><span class="b-12go">12GO</span><span class="text-warm-muted">Transport + direct link</span></div>
-</div>
-</div>
-</div>
-
+<div class="flex items-center gap-2"><span class="b-agoda">AGODA</span><span class="text-warm-muted">Hotel affiliate deep links</span></div>
+<div class="flex items-center gap-2"><span class="b-booking">BOOKING</span><span class="text-warm-muted">Hotel affiliate deep links</span></div>
+<div class="flex items-center gap-2"><span class="b-12go">12GO</span><span class="text-warm-muted">Transport affiliate links</span></div>
+<div class="flex items-center gap-2"><span class="b-traveloka">TRAVELOKA</span><span class="text-warm-muted">Flight & activity links</span></div>
+<div class="flex items-center gap-2"><span class="b-kkday">KKDAY</span><span class="text-warm-muted">Activity bundle deals</span></div>
+<div class="flex items-center gap-2"><span class="b-gyg">GETYOURGUIDE</span><span class="text-warm-muted">Tour & experience links</span></div>
+</div></div></div>
+<footer class="relative z-10 border-t border-[#151515] py-6 text-center text-warm-muted text-[11px]"><p>Sawadee Thailand Holiday Planner — Affiliate links open real booking pages on each platform.</p></footer>
 <script>
-// ================================================================
-// AD SYSTEM — Replace placeholder with real AdSense code to monetize
-// ================================================================
-// IMPORTANT: To activate real ads:
-//   1. Sign up at https://www.google.com/adsense
-//   2. Get your publisher ID (ca-pub-XXXXXXXXXXXXXXXX)
-//   3. Replace each renderAd() call's content with your AdSense code
-//   4. Google will auto-serve relevant travel ads
-//
-// PLACEMENT STRATEGY (optimized for travel niche, high CPC $0.50-$3+):
-//   Slot 1 (Top Banner)      — First-screen viewability, broad travel ads
-//   Slot 2 (Post-Search)      — User committed = high engagement signal
-//   Slot 3 (Pre-Tabs)         — Natural break between summary and content
-//   Slot 4 (In-Content)       — Highest viewability during browsing
-//   Slot 5 (Mobile Anchor)    — Always visible on mobile = highest mobile CTR
-// ================================================================
+/* ========== AFFILIATE IDS — REPLACE WITH YOUR ACTUAL IDS ========== */
+var AFF={agodaCampaign:'YOUR_AGODA_CAMPAIGN',bookingAid:'YOUR_BOOKING_AID',go12AffId:'YOUR_12GO_AFF_ID',travelokaId:'YOUR_TRAVELOKA_ID',kkdayAffId:'YOUR_KKDAY_AFF_ID',gygPartnerId:'YOUR_GYG_PARTNER_ID'};
 
-var ADSENSE_PUB_ID = 'pub-7935663818670944'; // Replace with your real ID
+/* ========== EXCHANGE RATES (real-time from ECB via frankfurter.app) ========== */
+var FX={THB:1,TRY:0,USD:0,EUR:0,GBP:0};
+var FX_LOADED=false,FX_SOURCE='none',FX_DATE='';
+function fetchRates(){
+    var urls=[
+        'https://api.frankfurter.app/latest?from=THB&to=TRY,USD,EUR,GBP',
+        'https://api.allorigins.win/raw?url='+encodeURIComponent('https://api.exchangerate-api.com/v4/latest/THB')
+    ];
+    var chain=Promise.resolve();
+    urls.forEach(function(u){chain=chain.then(function(){if(FX_LOADED)return Promise.resolve();
+    return new Promise(function(resolve){var done=false;setTimeout(function(){if(!done){done=true;resolve(false)},4000);
+    try{fetch(u,{signal:AbortSignal.timeout(3500)}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){if(done)return;
+    var r=d.rates||{};FX.THB=1;FX.TRY=r.TRY||0;FX.USD=r.USD||0;FX.EUR=r.EUR||0;FX.GBP=r.GBP||0;
+    if(FX.TRY>0&&FX.USD>0&&FX.EUR>0&&FX.GBP>0){FX_LOADED=true;FX_SOURCE='live';FX_DATE=d.date||'';done=true;resolve(true)}else{done=true;resolve(false)}
+    }).catch(function(){done=true;resolve(false)})}catch(e){done=true;resolve(false)}})};
+    chain.then(function(ok){if(!ok){FX.THB=1;FX.TRY=.90;FX.USD=.028;FX.EUR=.026;FX.GBP=.022;FX_LOADED=true;FX_SOURCE='offline'}updateRateUI()});});
+function updateRateUI(){var el=document.getElementById('rateIndicator');if(!el)return;
+if(FX_SOURCE==='live')el.innerHTML='<span class="rate-badge"><i class="fa-solid fa-circle" style="font-size:5px;color:#40916C"></i> Live ECB rates'+(FX_DATE?' as of '+FX_DATE:'')+'</span>';
+else el.innerHTML='<span class="rate-badge fallback"><i class="fa-solid fa-circle" style="font-size:5px;color:#D4A842"></i> Using estimated rates</span>';
+if(S.res)renderTab(S.tab)}
+setInterval(fetchRates,30*60*1000);fetchRates()
 
-function renderAd(containerId, size, label) {
-    var el = document.getElementById(containerId);
-    if (!el) return;
-    el.className = el.className.replace('hidden', '');
-    // ---- PLACEHOLDER MODE (remove this block when adding real ads) ----
-    el.innerHTML = '<div class="ad-slot ad-' + size + '">' +
-        '<span class="ad-label">ADVERTISEMENT</span>' +
-        '<div class="ad-placeholder"><i class="fa-solid fa-rectangle-ad"></i>' +
-        '<span>' + label + '</span>' +
-        '<span style="font-size:9px;color:#222">' + size.replace('leader','728x90').replace('rect','300x250').replace('banner','728x90').replace('infeed','fluid') + '</span></div></div>';
-    return;
-    // ---- REAL ADSENSE MODE (uncomment and replace pub ID) ----
-    // var ins = document.createElement('ins');
-    // ins.className = 'adsbygoogle';
-    // ins.style.display = 'block';
-    // ins.setAttribute('data-ad-client', ADSENSE_PUB_ID);
-    // ins.setAttribute('data-ad-slot', 'YOUR_AD_SLOT_ID');
-    // if (size === 'rect') { ins.setAttribute('data-ad-format', 'rectangle'); ins.style.width = '300px'; ins.style.height = '250px'; }
-    // else if (size === 'leader') { ins.setAttribute('data-ad-format', 'horizontal'); ins.style.width = '728px'; ins.style.height = '90px'; }
-    // else if (size === 'banner') { ins.setAttribute('data-ad-format', 'auto'); ins.setAttribute('data-full-width-responsive', 'true'); }
-    // else if (size === 'infeed') { ins.setAttribute('data-ad-format', 'fluid'); }
-    // else if (size === 'anchor') { ins.setAttribute('data-ad-format', 'auto'); ins.setAttribute('data-full-width-responsive', 'true'); }
-    // el.innerHTML = '<span class="ad-label">ADVERTISEMENT</span>';
-    // el.appendChild(ins);
-    // (adsbygoogle = window.adsbygoogle || []).push({});
+/* ========== PRICE FUNCTIONS ========== */
+var CSYM={THB:'\u0E3F',TRY:'\u20BA',USD:'$',EUR:'\u20AC',GBP:'\u00A3'};
+function fp(thb,cur){if(cur==='THB')return'\u0E3F'+thb.toLocaleString('en-US');
+var rate=FX[cur]||0;var val=thb*rate,sym=CSYM[cur]||'';var dec=cur==='TRY'?0:2;
+return sym+val.toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec})}
+function pd(thb,cur){var main=fp(thb,cur);if(cur==='THB')return main;
+return main+' <span class="text-warm-muted text-[10px">(\u0E3F'+thb.toLocaleString('en-US')+')</span>'}
+function rateInfo(cur){if(cur==='THB')return '';
+var rate=FX[cur]||0;var sym=CSYM[cur]||'';var dec=cur==='TRY'?0:4;
+return'<span class="text-[10px] text-warm-muted ml-2 hidden sm:inline">1 THB = '+sym+rate.toFixed(dec)+'</span>'}
+
+/* ========== DEEP AFFILIATE LINK GENERATORS ========== */
+var agodaIds={Bangkok:'341','Chiang Mai':'4175',Phuket:'4085','Koh Samui':'4292',Krabi:'4070',Pattaya:'382'};
+var slugs={Bangkok:'bangkok','Chiang Mai':'chiang-mai',Phuket:'phuket','Koh Samui':'koh-samui',Krabi:'krabi',Pattaya:'pattaya'};
+var iata={Bangkok:'DMK','Chiang Mai':'CNX',Phuket:'HKT','Koh Samui':'USM',Krabi:'KBV',Pattaya:'UTP'};
+var gygSlugs={Bangkok:'bangkok-things-to-do','Chiang Mai':'chiang-mai-things-to-do',Phuket:'phuket-things-to-do','Koh Samui':'koh-samui-things-to-do',Krabi:'krabi-things-to-do',Pattaya:'pattaya-things-to-do'};
+
+function agodaAff(city,ci,co,g){
+    return 'https://www.agoda.com/en-us/search?city='+(agodaIds[city]||'')+'&checkIn='+ci+'&checkOut='+co+'&rooms=1&adults='+g+'&campaign_id='+AFF.agodaCampaign;
+}
+function bookingAff(city,ci,co,g){
+    return 'https://www.booking.com/searchresults.html?ss='+encodeURIComponent(city)+'&checkin='+ci+'&checkout='+co+'&group_adults='+g+'&aid='+AFF.bookingAid;
+}
+function go12Aff(o,d,dt,g){
+    return 'https://12go.asia/en/search?from='+(slugs[o]||'')+'&to='+(slugs[d]||'')+'&date='+dt+'&passengers='+g+'&aff_id='+AFF.go12AffId;
+}
+function travelokaFlightAff(o,d,ci,co,g){
+    return 'https://www.traveloka.com/en-us/search?from='+iata[o]+'&to='+iata[d]+'&date='+ci+'&return='+co+'&flight-type=roundtrip&adults='+g+'&aff_id='+AFF.travelokaId;
+}
+function kkdayAff(city,ci,g){
+    return 'https://www.kkday.com/en-us/search?keyword='+encodeURIComponent(city+' activities')+'&date='+ci+'&pax='+g+'&aff_id='+AFF.kkdayAff_id;
+}
+function gygAff(city,ci,g){
+    return 'https://www.getyourguide.com/'+(gygSlugs[city]||'bangkok-things-to-do')+'-l0&partner_id='+AFF.gygPartnerId+'&date='+ci+'&adults='+g;
 }
 
-// Render persistent ads immediately
-renderAd('ad-top', 'banner', 'Travel Deals — Top Banner');
-renderAd('ad-anchor-inner', 'anchor', 'Sponsored');
+/* ========== HELPERS ========== */
+function ck(n){return n.replace(/\s/g,'').toLowerCase()}
+function sh(n){var h='';for(var i=0;i<5;i++)h+=i<n?'<i class="fa-solid fa-star star text-[10px]"></i>':'<i class="fa-solid fa-star star-e text-[10px]"></i>';return h}
+function cn(a,b){return Math.max(0,Math.round((new Date(b)-new Date(a))/864e5))}
+function toast(msg,tt){tt=tt||'info';var c=document.getElementById('toastC'),d=document.createElement('div');d.className='toast';
+var ic={info:'fa-circle-info',success:'fa-circle-check',error:'fa-circle-exclamation'};var co={info:'#D4A843',success:'#40916C,error:'#E8590C};
+d.innerHTML='<i class="fa-solid '+ic[tt]+'" style="color:'+co[tt]+'"></i><span>'+msg+'</span>';c.appendChild(d);setTimeout(function(){d.classList.add('out');setTimeout(function(){d.remove()},250)},3200)}
+function emp(msg,ic){return'<div class="text-center py-16"><i class="fa-solid '+ic+' text-3xl text-warm-muted mb-3 block"></i><p class="text-warm-muted text-sm">'+msg+'</p></div>'}
 
-// Mobile anchor: show after scroll, closeable
-var anchorShown = false;
-var anchorDismissed = false;
-window.addEventListener('scroll', function() {
-    if (anchorDismissed || anchorShown || window.innerWidth >= 768) return;
-    if (window.scrollY > 400) {
-        document.getElementById('ad-anchor').classList.add('visible');
-        anchorShown = true;
-    }
-});
-document.getElementById('ad-anchor-close').addEventListener('click', function() {
-    document.getElementById('ad-anchor').classList.remove('visible');
-    anchorDismissed = true;
-});
+/* ========== SAFE FETCH for live platform check ========== */
+var LS={agoda:'trying',booking:'trying','12go:'trying'};
+function liveBdg(p){var s=LS[p]||'trying';if(s==='live')return'<span class="live-dot live-on"></span><span style="color:#40916C;font-size:11px">Connected</span>';
+if(s==='trying')return'<span class="live-dot live-try"></span><span style="color:#D4A843;font-size:11px">Checking...</span>';
+return'<span class="live-dot live-off"></span><span style="color:#666;font-size:11px">Reference</span>'}
+function safeFetch(pl,url,ms){ms=ms||2500;return new Promise(function(resolve){var done=false;function fin(ok,data){if(done)return;done=true;resolve({ok:!!ok,data:data||null,platform:pl})}setTimeout(function(){fin(false)},ms);try{fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(ms-500)}).then(function(r){if(!r.ok)fin(false);return r.text()}).then(function(tx){if(tx&&tx.length>200&&tx.length<500000)fin(true,tx);else fin(false)}).catch(function(){fin(false)})}catch(e){fin(false)}})}
 
-// Contextual ads — shown after search (high engagement moment)
-function showSearchAds() {
-    renderAd('ad-post-search', 'leader', 'Thailand Transport & Hotels');
-    renderAd('ad-pre-tabs', 'leader', 'Compare Thailand Deals');
-    renderAd('ad-in-content', 'rect', 'Featured Thailand Offers');
-}
-
-// In-feed ad card (injected into package grid for native feel)
-function inFeedAdHTML() {
-    return '<div class="fu ad-slot ad-infeed card-h" style="border-color:#222">' +
-        '<span class="ad-label">ADVERTISEMENT</span>' +
-        '<div class="ad-placeholder" style="min-height:100px"><i class="fa-solid fa-rectangle-ad" style="font-size:16px"></i>' +
-        '<span style="font-size:10px">Sponsored Travel Deal</span></div></div>';
-    // Real version:
-    // return '<div class="fu" style="border:1px solid #222;border-radius:10px;overflow:hidden;position:relative"><span class="ad-label">ADVERTISEMENT</span>' +
-    // '<ins class="adsbygoogle" style="display:block" data-ad-client="'+ADSENSE_PUB_ID+'" data-ad-slot="INFEED_SLOT" data-ad-format="fluid"></ins>' +
-    // '<script>(adsbygoogle=window.adsbygoogle||[]).push({}<\/script></div>';
-}
-
-// ================================================================
-// TRANSLATIONS
-// ================================================================
-var LN = {en:'English',es:'Español',th:'ไทย',de:'Deutsch',fr:'Français',tr:'Türkçe',ru:'Русский'};
-var lang = 'en';
-var TX = {
-en:{hL:'THAILAND HOLIDAY PLANNER',hT1:'Plan Your Dream',hT2:'Thailand Getaway',hD:'Enter your travel dates, compare transport and accommodation from real sources, discover hidden gems along the route, and choose from curated packages.',lDep:'DEPARTURE CITY',lDes:'DESTINATION CITY',lCur:'CURRENCY',lCI:'CHECK-IN',lCO:'CHECK-OUT',lG:'GUESTS',selPh:'Select',btnS:'Build My Trip Plan',night:'night',nights:'nights',guest:'guest',guests:'guests',tabTr:'Transport',tabAc:'Accommodation',tabRt:'Route & Sights',tabPk:'Packages',live:'Live',connecting:'Connecting...',reference:'Reference',btn12:'Search on 12go.asia',perP:'Per person',btnAg:'Search on Agoda',btnBk:'Search on Booking.com',fAll:'All',fAg:'Agoda',fBk:'Booking',fBu:'Budget',fLu:'Luxury',perN:'Per night',ntsT:'nights total',rMap:'Route Map',recSt:'Recommended Stops Along the Route',plVis:'Places to Visit',stopAc:'Stopover Accommodation',ntsR:'nights recommended',fromX:'from',enRt:'en route to',dep:'Departure',arr:'Arrival',tran:'Transit',thingsDo:'Things to Do in',acts:'Activities',stop:'Stopover',ntsAc:'nights accommodation',totN:'total nights',estT:'Estimated Total',pkN1:'Prices calculated for',pkN2:'nights accommodation,',pkN3:'guests and listed activities. Meals, visas, personal expenses not included.',free:'Free',fDay:'Full day',hDay:'Half day',eve:'Evening',errDep:'Please select a departure city.',errDes:'Please select a destination city.',errSame:'Departure and destination cannot be the same.',errCI:'Please select a check-in date.',errCO:'Please select a check-out date.',errDt:'Check-out must be after check-in.',errG:'Something went wrong. Please try again.',infoR:'Trip plan ready. Checking live prices...',infoA:'All 3 platforms connected!',infoS:'platforms connected.',infoN:'Platforms blocked by CORS. Use links.',mT:'How It Works',mD:'Results appear instantly. The app connects to Agoda, Booking.com and 12go.asia in the background for live prices.',foot:'Sawadee Thailand Holiday Planner — Click platform links to verify and book at live prices.',pT:'Sawadee — Thailand Holiday Planner',pk0:'Backpacker Route',pk0d:'Shoestring — public transport, hostels, free activities',pk1:'Smart Budget',pk1d:'Budget hotel with hand-picked affordable experiences',pk2:'Comfort Classic',pk2d:'Fly in comfort, stay well, see the best highlights',pk3:'Route Discovery',pk3d:'Hidden gems along the way with mid-range comfort',pk4:'Premium Escape',pk4d:'Luxury stays, VIP tours, scenic route stopovers',pk5:'Ultimate Thailand',pk5d:'Finest hotels, every experience, full route exploration',eTr:'No transport options found.',eAc:'No accommodation found.',ePk:'No packages available.'},
-es:{hL:'PLANIFICADOR DE VIAJES TAILANDIA',hT1:'Planifica Tu Viaje',hT2:'Soñado a Tailandia',hD:'Ingresa tus fechas, compara transporte y alojamiento, descubre tesoros ocultos y elige paquetes seleccionados.',lDep:'CIUDAD DE SALIDA',lDes:'CIUDAD DE DESTINO',lCur:'MONEDA',lCI:'ENTRADA',lCO:'SALIDA',lG:'HUÉSPEDES',selPh:'Seleccionar',btnS:'Crear Mi Plan de Viaje',night:'noche',nights:'noches',guest:'huésped',guests:'huéspedes',tabTr:'Transporte',tabAc:'Alojamiento',tabRt:'Ruta y Atracciones',tabPk:'Paquetes',live:'En vivo',connecting:'Conectando...',reference:'Referencia',btn12:'Buscar en 12go.asia',perP:'Por persona',btnAg:'Buscar en Agoda',btnBk:'Buscar en Booking.com',fAll:'Todos',fAg:'Agoda',fBk:'Booking',fBu:'Económico',fLu:'Lujo',perN:'Por noche',ntsT:'noches total',rMap:'Mapa de Ruta',recSt:'Paradas Recomendadas',plVis:'Lugares para Visitar',stopAc:'Alojamiento en Parada',ntsR:'noches recomendadas',fromX:'desde',enRt:'en ruta a',dep:'Salida',arr:'Llegada',tran:'Tránsito',thingsDo:'Qué Hacer en',acts:'Actividades',stop:'Parada',ntsAc:'noches alojamiento',totN:'noches totales',estT:'Total Estimado',pkN1:'Precios para',pkN2:'noches alojamiento,',pkN3:'huéspedes y actividades. Comidas y visados no incluidos.',free:'Gratis',fDay:'Día completo',hDay:'Medio día',eve:'Noche',errDep:'Selecciona ciudad de salida.',errDes:'Selecciona ciudad de destino.',errSame:'Las ciudades no pueden ser iguales.',errCI:'Selecciona fecha de entrada.',errCO:'Selecciona fecha de salida.',errDt:'La salida debe ser después de la entrada.',errG:'Algo salió mal. Intenta de nuevo.',infoR:'Plan listo. Verificando precios...',infoA:'¡3 plataformas conectadas!',infoS:'plataformas conectadas.',infoN:'Plataformas bloqueadas. Usa los enlaces.',mT:'Cómo Funciona',mD:'Los resultados aparecen al instante. La app se conecta a Agoda, Booking.com y 12go.asia para precios en vivo.',foot:'Sawadee Planificador de Viajes Tailandia.',pT:'Sawadee — Planificador Tailandia',pk0:'Ruta Mochilero',pk0d:'Presupuesto mínimo',pk1:'Presupuesto Inteligente',pk1d:'Hotel económico con experiencias',pk2:'Clásico Confort',pk2d:'Vuela cómodo, buena estadía',pk3:'Ruta de Descubrimiento',pk3d:'Tesoros ocultos con confort medio',pk4:'Escapada Premium',pk4d:'Hoteles de lujo, tours VIP',pk5:'Tailandia Definitiva',pk5d:'Sin compromisos — todo lo mejor',eTr:'Sin opciones de transporte.',eAc:'Sin alojamiento.',ePk:'Sin paquetes.'},
-th:{hL:'ผู้วางแผนการท่องเที่ยวไทย',hT1:'วางแผนการเดินทาง',hT2:'ในฝันของคุณ',hD:'กรอกวันเดินทาง เปรียบเทียบราคาพาหนะและที่พัก ค้นพบสถานที่ซ่อนตัว และเลือกแพ็คเกจ',lDep:'เมืองต้นทาง',lDes:'เมืองปลายทาง',lCur:'สกุลเงิน',lCI:'วันเช็คอิน',lCO:'วันเช็คเอาท์',lG:'จำนวนแขก',selPh:'เลือก',btnS:'สร้างแผนการเดินทาง',night:'คืน',nights:'คืน',guest:'คน',guests:'คน',tabTr:'การเดินทาง',tabAc:'ที่พัก',tabRt:'เส้นทางและสถานที่',tabPk:'แพ็คเกจ',live:'สด',connecting:'กำลังเชื่อมต่อ...',reference:'อ้างอิง',btn12:'ค้นหาบน 12go.asia',perP:'ต่อคน',btnAg:'ค้นหาบน Agoda',btnBk:'ค้นหาบน Booking.com',fAll:'ทั้งหมด',fAg:'Agoda',fBk:'Booking',fBu:'ประหยัด',fLu:'หรูหรา',perN:'ต่อคืน',ntsT:'คืนรวม',rMap:'แผนที่เส้นทาง',recSt:'แนะนำแวะพัก',plVis:'สถานที่น่าเที่ยว',stopAc:'ที่พักชั่วคราว',ntsR:'คืนแนะนำ',fromX:'จาก',enRt:'ไปยัง',dep:'ออกเดินทาง',arr:'ถึงจุดหมาย',tran:'ผ่าน',thingsDo:'สิ่งที่ควรทำใน',acts:'กิจกรรม',stop:'แวะพัก',ntsAc:'คืนที่พัก',totN:'คืนรวม',estT:'ราคาโดยประมาณ',pkN1:'ราคาคำนวณสำหรับ',pkN2:'คืนที่พัก,',pkN3:'คนและกิจกรรม ไม่รวมค่าอาหารและวีซ่า',free:'ฟรี',fDay:'เต็มวัน',hDay:'ครึ่งวัน',eve:'ช่วงเย็น',errDep:'กรุณาเลือกเมืองต้นทาง',errDes:'กรุณาเลือกเมืองปลายทาง',errSame:'เมืองต้นทางและปลายทางเหมือนกันไม่ได้',errCI:'กรุณาเลือกวันเช็คอิน',errCO:'กรุณาเลือกวันเช็คเอาท์',errDt:'วันเช็คเอาท์ต้องหลังวันเช็คอิน',errG:'เกิดข้อผิดพลาด ลองอีกครั้ง',infoR:'แผนเสร็จ กำลังตรวจสอบราคา...',infoA:'เชื่อมต่อ 3 แพลตฟอร์มสำเร็จ!',infoS:'แพลตฟอร์มเชื่อมต่อแล้ว',infoN:'แพลตฟอร์มถูกบล็อก ใช้ลิงก์',mT:'วิธีการทำงาน',mD:'ผลลัพธ์แสดงทันที แอปเชื่อมต่อ Agoda, Booking.com และ 12go.asia',foot:'Sawadee ผู้วางแผนการท่องเที่ยวไทย',pT:'Sawadee — ผู้วางแผนการท่องเที่ยวไทย',pk0:'เส้นทางแบ็กแพ็คเกอร์',pk0d:'ประหยัดสุด',pk1:'สมาร์ทบัดเจ็ต',pk1d:'โรงแรมประหยัดพร้อมกิจกรรม',pk2:'คอมฟอร์ตคลาสสิก',pk2d:'บินสบาย เข้าพักดี',pk3:'เส้นทางสำรวจ',pk3d:'ค้นหาสถานที่ซ่อนเร้น',pk4:'พรีเมียมเอสเคป',pk4d:'โรงแรมหรู ทัวร์ VIP',pk5:'ไทยแลนด์อัลติเมท',pk5d:'ทุกอย่างดีที่สุด',eTr:'ไม่พบตัวเลือกการเดินทาง',eAc:'ไม่พบที่พัก',ePk:'ไม่มีแพ็คเกจ'},
-de:{hL:'THAILAND REISEPLANER',hT1:'Planten Sie Ihren Traum-',hT2:'Thailand-Urlaub',hD:'Geben Sie Ihre Reisedaten ein, vergleichen Sie Transport und Unterkunft, entdecken Sie versteckte Juwelen und wählen Sie Pakete.',lDep:'ABFAHRT',lDes:'ZIEL',lCur:'WÄHRUNG',lCI:'CHECK-IN',lCO:'CHECK-OUT',lG:'GÄSTE',selPh:'Auswählen',btnS:'Reiseplan erstellen',night:'Nacht',nights:'Nächte',guest:'Gast',guests:'Gäste',tabTr:'Transport',tabAc:'Unterkunft',tabRt:'Route & Sehenswürdigkeiten',tabPk:'Pakete',live:'Live',connecting:'Verbinden...',reference:'Referenz',btn12:'Suche auf 12go.asia',perP:'Pro Person',btnAg:'Suche auf Agoda',btnBk:'Suche auf Booking.com',fAll:'Alle',fAg:'Agoda',fBk:'Booking',fBu:'Budget',fLu:'Luxus',perN:'Pro Nacht',ntsT:'Nächte gesamt',rMap:'Routenkarte',recSt:'Empfohlene Stopps',plVis:'Sehenswürdigkeiten',stopAc:'Zwischenstop-Unterkunft',ntsR:'Nächte empfohlen',fromX:'von',enRt:'nach',dep:'Abfahrt',arr:'Ankunft',tran:'Durchreise',thingsDo:'Sehenswertes in',acts:'Aktivitäten',stop:'Zwischenstop',ntsAc:'Nächte Unterkunft',totN:'Nächte insgesamt',estT:'Gesamtpreis',pkN1:'Preise für',pkN2:'Nächte,',pkN3:'Gäste und Aktivitäten. Mahlzeiten und Visa nicht enthalten.',free:'Kostenlos',fDay:'Ganztägig',hDay:'Halbtägig',eve:'Abend',errDep:'Abfahrtsstadt wählen.',errDes:'Zielstadt wählen.',errSame:'Städte dürfen nicht gleich sein.',errCI:'Check-in-Datum wählen.',errCO:'Check-out-Datum wählen.',errDt:'Check-out nach Check-in.',errG:'Fehler. Bitte erneut versuchen.',infoR:'Plan bereit. Prüfe Preise...',infoA:'Alle 3 Plattformen verbunden!',infoS:'Plattformen verbunden.',infoN:'Plattformen blockiert. Links nutzen.',mT:'So funktioniert es',mD:'Ergebnisse erscheinen sofort. Die App verbindet sich mit Agoda, Booking.com und 12go.asia.',foot:'Sawadee Thailand Reiseplaner.',pT:'Sawadee — Thailand Reiseplaner',pk0:'Rucksack-Route',pk0d:'Minimalbudget',pk1:'Smart-Budget',pk1d:'Budget-Hotel mit Erlebnissen',pk2:'Komfort-Klassiker',pk2d:'Komfortabel fliegen, gut übernachten',pk3:'Entdeckungsroute',pk3d:'Versteckte Juwelen erkunden',pk4:'Premium-Escape',pk4d:'Luxushotels, VIP-Touren',pk5:'Ultimatives Thailand',pk5d:'Beste Hotels, alle Erlebnisse',eTr:'Keine Transportoptionen.',eAc:'Keine Unterkunft.',ePk:'Keine Pakete.'},
-fr:{hL:'PLANIFICATEUR THAÏLANDE',hT1:'Planifiez Votre Voyage',hT2:'de Rêve en Thaïlande',hD:'Entrez vos dates, comparez transport et hébergement, découvrez des trésors cachés et choisissez des forfaits.',lDep:'DÉPART',lDes:'ARRIVÉE',lCur:'DEVISE',lCI:'ARRIVÉE',lCO:'DÉPART',lG:'Voyageurs',selPh:'Sélectionner',btnS:'Créer Mon Plan',night:'nuit',nights:'nuits',guest:'voyageur',guests:'voyageurs',tabTr:'Transport',tabAc:'Hébergement',tabRt:'Route & Sites',tabPk:'Forfaits',live:'En direct',connecting:'Connexion...',reference:'Référence',btn12:'Chercher sur 12go.asia',perP:'Par personne',btnAg:'Chercher sur Agoda',btnBk:'Chercher sur Booking.com',fAll:'Tous',fAg:'Agoda',fBk:'Booking',fBu:'Économique',fLu:'Luxe',perN:'Par nuit',ntsT:'nuits total',rMap:'Carte de Route',recSt:'Arrêts Recommandés',plVis:'Lieux à Visiter',stopAc:'Hébergement Escale',ntsR:'nuits recommandées',fromX:'de',enRt:'vers',dep:'Départ',arr:'Arrivée',tran:'Transit',thingsDo:'À Faire à',acts:'Activités',stop:'Escale',ntsAc:'nuits hébergement',totN:'nuits au total',estT:'Total Estimé',pkN1:'Prix pour',pkN2:'nuits,',pkN3:'voyageurs et activités. Repas et visas non inclus.',free:'Gratuit',fDay:'Journée complète',hDay:'Demi-journée',eve:'Soirée',errDep:'Sélectionnez ville de départ.',errDes:'Sélectionnez ville d\'arrivée.',errSame:'Villes identiques impossible.',errCI:'Sélectionnez date d\'arrivée.',errCO:'Sélectionnez date de départ.',errDt:'Départ après arrivée.',errG:'Erreur. Réessayez.',infoR:'Plan prêt. Vérification...',infoA:'3 plateformes connectées!',infoS:'plateformes connectées.',infoN:'Plateformes bloquées.',mT:'Comment ça marche',mD:'Les résultats apparaissent instantanément. L\'app se connecte à Agoda, Booking.com et 12go.asia.',foot:'Sawadee Planificateur Thaïlande.',pT:'Sawadee — Planificateur Thaïlande',pk0:'Route Routarde',pk0d:'Budget minimal',pk1:'Budget Malin',pk1d:'Hôtel économique avec expériences',pk2:'Classique Confort',pk2d:'Vol confortable, bon hôtel',pk3:'Route Découverte',pk3d:'Trésors cachés, confort moyen',pk4:'Échappée Premium',pk4d:'Hôtels de luxe, tours VIP',pk5:'Thaïlande Ultime',pk5d:'Meilleurs hôtels, toutes expériences',eTr:'Pas de transport.',eAc:'Pas d\'hébergement.',ePk:'Pas de forfaits.'},
-tr:{hL:'TAYLAND TATİL PLANLAYICI',hT1:'Hayalinizdeki Tatili',hT2:'Tayland\'da Planlayın',hD:'Tarihlerinizi girin, ulaşım ve konaklamayı karşılaştırın, gizli cennetleri keşfedin ve paketler arasından seçim yapın.',lDep:'KALKIŞ ŞEHRİ',lDes:'VARIŞ ŞEHRİ',lCur:'PARA BİRİMİ',lCI:'GİRİŞ',lCO:'ÇIKIŞ',lG:'MİSAFİR',selPh:'Seçiniz',btnS:'Tatil Planımı Oluştur',night:'gece',nights:'gece',guest:'misafir',guests:'misafir',tabTr:'Ulaşım',tabAc:'Konaklama',tabRt:'Rota & Gezilecek Yerler',tabPk:'Paketler',live:'Canlı',connecting:'Bağlanıyor...',reference:'Referans',btn12:'12go.asia\'da Ara',perP:'Kişi başı',btnAg:'Agoda\'da Ara',btnBk:'Booking.com\'da Ara',fAll:'Tümü',fAg:'Agoda',fBk:'Booking',fBu:'Bütçe Dostu',fLu:'Lüks',perN:'Gece başına',ntsT:'gece toplam',rMap:'Rota Haritası',recSt:'Önerilen Duraklar',plVis:'Gezilecek Yerler',stopAc:'Durak Konaklaması',ntsR:'gece öneriliyor',fromX:'şehrinden',enRt:'yönüne',dep:'Kalkış',arr:'Varış',tran:'Geçiş',thingsDo:'Gezilecek Yerler',acts:'Aktiviteler',stop:'Durak',ntsAc:'gece konaklama',totN:'gece toplam',estT:'Tahmini Toplam',pkN1:'Fiyatlar',pkN2:'gece konaklama,',pkN3:'misafir ve aktiviteler için. Yemek ve vize dahil değil.',free:'Ücretsiz',fDay:'Tam gün',hDay:'Yarım gün',eve:'Akşam',errDep:'Kalkış şehrini seçin.',errDes:'Varış şehrini seçin.',errSame:'Şehirler aynı olamaz.',errCI:'Giriş tarihini seçin.',errCO:'Çıkış tarihini seçin.',errDt:'Çıkış tarihi girişten sonra olmalı.',errG:'Hata oluştu. Tekrar deneyin.',infoR:'Plan hazır. Canlı fiyatlar kontrol ediliyor...',infoA:'3 platform bağlandı!',infoS:'platform bağlandı.',infoN:'Platformlar engellendi. Linkleri kullanın.',mT:'Nasıl Çalışır',mD:'Sonuçlar anında görünür. Arka planda Agoda, Booking.com ve 12go.asia\'ya bağlanılır.',foot:'Sawadee Tayland Tatil Planlayıcı.',pT:'Sawadee — Tayland Tatil Planlayıcı',pk0:'Sırt Çantalı Rota',pk0d:'Minimum bütçe',pk1:'Akıllı Bütçe',pk1d:'Bütçe otel + seçilmiş deneyimler',pk2:'Konfor Klasik',pk2d:'Konforlu uçuş, iyi konaklama',pk3:'Keşif Rotası',pk3d:'Gizli cennetler, orta segment',pk4:'Premium Kaçış',pk4d:'Lüks oteller, VIP turlar',pk5:'Ultimate Tayland',pk5d:'En iyi oteller, tüm deneyimler',eTr:'Ulaşım seçeneği bulunamadı.',eAc:'Konaklama bulunamadı.',ePk:'Paket bulunamadı.'},
-ru:{hL:'ПЛАНИРОВЩИК ТАИЛАНДА',hT1:'Спланируйте Путешествие',hT2:'Мечты по Таиланду',hD:'Введите даты, сравните транспорт и жильё, откройте скрытые жемчужины и выберите пакеты.',lDep:'ОТПРАВЛЕНИЕ',lDes:'НАЗНАЧЕНИЕ',lCur:'ВАЛЮТА',lCI:'ЗАЕЗД',lCO:'ВЫЕЗД',lG:'ГОСТИ',selPh:'Выбрать',btnS:'Составить план',night:'ночь',nights:'ночей',guest:'гость',guests:'гостей',tabTr:'Транспорт',tabAc:'Проживание',tabRt:'Маршрут',tabPk:'Пакеты',live:'Онлайн',connecting:'Подключение...',reference:'Справочно',btn12:'Искать на 12go.asia',perP:'За человека',btnAg:'Искать на Agoda',btnBk:'Искать на Booking.com',fAll:'Все',fAg:'Agoda',fBk:'Booking',fBu:'Бюджет',fLu:'Люкс',perN:'За ночь',ntsT:'ночей итого',rMap:'Карта маршрута',recSt:'Рекомендуемые остановки',plVis:'Что посетить',stopAc:'Проживание',ntsR:'ночей рекомендуется',fromX:'от',enRt:'к',dep:'Отправление',arr:'Прибытие',tran:'Транзит',thingsDo:'Что посмотреть в',acts:'Активности',stop:'Остановка',ntsAc:'ночей проживания',totN:'ночей всего',estT:'Итого',pkN1:'Цены для',pkN2:'ночей,',pkN3:'гостей и активностей. Питание и визы не включены.',free:'Бесплатно',fDay:'Весь день',hDay:'Полдня',eve:'Вечер',errDep:'Выберите отправление.',errDes:'Выберите назначение.',errSame:'Города совпадают.',errCI:'Выберите дату заезда.',errCO:'Выберите дату выезда.',errDt:'Выезд после заезда.',errG:'Ошибка. Попробуйте снова.',infoR:'План готов. Проверяю цены...',infoA:'3 платформы подключены!',infoS:'платформ подключено.',infoN:'Платформы заблокированы. Используйте ссылки.',mT:'Как это работает',mD:'Результаты появляются мгновенно. Приложение подключается к Agoda, Booking.com и 12go.asia.',foot:'Sawadee Планировщик Таиланда.',pT:'Sawadee — Планировщик Таиланда',pk0:'Рюкзачный маршрут',pk0d:'Минимальный бюджет',pk1:'Умный бюджет',pk1d:'Бюджетный отель с впечатлениями',pk2:'Комфорт-классик',pk2d:'Комфортный перелёт, хороший отель',pk3:'Маршрут открытий',pk3d:'Скрытые жемчужины, средний комфорт',pk4:'Премиум-побег',pk4d:'Роскошные отели, VIP-туры',pk5:'Абсолютный Таиланд',pk5d:'Лучшие отели, все впечатления',eTr:'Нет транспорта.',eAc:'Нет жилья.',ePk:'Нет пакетов.'}
-};
-function t(k) { var l = TX[lang]; return (l && l[k]) || TX.en[k] || k; }
-
-// ================================================================
-// LANGUAGE SELECTOR (direct handlers on each button)
-// ================================================================
-var langMenuOpen = false;
-
-document.getElementById('langBtn').addEventListener('click', function(e) {
-    e.stopPropagation();
-    langMenuOpen = !langMenuOpen;
-    var menu = document.getElementById('langMenu');
-    if (langMenuOpen) {
-        menu.innerHTML = '';
-        var codes = Object.keys(LN);
-        for (var i = 0; i < codes.length; i++) {
-            (function(code) {
-                var btn = document.createElement('button');
-                btn.textContent = LN[code];
-                if (code === lang) btn.className = 'act';
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    lang = code;
-                    document.getElementById('langLabel').textContent = LN[code];
-                    document.title = t('pT');
-                    document.getElementById('hL').textContent = t('hL');
-                    document.getElementById('hT1').textContent = t('hT1');
-                    document.getElementById('hT2').textContent = t('hT2');
-                    document.getElementById('hD').textContent = t('hD');
-                    document.getElementById('lDep').textContent = t('lDep');
-                    document.getElementById('lDes').textContent = t('lDes');
-                    document.getElementById('lCur').textContent = t('lCur');
-                    document.getElementById('lCI').textContent = t('lCI');
-                    document.getElementById('lCO').textContent = t('lCO');
-                    document.getElementById('lG').textContent = t('lG');
-                    document.getElementById('selPh').textContent = t('selPh');
-                    document.getElementById('selPh2').textContent = t('selPh');
-                    document.getElementById('btnS').textContent = t('btnS');
-                    document.getElementById('mT').textContent = t('mT');
-                    document.getElementById('mD').textContent = t('mD');
-                    document.getElementById('foot').textContent = t('foot');
-                    langMenuOpen = false;
-                    menu.classList.add('hidden');
-                    if (S.res) { renderSum(); renderTabBar(); renderTab(S.tab); }
-                });
-                menu.appendChild(btn);
-            })(codes[i]);
-        }
-        menu.classList.remove('hidden');
-    } else {
-        menu.classList.add('hidden');
-    }
-});
-
-document.addEventListener('click', function() {
-    if (langMenuOpen) {
-        langMenuOpen = false;
-        document.getElementById('langMenu').classList.add('hidden');
-    }
-});
-
-// ================================================================
-// CURRENCY & HELPERS
-// ================================================================
-var CR = {THB:1,TRY:.90,USD:.028,EUR:.026,GBP:.022};
-var CS = {THB:'\u0E3F',TRY:'\u20BA',USD:'$',EUR:'\u20AC',GBP:'\u00A3'};
-function ck(n) { return n.replace(/\s/g,'').toLowerCase(); }
-function fp(a,c) { if(c==='THB') return '\u0E3F'+a.toLocaleString('en-US'); var v=a*CR[c],s=CS[c],d=c==='TRY'?0:2; return s+v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}); }
-function pd(a,c) { var m=fp(a,c); if(c==='THB') return m; return m+' <span class="text-warm-muted text-[10px]">(\u0E3F'+a.toLocaleString('en-US')+')</span>'; }
-function sh(n) { var h=''; for(var i=0;i<5;i++) h+=i<n?'<i class="fa-solid fa-star star text-[10px]"></i>':'<i class="fa-solid fa-star star-e text-[10px]"></i>'; return h; }
-function cn(a,b) { return Math.max(0,Math.round((new Date(b)-new Date(a))/864e5)); }
-function toast(msg,tt) { tt=tt||'info'; var c=document.getElementById('toastC'),d=document.createElement('div'); d.className='toast'; var ic={info:'fa-circle-info',success:'fa-circle-check',error:'fa-circle-exclamation'}; var co={info:'#D4A843',success:'#40916C',error:'#E8590C'}; d.innerHTML='<i class="fa-solid '+ic[tt]+'" style="color:'+co[tt]+'"></i><span>'+msg+'</span>'; c.appendChild(d); setTimeout(function(){d.classList.add('out');setTimeout(function(){d.remove()},250)},3200); }
-function emp(msg,ic) { return '<div class="text-center py-16"><i class="fa-solid '+ic+' text-3xl text-warm-muted mb-3 block"></i><p class="text-warm-muted text-sm">'+msg+'</p></div>'; }
-
-// ================================================================
-// DEEP LINKS
-// ================================================================
-var agodaIds = {Bangkok:'341','Chiang Mai':'4175',Phuket:'4085','Koh Samui':'4292',Krabi:'4070',Pattaya:'382'};
-var slugs = {Bangkok:'bangkok','Chiang Mai':'chiang-mai',Phuket:'phuket','Koh Samui':'koh-samui',Krabi:'krabi',Pattaya:'pattaya'};
-function agodaLk(c,ci,co,g) { return 'https://www.agoda.com/en-us/search?city='+(agodaIds[c]||'')+'&checkIn='+ci+'&checkOut='+co+'&rooms=1&adults='+g; }
-function bookingLk(c,ci,co,g) { return 'https://www.booking.com/searchresults.html?ss='+encodeURIComponent(c)+'&checkin='+ci+'&checkout='+co+'&group_adults='+g+'&no_rooms=1'; }
-function go12Lk(o,d,dt,g) { return 'https://12go.asia/en/search?from='+(slugs[o]||'')+'&to='+(slugs[d]||'')+'&date='+dt+'&passengers='+g; }
-
-// ================================================================
-// LIVE STATUS & SAFE FETCH
-// ================================================================
-var LS = {agoda:'trying',booking:'trying','12go':'trying'};
-function liveBdg(p) { var s=LS[p]||'trying'; if(s==='live') return '<span class="live-dot live-on"></span><span style="color:#40916C;font-size:11px">'+t('live')+'</span>'; if(s==='trying') return '<span class="live-dot live-try"></span><span style="color:#D4A843;font-size:11px">'+t('connecting')+'</span>'; return '<span class="live-dot live-off"></span><span style="color:#666;font-size:11px">'+t('reference')+'</span>'; }
-function safeFetch(pl,url,ms) { ms=ms||2500; return new Promise(function(resolve){ var done=false; function fin(ok,data){if(done)return;done=true;resolve({ok:!!ok,data:data||null,platform:pl})} setTimeout(function(){fin(false)},ms); try{fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(url),{signal:AbortSignal.timeout(ms-500)}).then(function(r){if(!r.ok)fin(false);return r.text()}).then(function(tx){if(tx&&tx.length>200&&tx.length<500000)fin(true,tx);else fin(false)}).catch(function(){fin(false)})}catch(e){fin(false)}}); }
-
-// ================================================================
-// DATA: HOTELS
-// ================================================================
+/* ========== HOTEL DATA ========== */
 var HD={bangkok:{agoda:[{n:'Siam Paragon Residence',s:4,p:1800,r:8.6,a:'Siam'},{n:'Riverside Hotel Bangkok',s:4,p:2400,r:8.9,a:'Chao Phraya'},{n:'Grand Palace View Inn',s:3,p:1100,r:7.8,a:'Old Town'},{n:'Sukhumvit Boutique Suites',s:5,p:5200,r:9.2,a:'Sukhumvit'}],booking:[{n:'Siam Luxury Suite',s:4,p:2100,r:8.4,a:'Siam'},{n:'Riverside Boutique Hotel',s:4,p:2700,r:8.7,a:'Chao Phraya'},{n:'Royal Bangkok Inn',s:5,p:5800,r:9.4,a:'Silom'},{n:'Khao San Backpacker Lodge',s:2,p:450,r:7.2,a:'Khao San'}]},chiangmai:{agoda:[{n:'Old City Guest House',s:3,p:850,r:8.1,a:'Old City'},{n:'Chiang Mai Boutique Hotel',s:4,p:1600,r:8.8,a:'Nimman'},{n:'Dusit D2 Chiang Mai',s:5,p:4200,r:9.0,a:'Nimman'}],booking:[{n:'Lanna Traditional House',s:3,p:920,r:8.3,a:'Old City'},{n:'Nimman Avenue Hotel',s:4,p:1750,r:8.6,a:'Nimman'},{n:'Four Seasons Chiang Mai',s:5,p:14000,r:9.6,a:'Mae Rim'}]},phuket:{agoda:[{n:'Patong Beach Inn',s:3,p:1200,r:7.9,a:'Patong'},{n:'Karon Sea View Resort',s:4,p:2800,r:8.7,a:'Karon'},{n:'Banyan Tree Phuket',s:5,p:9500,r:9.3,a:'Laguna'}],booking:[{n:'Phuket Budget Stay',s:2,p:680,r:7.4,a:'Kata'},{n:'Kata Horizon Resort',s:4,p:3100,r:8.5,a:'Kata'},{n:'The Shore at Katathani',s:5,p:10200,r:9.5,a:'Kata Noi'}]},kohsamui:{agoda:[{n:'Chaweng Garden Resort',s:3,p:1100,r:8.0,a:'Chaweng'},{n:'Lamai Bay Resort',s:4,p:2600,r:8.6,a:'Lamai'},{n:'W Retreat Koh Samui',s:5,p:11000,r:9.1,a:'Mae Nam'}],booking:[{n:'Samui Backpacker Hostel',s:1,p:350,r:7.0,a:'Chaweng'},{n:'Bophut Boutique Resort',s:4,p:2300,r:8.4,a:'Bophut'},{n:'Conrad Koh Samui',s:5,p:12500,r:9.4,a:'Thong Takian'}]},krabi:{agoda:[{n:'Ao Nang Budget Hotel',s:2,p:700,r:7.5,a:'Ao Nang'},{n:'Railay View Resort',s:4,p:2800,r:8.8,a:'Railay'},{n:'The Tubkaak Krabi',s:5,p:8800,r:9.2,a:'Tubkaak'}],booking:[{n:'Krabi Town Hostel',s:1,p:350,r:7.1,a:'Krabi Town'},{n:'Tonsai Bay Hotel',s:3,p:1500,r:8.0,a:'Tonsai'},{n:'Phulay Bay Ritz Carlton',s:5,p:11000,r:9.5,a:'Klong Muang'}]},pattaya:{agoda:[{n:'Pattaya City Inn',s:2,p:650,r:7.3,a:'Central'},{n:'Jomtien Beach Resort',s:4,p:2200,r:8.5,a:'Jomtien'},{n:'Grand Palazzo Hotel',s:5,p:6000,r:9.0,a:'North Pattaya'}],booking:[{n:'Walking Street Hotel',s:2,p:550,r:7.0,a:'South Pattaya'},{n:'North Pattaya Suites',s:4,p:2400,r:8.3,a:'North Pattaya'},{n:'Royal Cliff Hotels Group',s:5,p:9000,r:9.3,a:'Jomtien'}]}};
 
-// ================================================================
-// DATA: TRANSPORT
-// ================================================================
+/* ========== TRANSPORT DATA ========== */
 var TD={'bangkok-chiangmai':[{t:'Flight',op:'AirAsia',p:1450,d:'1h 20m',dep:['06:30','10:15','14:00','18:45'],ic:'fa-plane'},{t:'Flight',op:'Bangkok Airways',p:2800,d:'1h 15m',dep:['08:00','12:30','17:00'],ic:'fa-plane'},{t:'Train',op:'SRT Night Train',p:881,d:'11h',dep:['18:00'],ic:'fa-train'},{t:'Bus',op:'NCA Premium',p:750,d:'9h',dep:['08:00','20:00'],ic:'fa-bus'}],'bangkok-phuket':[{t:'Flight',op:'AirAsia',p:1650,d:'1h 25m',dep:['07:00','11:30','16:00'],ic:'fa-plane'},{t:'Flight',op:'Thai Smile',p:3200,d:'1h 20m',dep:['09:15','14:45'],ic:'fa-plane'},{t:'Flight',op:'Nok Air',p:1900,d:'1h 30m',dep:['06:45','13:20'],ic:'fa-plane'},{t:'Bus',op:'Phuket Travel Express',p:950,d:'12h',dep:['07:30','19:00'],ic:'fa-bus'}],'bangkok-kohsamui':[{t:'Flight',op:'Bangkok Airways',p:3500,d:'1h 10m',dep:['06:00','08:30','12:00','15:30','19:00'],ic:'fa-plane'},{t:'Bus + Ferry',op:'Lomprayah',p:1200,d:'14h',dep:['06:00','20:00'],ic:'fa-bus'},{t:'Train + Ferry',op:'SRT + Seatran',p:1100,d:'16h',dep:['18:00'],ic:'fa-train'}],'bangkok-krabi':[{t:'Flight',op:'AirAsia',p:1550,d:'1h 30m',dep:['07:30','12:00','16:30'],ic:'fa-plane'},{t:'Flight',op:'Thai Smile',p:2900,d:'1h 25m',dep:['09:00','15:00'],ic:'fa-plane'},{t:'Bus',op:'Krabi Sea Discovery',p:900,d:'11h',dep:['08:00','20:30'],ic:'fa-bus'}],'bangkok-pattaya':[{t:'Bus',op:'Roong Reuang Coach',p:120,d:'2h',dep:['06:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00'],ic:'fa-bus'},{t:'Minivan',op:'Bell Travel',p:150,d:'1h 45m',dep:['07:00','09:00','11:00','13:00','15:00','17:00'],ic:'fa-van-shuttle'},{t:'Private Transfer',op:'Bangkok Transfer',p:1500,d:'1h 30m',dep:['Any time'],ic:'fa-car'}],'chiangmai-phuket':[{t:'Flight (1 stop)',op:'Thai Airways',p:3200,d:'4h',dep:['08:00','14:00'],ic:'fa-plane'},{t:'Flight (1 stop)',op:'AirAsia',p:2400,d:'5h',dep:['10:30','16:00'],ic:'fa-plane'}],'chiangmai-kohsamui':[{t:'Flight (1 stop)',op:'Bangkok Airways',p:4500,d:'4h 30m',dep:['07:00','13:00'],ic:'fa-plane'}],'chiangmai-krabi':[{t:'Flight (1 stop)',op:'AirAsia',p:2800,d:'4h 30m',dep:['09:00','15:30'],ic:'fa-plane'}],'chiangmai-pattaya':[{t:'Flight (1 stop)',op:'Thai Smile',p:2600,d:'3h 30m',dep:['11:00'],ic:'fa-plane'},{t:'Bus',op:'NCA',p:1100,d:'14h',dep:['17:00'],ic:'fa-bus'}],'phuket-kohsamui':[{t:'Flight (1 stop)',op:'Bangkok Airways',p:4200,d:'3h 30m',dep:['08:00','14:00'],ic:'fa-plane'},{t:'Ferry + Bus',op:'Lomprayah',p:1800,d:'8h',dep:['07:00'],ic:'fa-ship'}],'phuket-krabi':[{t:'Ferry',op:'Phi Phi Ferry',p:600,d:'2h 30m',dep:['08:30','13:00'],ic:'fa-ship'},{t:'Minivan',op:'Krabi Shuttle',p:400,d:'2h',dep:['07:00','09:00','11:00','14:00'],ic:'fa-van-shuttle'},{t:'Private Transfer',op:'Phuket Transfer',p:2500,d:'1h 45m',dep:['Any time'],ic:'fa-car'}],'phuket-pattaya':[{t:'Flight (1 stop)',op:'AirAsia',p:2100,d:'3h',dep:['10:00','16:00'],ic:'fa-plane'}],'kohsamui-krabi':[{t:'Ferry + Bus',op:'Lomprayah',p:1500,d:'6h',dep:['07:00'],ic:'fa-ship'},{t:'Flight (1 stop)',op:'Bangkok Airways',p:5000,d:'4h',dep:['09:00'],ic:'fa-plane'}],'kohsamui-pattaya':[{t:'Flight (1 stop)',op:'Bangkok Airways',p:4800,d:'3h 30m',dep:['08:00','14:00'],ic:'fa-plane'}],'krabi-pattaya':[{t:'Flight (1 stop)',op:'AirAsia',p:2200,d:'3h 30m',dep:['11:00'],ic:'fa-plane'}]};
 
-// ================================================================
-// DATA: ROUTE STOPS
-// ================================================================
-var RS={'bangkok-chiangmai':[{city:'Ayutthaya',nights:1,dist:'80 km',sights:['Ayutthaya Historical Park','Wat Mahathat','Bang Pa-In Palace','Chao Phraya Boat Tour'],h:{agoda:{n:'Ayutthaya Heritage Hotel',p:700,s:3,r:8.0},booking:{n:'Ayutthaya Grand Hotel',p:850,s:4,r:8.3}}},{city:'Sukhothai',nights:1,dist:'420 km',sights:['Sukhothai Historical Park','Ramkhamhaeng Museum','Si Satchanalai Park'],h:{agoda:{n:'Sukhothai Heritage Resort',p:600,s:3,r:7.9},booking:{n:'Legendha Sukhothai',p:1200,s:4,r:8.5}}}], 'bangkok-phuket':[{city:'Hua Hin',nights:1,dist:'200 km',sights:['Hua Hin Beach','Klai Kangwon Palace','Cicada Night Market','Khao Takiap Temple'],h:{agoda:{n:'Hua Hin Beach Hotel',p:900,s:3,r:7.8},booking:{n:'Hilton Hua Hin',p:3200,s:5,r:8.9}}},{city:'Khao Sok',nights:1,dist:'550 km',sights:['Khao Sok National Park','Cheow Lan Lake','Floating Bungalows','Jungle Trekking'],h:{agoda:{n:'Khao Sok Treehouse',p:800,s:2,r:8.2},booking:{n:'Our Jungle House',p:1400,s:3,r:8.7}}}], 'bangkok-kohsamui':[{city:'Koh Phangan',nights:1,dist:'700 km',sights:['Full Moon Party','Than Sadet Waterfall','Bottle Beach','Yoga Retreats'],h:{agoda:{n:'Phangan Bay View',p:750,s:2,r:7.7},booking:{n:'Santhiya Koh Phangan',p:4500,s:5,r:9.0}}}], 'bangkok-krabi':[{city:'Hua Hin',nights:1,dist:'200 km',sights:['Hua Hin Beach','Klai Kangwon Palace','Cicada Night Market'],h:{agoda:{n:'Hua Hin Beach Hotel',p:900,s:3,r:7.8},booking:{n:'Hilton Hua Hin',p:3200,s:5,r:8.9}}},{city:'Khao Lak',nights:1,dist:'500 km',sights:['Khao Lak-Lam Ru Park','Tsunami Memorial','Similan Islands Trip'],h:{agoda:{n:'Khao Lak Sea View',p:1000,s:3,r:8.0},booking:{n:'The Sarojin Khao Lak',p:8500,s:5,r:9.4}}}]};
+/* ========== ROUTE STOPS ========== */
+var RS={'bangkok-chiangmai':[{city:'Ayutthaya',nights:1,dist:'80 km',sights:['Ayutthaya Historical Park','Wat Mahathat','Bang Pa-In Palace','Chao Phraya Boat Tour'],h:{agoda:{n:'Ayutahya Heritage Hotel',p:700,s:3,r:8.0},booking:{n:'Ayutahya Grand Hotel',p:850,s:4,r:8.3}}},{city:'Sukhothai',nights:1,dist:'420 km',sights:['Sukhothai Historical Park','Ramkhamhaeng Museum','Si Satchanalai Park'],h:{agoda:{n:'Sukhothai Heritage Resort',p:600,s:3,r:7.9},booking:{n:'Legendha Sukhothai',p:1200,s:4,r:8.5}}}], 'bangkok-phuket':[{city:'Hua Hin',nights:1,dist:'200 km',sights:['Hua Hin Beach','Klai Kangwon Palace','Cicada Night Market','Khao Takiap Temple'],h:{agoda:{n:'Hua Hin Beach Hotel',p:900,s:3,r:7.8},booking:{n:'Hilton Hua Hin',p:3200,s:5,r:8.9}}},{city:'Khao Sok',nights:1,dist:'550 km',sights:['Khao Sok National Park','Cheow Lan Lake','Floating Bungalows','Jungle Trekking'],h:{agoda:{n:'Khao Sok Treehouse',p:800,s:2,r:8.2},booking:{n:'Our Jungle House',p:1400,s:3,r:8.7}}}], 'bangkok-kohsamui':[{city:'Koh Phangan',nights:1,dist:'700 km',sights:['Full Moon Party','Than Sadet Waterfall','Bottle Beach','Yoga Retreats'],h:{agoda:{n:'Phangan Bay View',p:750,s:2,r:7.7},booking:{n:'Santhiya Koh Phangan',p:4500,s:5,r:9.0}}}], 'bangkok-krabi':[{city:'Hua Hin',nights:1,dist:'200 km',sights:['Hua Hin Beach','Klai Kangwon Palace','Cicada Night Market'],h:{agoda:{n:'Hua Hin Beach Hotel',p:900,s:3,r:7.8},booking:{n:'Hilton Hua Hin',p:3200,s:5,r:8.9}}},{city:'Khao Lak',nights:1,dist:'500 km',sights:['Khao Lak-Lam Ru Park','Tsunami Memorial','Similan Islands Trip'],h:{agoda:{n:'Khao Lak Sea View',p:1000,s:3,r:8.0},booking:{n:'The Sarojin Khao Lak',p:8500,s:5,r:9.4}}}]};
 
-// ================================================================
-// DATA: SIGHTSEEING
-// ================================================================
-var SG={Bangkok:[{n:'Grand Palace & Wat Pho',c:500,tm:'fDay',ic:'fa-landmark'},{n:'Chao Phraya Dinner Cruise',c:1200,tm:'eve',ic:'fa-ship'},{n:'Thai Cooking Class',c:1500,tm:'fDay',ic:'fa-utensils'},{n:'Chatuchak Weekend Market',c:0,tm:'fDay',ic:'fa-store'},{n:'Wat Arun at Sunset',c:100,tm:'hDay',ic:'fa-place-of-worship'},{n:'Traditional Thai Massage',c:600,tm:'eve',ic:'fa-spa'},{n:'Chinatown Food Tour',c:800,tm:'fDay',ic:'fa-bowl-food'},{n:'Tuk Tuk City Tour',c:500,tm:'hDay',ic:'fa-car-side'}],'Chiang Mai':[{n:'Doi Suthep Temple',c:300,tm:'hDay',ic:'fa-place-of-worship'},{n:'Elephant Nature Park',c:2500,tm:'fDay',ic:'fa-elephant'},{n:'Night Bazaar',c:0,tm:'eve',ic:'fa-store'},{n:'Thai Cooking Class',c:1200,tm:'fDay',ic:'fa-utensils'},{n:'Doi Inthanon Park',c:1500,tm:'fDay',ic:'fa-mountain'},{n:'Sunday Walking Street',c:0,tm:'eve',ic:'fa-person-walking'},{n:'Canyon Cliff Jump',c:400,tm:'hDay',ic:'fa-water'}],Phuket:[{n:'Phi Phi Islands Tour',c:2500,tm:'fDay',ic:'fa-ship'},{n:'Phang Nga Bay Tour',c:1800,tm:'fDay',ic:'fa-water'},{n:'Big Buddha & Wat Chalong',c:200,tm:'hDay',ic:'fa-place-of-worship'},{n:'Thai Massage',c:500,tm:'hDay',ic:'fa-spa'},{n:'Old Town Walk',c:0,tm:'hDay',ic:'fa-landmark'},{n:'Simon Cabaret Show',c:1000,tm:'hDay',ic:'fa-masks-theater'},{n:'Scuba Diving',c:4000,tm:'fDay',ic:'fa-water'}],'Koh Samui':[{n:'Ang Thong Marine Park',c:2500,tm:'fDay',ic:'fa-ship'},{n:'Na Muang Waterfalls',c:200,tm:'hDay',ic:'fa-water'},{n:'Fisherman\'s Village Dinner',c:800,tm:'eve',ic:'fa-utensils'},{n:'Thai Cooking Class',c:1200,tm:'fDay',ic:'fa-utensils'},{n:'Samui Spa Day',c:2000,tm:'hDay',ic:'fa-spa'},{n:'Sunset Sailing',c:1500,tm:'hDay',ic:'fa-ship'}],Krabi:[{n:'Four Islands Tour',c:1800,tm:'fDay',ic:'fa-ship'},{n:'Railay Beach Day',c:500,tm:'fDay',ic:'fa-umbrella-beach'},{n:'Tiger Cave Temple',c:0,tm:'hDay',ic:'fa-place-of-worship'},{n:'Emerald Pool',c:400,tm:'hDay',ic:'fa-water'},{n:'Rock Climbing',c:1500,tm:'hDay',ic:'fa-mountain'},{n:'Krabi Night Market',c:0,tm:'eve',ic:'fa-store'},{n:'Hong Island Kayaking',c:2000,tm:'fDay',ic:'fa-water'}],Pattaya:[{n:'Nong Nooch Garden',c:500,tm:'hDay',ic:'fa-leaf'},{n:'Coral Island Trip',c:1500,tm:'fDay',ic:'fa-ship'},{n:'Sanctuary of Truth',c:500,tm:'hDay',ic:'fa-landmark'},{n:'Floating Market',c:300,tm:'hDay',ic:'fa-store'},{n:'Alcazar Cabaret',c:800,tm:'hDay',ic:'fa-masks-theater'},{n:'Water Sports',c:1200,tm:'hDay',ic:'fa-water'}]};
+/* ========== SIGHTSEEING DATA ========== */
+var SG={Bangkok:[{n:'Grand Palace & Wat Pho',c:500,tm:'Full day',ic:'fa-landmark'},{n:'Chao Phraya Dinner Cruise',c:1200,tm:'Evening',ic:'fa-ship'},{n:'Thai Cooking Class',c:1500,tm:'Full day',ic:'fa-utensils'},{n:'Chatuchak Weekend Market',c:0,tm:'Full day',ic:'fa-store'},{n:'Wat Arun at Sunset',c:100,tm:'Half day',ic:'fa-place-of-worship'},{n:'Traditional Thai Massage',c:600,tm:'Evening',ic:'fa-spa'},{n:'Chinatown Food Tour',c:800,tm:'Full day',ic:'fa-bowl-food'},{n:'Tuk Tuk City Tour',c:500,tm:'Half day',ic:'fa-car-side'}],'Chiang Mai':[{n:'Doi Suthep Temple',c:300,tm:'Half day',ic:'fa-place-of-worship'},{n:'Elephant Nature Park',c:2500,tm:'Full day',ic:'fa-elephant'},{n:'Night Bazaar',c:0,tm:'Evening',ic:'fa-store'},{n:'Thai Cooking Class',c:1200,tm:'Full day',ic:'fa-utensils'},{n:'Doi Inthanon Park',c:1500,tm:'Full day',ic:'fa-mountain'},{n:'Sunday Walking Street',c:0,tm:'Evening',ic:'fa-person-walking'},{n:'Canyon Cliff Jump',c:400,tm:'Half day',ic:'fa-water'}],Phuket:[{n:'Phi Phi Islands Tour',c:2500,tm:'Full day',ic:'fa-ship'},{n:'Phang Nga Bay Tour',c:1800,tm:'Full day',ic:'fa-water'},{n:'Big Buddha & Wat Chalong',c:200,tm:'Half day',ic:'fa-place-of-worship'},{n:'Thai Massage',c:500,tm:'Half day',ic:'fa-spa'},{n:'Old Town Walk',c:0,tm:'Half day',ic:'fa-landmark'},{n:'Simon Cabaret Show',c:1000,tm:'Half day',ic:'fa-masks-theater'},{n:'Scuba Diving',c:4000,tm:'Full day',ic:'fa-water'}],'Koh Samui':[{n:'Ang Thong Marine Park',c:2500,tm:'Full day',ic:'fa-ship'},{n:'Na Muang Waterfalls',c:200,tm:'Half day',ic:'fa-water'},{n:'Fisherman\'s Village Dinner',c:800,tm:'Evening',ic:'fa-utensils'},{n:'Thai Cooking Class',c:1200,tm:'Full day',ic:'fa-utensils'},{n:'Samui Spa Day',c:2000,tm:'Half day',ic:'fa-spa'},{n:'Sunset Sailing',c:1500,tm:'Half day',ic:'fa-ship'}],Krabi:[{n:'Four Islands Tour',c:1800,tm:'Full day',ic:'fa-ship'},{n:'Railay Beach Day',c:500,tm:'Full day',ic:'fa-umbrella-beach'},{n:'Tiger Cave Temple',c:0,tm:'Half day',ic:'fa-place-of-worship'},{n:'Emerald Pool',c:400,tm:'Half day',ic:'fa-water'},{n:'Rock Climbing',c:1500,tm:'Half day',ic:'fa-mountain'},{n:'Krabi Night Market',c:0,tm:'Evening',ic:'fa-store'},{n:'Hong Island Kayaking',c:2000,tm:'Full day',ic:'fa-water'}],Pattaya:[{n:'Nong Nooch Garden',c:500,tm:'Half day',ic:'fa-leaf'},{n:'Coral Island Trip',c:1500,tm:'Full day',ic:'fa-ship'},{n:'Sanctuary of Truth',c:500,tm:'Half day',ic:'fa-landmark'},{n:'Floating Market',c:300,tm:'Half day',ic:'fa-store'},{n:'Alcazar Cabaret',c:800,tm:'Half day',ic:'fa-masks-theater'},{n:'Water Sports',c:1200,tm:'Half day',ic:'fa-water'}]};
 var cImgs={Bangkok:'https://picsum.photos/seed/bkk7/600/400.jpg','Chiang Mai':'https://picsum.photos/seed/cmn3/600/400.jpg',Phuket:'https://picsum.photos/seed/phk5/600/400.jpg','Koh Samui':'https://picsum.photos/seed/ksm2/600/400.jpg',Krabi:'https://picsum.photos/seed/krb4/600/400.jpg',Pattaya:'https://picsum.photos/seed/pty6/600/400.jpg',Ayutthaya:'https://picsum.photos/seed/ayt2/600/400.jpg',Sukhothai:'https://picsum.photos/seed/skh3/600/400.jpg','Hua Hin':'https://picsum.photos/seed/hhn5/600/400.jpg','Khao Sok':'https://picsum.photos/seed/ksk2/600/400.jpg','Koh Phangan':'https://picsum.photos/seed/kph4/600/400.jpg','Khao Lak':'https://picsum.photos/seed/klk3/600/400.jpg'};
 
-// ================================================================
-// STATE
-// ================================================================
-var S = {origin:'',dest:'',ci:'',co:'',g:2,cur:'TRY',nights:0,tab:'transport',res:null};
+/* ========== STATE ========== */
+var S={origin:'',dest:'',ci:'',co:'',g:2,cur:'TRY',nights:0,tab:'transport',res:null};
 
-// ================================================================
-// SEARCH
-// ================================================================
-document.getElementById('searchBtn').addEventListener('click', doSearch);
-function doSearch() {
-    try {
-        var o=document.getElementById('fOrigin').value, d=document.getElementById('fDest').value, ci=document.getElementById('fIn').value, co=document.getElementById('fOut').value, g=parseInt(document.getElementById('fGuests').value)||2, cur=document.getElementById('fCurr').value;
-        if(!o){toast(t('errDep'),'error');return} if(!d){toast(t('errDes'),'error');return} if(o===d){toast(t('errSame'),'error');return} if(!ci){toast(t('errCI'),'error');return} if(!co){toast(t('errCO'),'error');return} if(new Date(co)<=new Date(ci)){toast(t('errDt'),'error');return}
-        var nights=cn(ci,co); S={origin:o,dest:d,ci:ci,co:co,g:g,cur:cur,nights:nights,tab:'transport',res:null};
-        LS={agoda:'trying',booking:'trying','12go':'trying'};
-        compileRes();
-        document.getElementById('resSec').classList.remove('hidden');
-        showSearchAds();
-        renderSum(); renderTabBar(); renderTab('transport');
-        setTimeout(function(){document.getElementById('resSec').scrollIntoView({behavior:'smooth',block:'start'})},50);
-        toast(t('infoR'),'info');
-        safeFetch('agoda',agodaLk(d,ci,co,g),3000).then(function(r){LS.agoda=r.ok?'live':'ref';if(S.res)renderTab(S.tab)});
-        safeFetch('booking',bookingLk(d,ci,co,g),3000).then(function(r){LS.booking=r.ok?'live':'ref';if(S.res)renderTab(S.tab)});
-        safeFetch('12go',go12Lk(o,d,ci,g),3000).then(function(r){LS['12go']=r.ok?'live':'ref';if(S.res)renderTab(S.tab);setTimeout(function(){var c=[LS.agoda,LS.booking,LS['12go']].filter(function(s){return s==='live'}).length;if(c===3)toast(t('infoA'),'success');else if(c>0)toast(c+'/3 '+t('infoS'),'success');else toast(t('infoN'),'info')},300)});
-    } catch(e) { console.error(e); toast(t('errG'),'error'); }
-}
+/* ========== SEARCH ========== */
+document.getElementById('searchBtn').addEventListener('click',doSearch);
+function doSearch(){try{var o=document.getElementById('fOrigin').value,d=document.getElementById('fDest').value,ci=document.getElementById('fIn').value,co=document.getElementById('fOut').value,g=parseInt(document.getElementById('fGuests').value)||2,cur=document.getElementById('fCurr').value;if(!o){toast('Please select a departure city.','error');return}if(!d){toast('Please select a destination city.','error');return}if(o===d){toast('Departure and destination cannot be the same.','error');return}if(!ci){toast('Please select a check-in date.','error');return}if(!co){toast('Please select a check-out date.','error');return}if(new Date(co)<=new Date(ci)){toast('Check-out must be after check-in.','error');return}var nights=cn(ci,co);S={origin:o,dest:d,ci:ci,co:co,g:g,cur:cur,nights:nights,tab:'transport',res:null};LS={agoda:'trying',booking:'trying','12go:'trying'};compileRes();document.getElementById('resSec').classList.remove('hidden');renderSum();renderTabBar();renderTab('transport');setTimeout(function(){document.getElementById('resSec').scrollIntoView({behavior:'smooth',block:'start'})},50);toast('Trip plan ready. Verifying platform connections...','info');safeFetch('agoda','https://www.agoda.com/',3000).then(function(r){LS.agoda=r.ok?'live':'ref';if(S.res)renderTab(S.tab)});safeFetch('booking','https://www.booking.com/',3000).then(function(r){LS.booking=r.ok?'live':'ref';if(S.res)renderTab(S.tab)});safeFetch('12go','https://12go.asia/',3000).then(function(r){LS['12go']=r.ok?'live':'ref';if(S.res)renderTab(S.tab);setTimeout(function(){var c=[LS.agoda,LS.booking,LS['12go']].filter(function(s){return s==='live'}).length;if(c===3)toast('All 3 platforms connected!','success');else if(c>0)toast(c+'/3 platforms connected. Verify pricing on actual sites.','success');else toast('Platforms blocked by CORS. Use affiliate links to book.','info')},300)})}catch(e){console.error(e);toast('Something went wrong.','error')}}
 
-function compileRes() {
-    var rk=ck(S.origin)+'-'+ck(S.dest), rrk=ck(S.dest)+'-'+ck(S.origin);
-    var tr=TD[rk]||TD[rrk]||[], ht=HD[ck(S.dest)]||{agoda:[],booking:[]}, st=RS[rk]||RS[rrk]||[], sg=SG[S.dest]||[];
-    S.res={transport:tr,hotels:ht,stops:st,sights:sg,packages:buildPk(tr,ht,st,sg)};
-}
+function compileRes(){var rk=ck(S.origin)+'-'+ck(S.dest),rrk=ck(S.dest)+'-'+ck(S.origin);var tr=TD[rk]||TD[rrk]||[],ht=HD[ck(S.dest)]||{agoda:[],booking:[]},st=RS[rk]||RS[rrk]||[],sg=SG[S.dest]||[];S.res={transport:tr,hotels:ht,stops:st,sights:sg,packages:buildPk(tr,ht,st,sg)}}
 
-// ================================================================
-// RENDER: SUMMARY
-// ================================================================
-function renderSum() {
-    var nk=S.nights===1?t('night'):t('nights'), gk=S.g===1?t('guest'):t('guests');
-    document.getElementById('sumBar').innerHTML='<div class="flex flex-wrap items-center gap-2.5 text-sm"><span class="font-semibold text-gold"><i class="fa-solid fa-location-dot mr-1"></i>'+S.origin+'</span><i class="fa-solid fa-arrow-right text-warm-muted text-[10px]"></i><span class="font-semibold text-gold"><i class="fa-solid fa-location-dot mr-1"></i>'+S.dest+'</span><span class="text-warm-muted">|</span><span class="text-warm-muted text-xs"><i class="fa-regular fa-calendar mr-1"></i>'+S.nights+' '+nk+'</span><span class="text-warm-muted">|</span><span class="text-warm-muted text-xs"><i class="fa-solid fa-user-group mr-1"></i>'+S.g+' '+gk+'</span></div><div><select id="curSw" class="!py-1 !px-2 !text-xs !w-auto !bg-surface-up2" onchange="S.cur=this.value;renderTab(S.tab)">'+Object.keys(CR).map(function(c){return'<option value="'+c+'"'+(c===S.cur?' selected':'')+'>'+c+'</option>'}).join('')+'</select></div>';
-}
+/* ========== RENDER: SUMMARY ========== */
+function renderSum(){var nk=S.nights===1?'night':'nights',gk=S.g===1?'guest':'guests';var h='<div class="flex flex-wrap items-center gap-2.5 text-sm"><span class="font-semibold text-gold"><i class="fa-solid fa-location-dot mr-1"></i>'+S.origin+'</span><i class="fa-solid fa-arrow-right text-warm-muted text-[10px]"></i><span class="font-semibold text-gold"><i class="fa-solid fa-location-dot mr-1"></i>'+S.dest+'</span><span class="text-warm-muted">|</span><span class="text-warm-muted text-xs"><i class="fa-regular fa-calendar mr-1"></i>'+S.nights+' '+nk+'</span><span class="text-warm-muted">|</span><span class="text-warm-muted text-xs"><i class="fa-solid fa-user-group mr-1"></i>'+S.g+' '+gk+'</span>'+rateInfo(S.cur)+'</div><div><select id="curSw" class="!py-1 !px-2 !text-xs !w-auto !bg-surface-up2" onchange="S.cur=this.value;renderSum();renderTab(S.tab)">'+Object.keys(CSYM).map(function(c){return'<option value="'+c+'"'+(c===S.cur?' selected':'')+'>'+c+'</option>'}).join('')+'</select></div>'}
 
-// ================================================================
-// RENDER: TABS
-// ================================================================
-function renderTabBar() {
-    var pkC=S.res.packages?S.res.packages.length:0;
-    var tabs=[{k:'transport',i:'fa-route',l:t('tabTr')},{k:'accommodation',i:'fa-bed',l:t('tabAc')},{k:'route',i:'fa-map-location-dot',l:t('tabRt')},{k:'packages',i:'fa-gift',l:t('tabPk')}];
-    document.getElementById('tabBar').innerHTML=tabs.map(function(tb){var ac=tb.k===S.tab?' on':'';var mu=tb.k!==S.tab?' text-warm-muted':'';var bg=tb.k==='packages'?' <span class="text-[10px] bg-gold/20 text-gold px-1.5 py-0.5 rounded-full ml-1">'+pkC+'</span>':'';return'<button class="tab-b'+ac+mu+' pb-2.5 text-sm font-semibold whitespace-nowrap" data-t="'+tb.k+'" onclick="swTab(\''+tb.k+'\')"><i class="fa-solid '+tb.i+' mr-1.5"></i>'+tb.l+bg+'</button>'}).join('');
-}
+/* ========== TABS ========== */
+function renderTabBar(){var pkC=S.res.packages?S.res.packages.length:0;var tabs=[{k:'transport',i:'fa-route',l:'Transport'},{k:'accommodation',i:'fa-bed',l:'Accommodation'},{k:'route',i:'fa-map-location-dot',l:'Route & Sights'},{k:'packages',i:'fa-gift',l:'Packages'}];document.getElementById('tabBar').innerHTML=tabs.map(function(tb){var ac=tb.k===S.tab?' on':'';var mu=tb.k!==S.tab?' text-warm-muted':'';var bg=tb.k==='packages'?' <span class="text-[10px] bg-gold/20 text-gold px-1.5 py-0.5 rounded-full ml-1">'+pkC+'</span>':'';return'<button class="tab-b'+ac+mu+' pb-2.5 text-sm font-semibold whitespace-nowrap" data-t="'+tb.k+'" onclick="swTab(\''+tb.k+'\')"><i class="fa-solid '+tb.i+' mr-1.5"></i>'+tb.l+bg+'</button>'}).join('')}
 function swTab(tb){S.tab=tb;renderTabBar();renderTab(tb)}
 function renderTab(tb){var c=document.getElementById('tabC');if(!S.res){c.innerHTML='';return}if(tb==='transport')c.innerHTML=rTr();else if(tb==='accommodation')c.innerHTML=rAc();else if(tb==='route')c.innerHTML=rRt();else if(tb==='packages')c.innerHTML=rPk();var els=c.querySelectorAll('.fu');for(var i=0;i<els.length;i++)els[i].style.animationDelay=(i*.05)+'s'}
 
-// ================================================================
-// RENDER: TRANSPORT
-// ================================================================
-function rTr() {
-    var tr=S.res.transport; if(!tr.length)return emp(t('eTr'),'fa-route');
-    var url=go12Lk(S.origin,S.dest,S.ci,S.g);
-    var h='<div class="flex items-center justify-between mb-4 fu"><div class="flex items-center gap-3">'+liveBdg('12go')+'</div><a href="'+url+'" target="_blank" rel="noopener" class="btn-ext"><i class="fa-solid fa-arrow-up-right-from-square"></i>'+t('btn12')+'</a></div><div class="grid gap-3">';
-    for(var i=0;i<tr.length;i++){var tt=tr[i],cl=tt.t.indexOf('Flight')>=0?'text-gold':tt.t.indexOf('Ferry')>=0?'text-emerald-light':tt.t.indexOf('Train')>=0?'text-blue-400':'text-warm-muted';var dp='';for(var j=0;j<Math.min(4,tt.dep.length);j++)dp+='<span class="text-[9px] bg-surface-up2 px-1.5 py-0.5 rounded text-warm-muted">'+tt.dep[j]+'</span>';if(tt.dep.length>4)dp+='<span class="text-[9px] text-warm-muted">+'+(tt.dep.length-4)+'</span>';h+='<div class="fu bg-surface-up border border-[#222] rounded-xl p-4 card-h flex flex-col sm:flex-row sm:items-center gap-3"><div class="flex items-center gap-3 flex-1 min-w-0"><div class="w-10 h-10 rounded-lg bg-surface-up2 flex items-center justify-center flex-shrink-0"><i class="fa-solid '+tt.ic+' '+cl+'"></i></div><div class="min-w-0"><div class="flex items-center gap-2 flex-wrap"><span class="font-semibold text-warm text-sm">'+tt.t+'</span><span class="b-12go">12GO</span></div><p class="text-warm-muted text-xs mt-0.5">'+tt.op+'</p><div class="flex items-center gap-3 mt-1 text-[11px] text-warm-muted"><span><i class="fa-regular fa-clock mr-1"></i>'+tt.d+'</span><span>'+t('perP')+'</span></div></div></div><div class="flex flex-col items-start sm:items-end gap-1 flex-shrink-0"><div class="text-sm">'+pd(tt.p,S.cur)+'</div><div class="flex flex-wrap gap-1 justify-end">'+dp+'</div></div></div>'}
-    return h+'</div>';
-}
+/* ========== RENDER: TRANSPORT (with affiliate links per option) ========== */
+function rTr(){var tr=S.res.transport;if(!tr.length)return emp('No transport options found.','fa-route');
+var h='<div class="flex items-center justify-between mb-4 fu"><div class="flex items-center gap-3">'+liveBdg('12go')+'</div></div><div class="aff-row"><a href="'+go12Aff(S.origin,S.dest,S.ci,S.g)+'" target="_blank" rel="noopener" class="aff-btn go12go"><span class="b-12go">12GO</span>Book on 12go.asia<i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a></div></div><div class="grid gap-3">';
+for(var i=0;i<tr.length;i++){var tt=tr[i],cl=tt.t.indexOf('Flight')>=0?'text-gold':tt.t.indexOf('Ferry')>=0?'text-emerald-light':tt.t.indexOf('Train')>=0?'text-blue-400':'text-warm-muted';var dp='';for(var j=0;j<Math.min(4,tt.dep.length;j++)dp+='<span class="text-[9px] bg-surface-up2 px-1.5 py-0.5 rounded text-warm-muted">'+tt.dep[j]+'</span>';if(tt.dep.length>4)dp+='<span class="text-[9px] text-warm-muted">+'+(tt.dep.length-4)+'</span>';h+='<div class="fu bg-surface-up border border-[#222] rounded-xl p-4 card-h flex flex-col sm:flex-row sm:items-center gap-3"><div class="flex items-center gap-3 flex-1 min-w-0"><div class="w-10 h-10 rounded-lg bg-surface-up2 flex items-center flex-shrink-0"><i class="fa-solid '+tt.ic+' '+cl+'"></i></div><div class="min-w-0"><div class="flex items-center gap-2 flex-wrap"><span class="font-semibold text-warm text-sm">'+tt.t+'</span><span class="b-12go">12GO</span></div><p class="text-warm-muted text-xs mt-0.5">'+tt.op+'</p><div class="div class="flex items-center gap-3 mt-1 text-[11px] text-warm-muted"><span><i class="fa-regular fa-clock mr-1"></i>'+tt.d+'</span><span>Per person</span></div></div></div></div><div class="flex flex-col items-start sm:items-end gap-1 flex-shrink-0"><div class="text-sm">'+pd(tt.p,S.cur)+'</div><div class="flex flex-wrap gap-1 justify-end">'+dp+'</div></div></div></div>'}return h+'</div>'}
 
-// ================================================================
-// RENDER: ACCOMMODATION
-// ================================================================
-function rAc() {
-    var hd=S.res.hotels; var all=[];for(var i=0;i<hd.agoda.length;i++)all.push({n:hd.agoda[i].n,s:hd.agoda[i].s,p:hd.agoda[i].p,r:hd.agoda[i].r,a:hd.agoda[i].a,src:'agoda'});for(var i=0;i<hd.booking.length;i++)all.push({n:hd.booking[i].n,s:hd.booking[i].s,p:hd.booking[i].p,r:hd.booking[i].r,a:hd.booking[i].a,src:'booking'});all.sort(function(a,b){return a.p-b.p});
-    if(!all.length)return emp(t('eAc'),'fa-bed');
-    var aU=agodaLk(S.dest,S.ci,S.co,S.g),bU=bookingLk(S.dest,S.ci,S.co,S.g);
-    var h='<div class="flex flex-wrap items-center justify-between gap-2 mb-4 fu"><div class="flex items-center gap-3">'+liveBdg('agoda')+'<span style="color:#222">|</span>'+liveBdg('booking')+'</div><div class="flex gap-2"><a href="'+aU+'" target="_blank" rel="noopener" class="btn-ext"><i class="fa-solid fa-arrow-up-right-from-square"></i>'+t('btnAg')+'</a><a href="'+bU+'" target="_blank" rel="noopener" class="btn-ext"><i class="fa-solid fa-arrow-up-right-from-square"></i>'+t('btnBk')+'</a></div></div><div class="flex flex-wrap gap-2 mb-5 fu"><button class="btn-o hf act" onclick="filtH(\'all\',this)">'+t('fAll')+' ('+all.length+')</button><button class="btn-o hf" onclick="filtH(\'agoda\',this)">'+t('fAg')+' ('+hd.agoda.length+')</button><button class="btn-o hf" onclick="filtH(\'booking\',this)">'+t('fBk')+' ('+hd.booking.length+')</button><button class="btn-o hf" onclick="filtH(\'budget\',this)">'+t('fBu')+'</button><button class="btn-o hf" onclick="filtH(\'luxury\',this)">'+t('fLu')+'</button></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="hGrid">';
-    for(var i=0;i<all.length;i++){var ht=all[i],tot=ht.p*S.nights,bc=ht.src==='agoda'?'b-agoda':'b-booking',bt=ht.src==='agoda'?'AGODA':'BOOKING',seed=ck(S.dest)+'-'+ht.src+'-'+i;h+='<div class="fu hc bg-surface-up border border-[#222] rounded-xl overflow-hidden card-h" data-src="'+ht.src+'" data-st="'+ht.s+'"><div class="h-32 bg-surface-up2 relative overflow-hidden"><img src="https://picsum.photos/seed/'+seed+'/600/300.jpg" alt="'+ht.n+'" class="w-full h-full object-cover opacity-75" loading="lazy"><div class="absolute top-2.5 left-2.5"><span class="'+bc+'">'+bt+'</span></div><div class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-sm text-warm text-[10px] px-2 py-0.5 rounded-md"><i class="fa-solid fa-location-dot mr-1"></i>'+ht.a+'</div></div><div class="p-3.5"><div class="flex items-start justify-between gap-2 mb-1.5"><h3 class="font-semibold text-warm text-sm leading-tight">'+ht.n+'</h3><div class="flex items-center gap-1 bg-surface-up2 px-1.5 py-0.5 rounded flex-shrink-0"><i class="fa-solid fa-star text-gold text-[8px]"></i><span class="text-[11px] font-semibold text-warm">'+ht.r+'</span></div></div><div class="mb-2.5">'+sh(ht.s)+'</div><div class="flex items-end justify-between"><div><div class="text-[10px] text-warm-muted">'+t('perN')+'</div><div class="text-xs">'+pd(ht.p,S.cur)+'</div></div><div class="text-right"><div class="text-[10px] text-warm-muted">'+S.nights+' '+t('ntsT')+'</div><div class="font-bold text-gold text-base">'+pd(tot,S.cur)+'</div></div></div></div></div>'}
-    return h+'</div>';
-}
+/* ========== RENDER: ACCOMMODATION (with dual affiliate links per hotel) ========== */
+function rAc(){var hd=S.res.hotels;var all=[];for(var i=0;i<hd.agoda.length;i++)all.push({n:hd.agoda[i].n,s:hd.agoda[i].s,p:hd.agoda[i].p,r:hd.agoda[i].r,a:hd.agoda[i].a,src:'agoda'});for(var i=0;i<hd.booking.length;i++)all.push({n:hd.booking[i].n,s:hd.booking[i].s,p:hd.booking[i].p,r:hd.booking[i].r,a:hd.booking[i].a,src:'booking'});all.sort(function(a,b){return a.p-b.p});
+if(!all.length)return emp('No accommodation found.','fa-bed');var h='<div class="flex flex-wrap items-center justify-between gap-2 mb-4 fu"><div class="flex items-center gap-3">'+liveBdg('agoda')+'<span style="color:#222">|</span>'+liveBdg('booking')+'</div><div class="aff-row"><a href="'+agodaLk(S.dest,S.ci,S.co,S.g)+'" target="_blank" class="aff-btn agoda"><span class="b-agoda">AGODA</span>Open on Agoda<i class="fa-solid fa-external-link-alt text-[10px]"></i></a><a href="'+bookingLk(S.dest,S.ci,S.co,S.g)+'" target="_blank" class="aff-btn booking"><span class="b-booking">BOOKING</span>Open on Booking.com<i class="fa-solid fa-external-link-alt text-[10px]"></i></a></div></div><div class="flex flex-wrap gap-2 mb-5 fu"><button class="btn-o hf act" onclick="filtH(\'all\',this)">All ('+all.length+')</button><button class="btn-o hf" onclick="filtH(\'agoda\',this)">Agoda ('+hd.agoda.length+')</button><button class="btn-o hf" onclick="filtH(\'booking\',this)">Booking ('+hd.booking.length+')</button><button class="btn-o hf" onclick="filtH(\'budget\',this)">Budget</button><button class="btn-o hf" onclick="filtH(\'luxury\',this)">Luxury</button></div><div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="hGrid">';
+for(var i=0;i<all.length;i++){var ht=all[i],tot=ht.p*S.nights,bc=ht.src==='agoda'?'b-agoda':'b-booking',bt=ht.src==='agoda'?'AGODA':'BOOKING',seed=ck(S.dest)+'-'+ht.src+'-'+i;h+='<div class="fu hc bg-surface-up border border-[#222] rounded-xl overflow-hidden card-h" data-src="'+ht.src+'" data-st="'+ht.s+'"><div class="h-32 bg-surface-up2 relative overflow-hidden"><img src="https://picsum.photos/seed/'+seed+'/600/300.jpg" alt="'+ht.n+'" class="w-full h-full object-cover opacity-75" loading="lazy"><div class="absolute top-2.5 left-2.5"><span class="'+bc+'">'+bt+'</span></div><div class="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-sm text-warm text-[10px] px-2 py-0.5 rounded-md"><i class="fa-solid fa-location-dot mr-1"></i>'+ht.a+'</div></div><div class="p-3.5"><div class="flex items-start justify-between gap-2 mb-1.5"><h3 class="font-semibold text-warm text-sm leading-tight">'+ht.n+'</h3><div class="flex items-center gap-1 bg-surface-up2 px-1.5 py-0.5 rounded flex-shrink-0"><i class="fa-solid fa-star text-gold text-[8px]"></i><span class="text-[11px] font-semibold text-warm">'+ht.r+'</span></div></div><div class="mb-2.5">'+sh(ht.s)+'</div><div class="flex items-end justify-between"><div><div class="text-[10px] text-warm-muted">Per night</div><div class="text-xs">'+pd(ht.p,S.cur)+'</div></div><div class="text-right"><div class="text-[10px] text-warm-muted">'+S.nights+' nights total</div><div class="font-bold text-gold text-base">'+pd(tot,S.cur)+'</div></div></div></div></div></div></div>'}return h+'</div>'}
 function filtH(f,btn){var bs=document.querySelectorAll('.hf');for(var i=0;i<bs.length;i++)bs[i].className='btn-o hf';btn.className='btn-o hf act';var cs=document.querySelectorAll('.hc');for(var i=0;i<cs.length;i++){var c=cs[i],sr=c.dataset.src,st=parseInt(c.dataset.st),show=true;if(f==='agoda')show=sr==='agoda';else if(f==='booking')show=sr==='booking';else if(f==='budget')show=st<=2;else if(f==='luxury')show=st>=5;c.style.display=show?'':'none'}}
 
-// ================================================================
-// RENDER: ROUTE
-// ================================================================
-function rRt() {
-    var stops=S.res.stops,sights=S.res.sights,h='';
-    if(stops.length){h+='<div class="fu mb-8"><h3 class="font-display text-lg font-bold text-warm mb-5"><i class="fa-solid fa-route text-gold mr-2"></i>'+t('rMap')+'</h3><div class="relative bg-surface-up border border-[#222] rounded-2xl p-7 overflow-x-auto"><div class="relative min-w-[500px]"><div class="route-ln"><div class="route-fill" style="width:100%"></div></div><div class="flex justify-between items-start relative"><div class="flex flex-col items-center" style="min-width:70px"><div class="rn rn-m">A</div><span class="text-[11px] font-bold text-gold mt-1.5">'+S.origin+'</span><span class="text-[9px] text-warm-muted">'+t('dep')+'</span></div>';for(var i=0;i<stops.length;i++){var s=stops[i];h+='<div class="flex flex-col items-center" style="min-width:90px"><div class="rn rn-s">'+(i+1)+'</div><span class="text-[11px] font-semibold text-emerald-light mt-1.5">'+s.city+'</span><span class="text-[9px] text-warm-muted">'+s.dist+'</span>'+(s.nights>0?'<span class="text-[9px] text-gold">'+s.nights+' '+t('ntsR')+'</span>':'<span class="text-[9px] text-warm-muted">'+t('tran')+'</span>')+'</div>'}h+='<div class="flex flex-col items-center" style="min-width:70px"><div class="rn rn-m">B</div><span class="text-[11px] font-bold text-gold mt-1.5">'+S.dest+'</span><span class="text-[9px] text-warm-muted">'+t('arr')+'</span></div></div></div></div></div>';var ov=stops.filter(function(s){return s.nights>0});if(ov.length){h+='<div class="fu mb-8"><h3 class="font-display text-lg font-bold text-warm mb-5"><i class="fa-solid fa-map-pin text-emerald-light mr-2"></i>'+t('recSt')+'</h3><div class="space-y-3">';for(var i=0;i<ov.length;i++){var st=ov[i],ik=st.city.replace(/\s/g,''),img=cImgs[ik]||'https://picsum.photos/seed/th/600/400.jpg';var tags='';for(var j=0;j<st.sights.length;j++)tags+='<span class="s-tag">'+st.sights[j]+'</span>';h+='<div class="bg-surface-up border border-[#222] rounded-xl overflow-hidden card-h"><div class="flex flex-col lg:flex-row"><div class="lg:w-56 h-40 lg:h-auto bg-surface-up2 flex-shrink-0 relative overflow-hidden"><img src="'+img+'" alt="'+st.city+'" class="w-full h-full object-cover opacity-70" loading="lazy"><div class="absolute bottom-2.5 left-2.5 bg-emerald/80 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-md backdrop-blur-sm"><i class="fa-solid fa-moon mr-1"></i>'+st.nights+' '+t('ntsR')+'</div></div><div class="p-4 flex-1"><h4 class="font-display text-base font-bold text-warm mb-1.5">'+st.city+'</h4><p class="text-warm-muted text-xs mb-2.5">'+st.dist+' '+t('fromX')+' '+S.origin+', '+t('enRt')+' '+S.dest+'</p><div class="mb-2.5"><p class="text-[10px] text-warm-muted uppercase tracking-wider mb-1.5 font-semibold">'+t('plVis')+'</p><div class="flex flex-wrap gap-1">'+tags+'</div></div>';if(st.h)h+='<div class="bg-surface-up2 rounded-lg p-2.5"><p class="text-[10px] text-warm-muted uppercase tracking-wider mb-1.5 font-semibold">'+t('stopAc')+'</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5"><div class="flex items-center justify-between"><div><span class="b-agoda text-[9px]">AGODA</span><p class="text-xs text-warm mt-0.5">'+st.h.agoda.n+'</p></div><div class="text-right text-[11px]">'+pd(st.h.agoda.p*st.nights,S.cur)+'</div></div><div class="flex items-center justify-between"><div><span class="b-booking text-[9px]">BOOKING</span><p class="text-xs text-warm mt-0.5">'+st.h.booking.n+'</p></div><div class="text-right text-[11px]">'+pd(st.h.booking.p*st.nights,S.cur)+'</div></div></div></div>';h+='</div></div></div>'}h+='</div></div>'}}h+='<div class="fu"><h3 class="font-display text-lg font-bold text-warm mb-5"><i class="fa-solid fa-compass text-gold mr-2"></i>'+t('thingsDo')+' '+S.dest+'</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">';for(var i=0;i<sights.length;i++){var s=sights[i],ps=s.c===0?'<span class="text-emerald-light">'+t('free')+'</span>':pd(s.c,S.cur);h+='<div class="bg-surface-up border border-[#222] rounded-xl p-3.5 card-h"><div class="flex items-start gap-2.5"><div class="w-9 h-9 rounded-lg bg-surface-up2 flex items-center justify-center flex-shrink-0"><i class="fa-solid '+s.ic+' text-emerald-light text-sm"></i></div><div class="min-w-0 flex-1"><h4 class="font-semibold text-warm text-sm leading-tight mb-0.5">'+s.n+'</h4><div class="flex items-center gap-2 text-[10px] text-warm-muted"><span><i class="fa-regular fa-clock mr-0.5"></i>'+t(s.tm)+'</span></div><div class="mt-1 text-xs">'+ps+'</div></div></div></div>'}return h+'</div></div>'}
+/* ========== RENDER: ROUTE ========== */
+function rRt(){var stops=S.res.stops,sights=S.res.sights,h='';
+if(stops.length){h+='<div class="fu mb-8"><h3 class="font-display text-lg font-bold text-warm mb-5"><i class="fa-solid fa-route text-gold mr-2"></i>Route Map</h3><div class="relative bg-surface-up border border-[#222] rounded-2xl p-7 overflow-x-auto"><div class="relative min-w-[500px]"><div class="route-ln"><div class="route-fill" style="width:100%"></div></div><div class="flex justify-between items-start relative"><div class="flex flex-col items-center" style="min-width:70px"><div class="rn rn-m">A</div><span class="text-[11px] font-bold text-gold mt-1.5">'+S.origin+'</span><span class="text-[9px] text-warm-muted">Departure</span></div>';for(var i=0;i<scrollbar:none;i<stops.length;i++){var s=stops[i];h+='<div class="flex flex-col items-center" style="min-width:90px"><div class="rn rn-s">'+(i+1)+'</div><span class="text-[11px] font-semibold text-emerald-light mt-1.5">'+s.city+'</span><span class="text-[9px] text-warm-muted">'+s.dist+'</span>'+(s.nights>?'<span class="text-[9px] text-gold">'+s.nights+' nights recommended</span>':'<span class="text-[9px] text-warm-muted">Transit</span>')+'</div>'}h+='<div class="flex flex-col items-center" style="min-width:70px"><div class="rn rn-m">B</div><span class="text-[11px] font-bold text-gold mt-1.5">'+S.dest+'</span><span class="text-[9px] text-warm-muted">Arrival</span></div></div></div></div></div></div>';var ov=stops.filter(function(s){return s.nights>0});if(ov.length){h+='<div class="fu mb-8"><h3 class="font-display text-lg font-bold text-warm mb-5"><i class="fa-solid fa-map-pin text-emerald-light mr-2"></i>Recommended Stops Along the Route</h3><div class="space-y-3>';for(var i=0;i<ov.length;i++){var st=ov[i],ik=st.city.replace(/\s/g,''),img=cImgs[ik]||'https://picsum.photos/seed/th/600/400.jpg';var tags='';for(var j=0;j<st.sights.length;j++)tags+='<span class="s-tag">'+st.sights[j]+'</span>';h+='<div class="bg-surface-up border border-[#222] rounded-xl overflow-hidden card-h"><div class="flex flex-col lg:flex-row"><div class="lg:w-56 h-40 lg:h-auto bg-surface-up2 flex-shrink-0 relative overflow-hidden"><img src="'+img+'" alt="'+st.city+'" class="w-full h-full object-cover opacity-70" loading="lazy"><div class="absolute bottom-2.5 left-2.5 bg-emerald/80 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-md backdrop-blur-sm"><i class="fa-solid fa-moon mr-1"></i>'+st.nights+' nights recommended</div></div><div class="p-4 flex-1"><h4 class="font-display text-base font-bold text-warm mb-1.5">'+st.city+'</h4><p class="text-warm-muted text-xs mb-2.5">'+st.dist+' from '+S.origin+', en route to '+S.dest+'</p><div class="mb-2.5"><p class="text-[10px] text-warm-muted uppercase tracking-wider mb-1.5 font-semibold">Places to Visit</p><div class="flex flex-wrap gap-1">'+tags+'</div></div>';if(st.h)h+='<div class="bg-surface-up2 rounded-lg p-2.5"><p class="text-[10px] text-warm-muted uppercase tracking-wider mb-1.5 font-semibold">Stopover Accommodation</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5"><div class="flex items-center justify-between"><div><span class="b-agoda text-[9px">AGODA</span><p class="text-xs text-warm mt-0.5">'+st.h.agoda.n+'</p></div><div class="text-right text-[11px]">'+pd(st.h.agoda.p*st.nights,S.cur)+'</div></div><div class="flex items-center justify-between"><div><span class="b-booking text-[9px">BOOKING</span><p class="text-xs text-warm mt-0.5">'+st.h.booking.n+'</p></div><div class="text-right text-[11px]">'+pd(st.h.booking.p*st.nights,S.cur)+'</div></div></div></div></div>';h+='</div></div></div>'}h+='</div></div>'}}h+='<div class="fu"><h3 class="font-display text-lg font-bold text-warm mb-5"><i class="fa-solid fa-compass text-gold mr-2"></i>Things to Do in '+S.dest+'</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">';for(var i=0;i<sights.length;i++){var s=sights[i],ps=s.c===0?'<span style="color:#40916C">Free</span>':pd(s.c,S.cur);h+='<div class="bg-surface-up border border-[#222] rounded-xl p-3.5 card-h"><div class="flex items-start gap-2.5"><div class="w-9 h-9 rounded-lg bg-surface-up2 flex items-center justify-center flex-shrink-0"><i class="fa-solid '+s.ic+' text-emerald-light text-sm"></i></div><div class="min-w-0 flex-1"><h4 class="font-semibold text-warm text-sm leading-tight mb-0.5">'+s.n+'</h4><div class="flex items-center gap-2 text-[10px] text-warm-muted"><span><i class="fa-regular fa-clock mr-0.5"></i>'+s.tm+'</span></div><div class="mt-1 text-xs">'+ps+'</div></div></div></div></div>'}return h+'</div></div>'}
 
-// ================================================================
-// RENDER: PACKAGES (with in-feed ad insertion)
-// ================================================================
-function buildPk(tr,hd,stops,sights){if(!tr.length||!hd.agoda.length)return[];var g=S.g,n=S.nights,ch=tr[0],ex=tr[0];for(var i=0;i<tr.length;i++){if(tr[i].p<ch.p)ch=tr[i];if(tr[i].p>ex.p)ex=tr[i]}var fl=tr.filter(function(t){return t.t.indexOf('Flight')>=0})[0]||tr[0];var al=[].concat(hd.agoda,hd.booking).sort(function(a,b){return a.p-b.p});var bH=al[0],mH=al[Math.floor(al.length/2)]||al[0],lH=al[al.length-1];var fS=sights.filter(function(s){return s.c===0}),cS=sights.filter(function(s){return s.c>0&&s.c<=600}).slice(0,2),mSi=sights.filter(function(s){return s.c>0&&s.c<=1500}).slice(0,3),tS=sights.filter(function(s){return s.c>0}).slice(0,4),aS=sights.slice(0,6),vS=sights.slice(0);function sumA(a){var s=0;for(var i=0;i<a.length;i++)s+=a[i].c;return s}var sC=0,sD=[];stops.filter(function(s){return s.nights>0&&s.h}).forEach(function(s){var c=s.h.agoda.p*s.nights;sC+=c;sD.push({city:s.city,nights:s.nights,cost:c})});return[{id:0,nm:t('pk0'),ds:t('pk0d'),cls:'pkg-b',icon:'fa-person-hiking',color:'#40916C',tr:ch,ht:bH,st:[],acts:[].concat(fS,cS),nt:n},{id:1,nm:t('pk1'),ds:t('pk1d'),cls:'pkg-s',icon:'fa-wallet',color:'#D4A843',tr:ch,ht:bH,st:[],acts:[].concat(fS,mSi),nt:n},{id:2,nm:t('pk2'),ds:t('pk2d'),cls:'pkg-d',icon:'fa-suitcase',color:'#E8590C',tr:fl,ht:mH,st:[],acts:tS.slice(),nt:n},{id:3,nm:t('pk3'),ds:t('pk3d'),cls:'pkg-p',icon:'fa-map-location-dot',color:'#6366F1',tr:fl,ht:mH,st:sD.slice(),acts:tS.slice(),nt:n},{id:4,nm:t('pk4'),ds:t('pk4d'),cls:'pkg-u',icon:'fa-gem',color:'#E8C96A',tr:ex,ht:lH,st:sD.slice(),acts:aS.slice(),nt:n},{id:5,nm:t('pk5'),ds:t('pk5d'),cls:'pkg-r',icon:'fa-crown',color:'#EC4899',tr:ex,ht:lH,st:sD.slice(),acts:vS.slice(),nt:n}].map(function(pk){var sc=pk.st.length>0?sC:0;return Object.assign({},pk,{total:(pk.tr.p*g)+(pk.ht.p*pk.nt)+sc+sumA(pk.acts)})})}
+/* ========== RENDER: PACKAGES (with Traveloka + KKday affiliate links) ========== */
+function buildPk(tr,hd,stops,sights){if(!tr.length||!hd.agoda.length)return[];var g=S.g,n=S.nights,ch=tr[0],ex=tr[0];for(var i=0;i<tr.length;i++){if(tr[i].p<ch.p)ch=tr[i];if(tr[i].p>ex.p)ex=tr[i]}var fl=tr.filter(function(t){return t.t.indexOf('Flight')>=0})[0]||tr[0];var al=[].concat(hd.agoda,hd.booking).sort(function(a,b){return a.p-b.p});var bH=al[0],mH=al[Math.floor(al.length/2)]||al[0],lH=al[al.length-1];var fS=sights.filter(function(s){return s.c===0}),cS=sights.filter(function(s){return s.c>0&&s.c<=600}).slice(0,2),mSi=sights.filter(function(s){return s.c>0&&s.c<=1500}).slice(0,3),tS=sights.filter(function(s){return s.c>0}).slice(0,4),aS=sights.slice(0,6),vS=sights.slice(0);function sumA(a){var s=0;for(var i=0;i<a.length;i++)s+=a[i].c;return sC=0,sD=[];stops.filter(function(s){return s.nights>0&&s.h}).forEach(function(s){var c=s.h.agoda.p*s.nights;sC+=c;sD.push({city:s.city,nights:s.nights,cost:c})});return[{id:0,nm:'Backpacker Route',ds:'Shoestring budget — public transport, hostels, free activities',cls:'pkg-b',icon:'fa-person-hiking',color:'#40916C',tr:ch,ht:bH,st:[],acts:[].concat(fS,cS),nt:n},{id:1,nm:'Smart Budget',ds:'Budget hotel with affordable experiences',cls:'pkg-s',icon:'fa-wallet',color:'#D4A843',tr:ch,ht:bH,st:[],acts:[].concat(fS,mSi),nt:n},{id:2,nm:'Comfort Classic',ds:'Fly in comfort, stay well, see highlights',cls:'pkg-d',icon:'fa-suitcase',color:'#E8590C',tr:fl,ht:mH,st:[],acts:tS.slice(),nt:n},{id:3,nm:'Route Discovery',ds:'Hidden gems along the way with mid-range comfort',cls:'pkg-p',icon:'fa-map-location-dot',color:'#6366F1',tr:fl,ht:mH,st:sD.slice(),acts:tS.slice(),nt:n},{id:4,nm:'Premium Escape',ds:'Luxury stays, VIP tours, route stopovers',cls:'pkg-u',icon:'fa-gem',color:'#E8C96A',tr:ex,ht:lH,st:sD.slice(),acts:aS.slice(),nt:n},{id:5,nm:'Ultimate Thailand',ds:'Finest hotels, every experience, full route exploration',cls:'pkg-r',icon:'fa-crown',color:'#EC4899',tr:ex,ht:lH,st:sD.slice(),acts:vS.slice(),nt:n}].map(function(pk){var sc=pk.st.length>0?sC:0;return Object.assign({},pk,{total:(pk.tr.p*g)+(pk.ht.p*pk.nt)+sc+sumA(pk.acts)})})}
 
-function rPk() {
-    var pkgs=S.res.packages; if(!pkgs||!pkgs.length)return emp(t('ePk'),'fa-gift');
-    var h='<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">';
-    for(var p=0;p<pkgs.length;p++){
-        // Insert in-feed ad after 2nd package (native feel, high CTR)
-        if(p===2) h+=inFeedAdHTML();
-        var pkg=pkgs[p],tn=pkg.nt+pkg.st.reduce(function(s,st){return s+st.nights},0);
-        var rows='<div class="flex items-start gap-2"><i class="fa-solid '+pkg.tr.ic+' text-warm-muted mt-0.5 w-3.5 text-center text-[10px]"></i><div class="flex-1 min-w-0"><span class="text-warm">'+pkg.tr.t+'</span><span class="text-warm-muted text-[10px] block">'+pkg.tr.d+' · '+S.g+' '+t(S.g===1?'guest':'guests')+'</span></div><span class="text-warm-muted text-[10px] flex-shrink-0">'+pd(pkg.tr.p*S.g,S.cur)+'</span></div>';
-        rows+='<div class="flex items-start gap-2"><i class="fa-solid fa-bed text-warm-muted mt-0.5 w-3.5 text-center text-[10px]"></i><div class="flex-1 min-w-0"><span class="text-warm">'+pkg.ht.n+'</span><span class="text-warm-muted text-[10px] block">'+pkg.nt+' '+t('ntsT')+' · '+('\u2605').repeat(pkg.ht.s)+('\u2606').repeat(5-pkg.ht.s)+'</span></div><span class="text-warm-muted text-[10px] flex-shrink-0">'+pd(pkg.ht.p*pkg.nt,S.cur)+'</span></div>';
-        for(var si=0;si<pkg.st.length;si++)rows+='<div class="flex items-start gap-2"><i class="fa-solid fa-map-pin text-emerald-light mt-0.5 w-3.5 text-center text-[10px]"></i><div class="flex-1 min-w-0"><span class="text-emerald-light">'+pkg.st[si].city+' '+t('stop')+'</span><span class="text-warm-muted text-[10px] block">'+pkg.st[si].nights+' '+t('ntsAc')+'</span></div><span class="text-warm-muted text-[10px] flex-shrink-0">'+pd(pkg.st[si].cost,S.cur)+'</span></div>';
-        var actRows='';for(var ai=0;ai<pkg.acts.length;ai++){var act=pkg.acts[ai];actRows+='<div class="flex justify-between text-warm-muted"><span class="truncate mr-2">'+act.n+'</span><span class="flex-shrink-0">'+(act.c===0?'<span class="text-emerald-light">'+t('free')+'</span>':pd(act.c,S.cur))+'</span></div>'}
-        h+='<div class="fu pkg '+pkg.cls+' bg-surface-up border border-[#222] rounded-2xl p-5 card-h relative overflow-hidden"><div class="flex items-center gap-2.5 mb-3"><div class="w-9 h-9 rounded-lg flex items-center justify-center" style="background:'+pkg.color+'18"><i class="fa-solid '+pkg.icon+'" style="color:'+pkg.color+'"></i></div><div><h3 class="font-display text-base font-bold text-warm leading-tight">'+pkg.nm+'</h3><p class="text-warm-muted text-[10px]">'+pkg.ds+'</p></div></div><div class="space-y-1.5 text-xs mb-4">'+rows+'<div class="border-t border-[#222] my-1"></div><div class="flex items-start gap-2"><i class="fa-solid fa-ticket text-gold mt-0.5 w-3.5 text-center text-[10px]"></i><div class="flex-1 min-w-0"><span class="text-gold font-semibold">'+t('acts')+' ('+pkg.acts.length+')</span><div class="mt-1 space-y-0.5">'+actRows+'</div></div></div></div><div class="border-t border-[#222] pt-3 flex items-end justify-between"><div class="text-[10px] text-warm-muted">'+tn+' '+t('totN')+' · '+S.g+' '+t(S.g===1?'guest':'guests')+'</div><div class="text-right"><div class="text-[10px] text-warm-muted mb-0.5">'+t('estT')+'</div><div class="font-bold text-lg" style="color:'+pkg.color+'">'+pd(pkg.total,S.cur)+'</div></div></div></div>';
-    }
-    h+='</div><div class="fu mt-5 bg-surface-up2/40 border border-[#222] rounded-xl p-3.5 text-[11px] text-warm-muted flex items-start gap-2"><i class="fa-solid fa-circle-info text-gold mt-0.5"></i><p>'+t('pkN1')+' '+S.nights+' '+t('pkN2')+' '+S.g+' '+t('pkN3')+'</p></div>';
-    return h;
-}
+function rPk(){var pkgs=S.res.packages;if(!pkgs||!pkgs.length)return emp('No packages available.','fa-gift');
+var h='<div class="grid grid-cols-1 lg:2xl:2 gap-4">';
+for(var p=0;p<pkgs.length;p++){var pkg=pkgs[p],tn=pkg.nt+pkg.st.reduce(function(s,st){return s.nights}),stopsHTML='',actRows='',actList='';var stRows='';
+for(var si=0;si<pkg.acts.length;si++){var act=pkg.acts[si];actList+='<div class="flex justify-between text-warm-muted"><span class="truncate mr-2">'+act.n+'</span><span class="flex-shrink-0">'+(act.c===0?'<span style="color:#40916C">Free</span>':pd(act.c,S.cur))+'</span></div>'}
+var rows='<div class="flex items-start gap-2"><i class="fa-solid fa-bed text-warm-muted mt-0.5 w-3.5 text-[10px]"></i><div class="flex-1 min-w-0"><span class="text-warm">'+pkg.ht.n+'</span><span class="text-warm-muted text-[10px] block">'+pkg.nt+' nights · '+('\u2605').repeat(pkg.ht.s)+('\u2606').repeat(5-pkg.ht.s)+'</span></div><span class="text-warm-muted text-[10px] flex-shrink-0">'+pd(pkg.ht.p*pkg.nt,S.cur)+'</span></div>';
+for(var si=si<pkg.st.length;si++){var st=pkg.st[si];stRows+='<div class="flex items-start gap-2"><i class="fa-solid fa-map-pin text-emerald-light mt-0.5 w-3.5 text-[10px]"></i><div class="flex-1 min-w-0"><span class="text-emerald-light">'+st.city+' Stopover</span><span class="text-warm-muted text-[10px] block">'+st.nights+' nights accommodation</span></div><span class="text-warm-muted text-[10px] flex-shrink-0">'+pd(st.cost,S.cur)+'</span></div>'}
+var h3='<div class="space-y-1.5 text-xs text-warm-muted mb-3"><span class="font-semibold text-warm-muted">Activities ('+pkg.acts.length+')</span></div>'+actList+'</div><div class="border-t border-[#222] my-1"></div><div class="flex items-end justify-between"><div class="text-[10px] text-warm-muted">'+tn+' total nights · '+S.g+' guests · '+pkg.acts.length+' activities</div><div class="text-right"><div class="text-[10px] text-warm-muted mb-0.5">Estimated Total</div><div class="font-bold text-lg" style="color:'+pkg.color+'">'+pd(pkg.total,S.cur)+'</div></div></div></div></div>';
+h+='</div></div>';
+h+='<div class="fu mt-5 bg-surface-up2/40 border border-[#222] rounded-xl p-3.5 text-[11px] text-warm-muted flex items-start gap-2"><i class="fa-solid fa-circle-info text-gold mt-0.5"></i><p>Prices calculated for '+S.nights+' nights accommodation, '+S.g+' guests and listed activities. Meals, visas, personal expenses not included.</p></div>'});return h+'</div>'}
 
-// ================================================================
-// MODAL
-// ================================================================
+/* ========== MODAL ========== */
 document.getElementById('infoBtn').addEventListener('click',function(){var m=document.getElementById('infoM');m.classList.remove('hidden');m.classList.add('flex')});
 document.getElementById('closeInfo').addEventListener('click',function(){var m=document.getElementById('infoM');m.classList.add('hidden');m.classList.remove('flex')});
 document.getElementById('infoM').addEventListener('click',function(e){if(e.target===this){this.classList.add('hidden');this.classList.remove('flex')}});
 
-// ================================================================
-// INIT
-// ================================================================
-(function(){var today=new Date().toISOString().split('T')[0];document.getElementById('fIn').min=today;document.getElementById('fOut').min=today;document.getElementById('fIn').addEventListener('click',function(){});document.getElementById('fIn').addEventListener('change',function(){var nx=new Date(this.value);nx.setDate(nx.getDate()+1);var ns=nx.toISOString().split('T')[0];document.getElementById('fOut').min=ns;if(document.getElementById('fOut').value&&document.getElementById('fOut').value<=this.value)document.getElementById('fOut').value=ns})})();
+/* ========== INIT ========== */
+(function(){var today=new Date().toISOString().split('T')[0];document.getElementById('fIn').min=today;document.getElementById('fOut').min=today;
+document.getElementById('fIn').addEventListener('change',function(){var nx=new Date(this.value);nx.setDate(nx.getDate()+1);var ns=nx.toISOString().split('T')[0];document.getElementById('fOut').min=ns;if(document.getElementById('fOut').value&&document.getElementById('fOut').value<=this.value)document.getElementById('fOut').value=ns})})();
 </script>
 </body>
 </html>
