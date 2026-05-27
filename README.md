@@ -1,2 +1,2 @@
 # sawadee.io
-Thailand Travel Planner
+Smart Thailand Travel Planner. Spend less time to plan your travel schedule.
