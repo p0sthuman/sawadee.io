@@ -8,12 +8,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config={theme:{extend:{colors:{thai:{gold:'#D4A853','gold-light':'#E8C97A','gold-dark':'#B8922F',red:'#C75B39',teal:'#2A9D8F',cream:'#F0EBE3',dark:'#080E0C',surface:'#0F1A16',card:'#142420','card-hover':'#1A2E28',border:'#1E3029',muted:'#6B8177'}},fontFamily:{display:['Cormorant Garamond','serif'],body:['DM Sans','sans-serif']}}}}
+tailwind.config={theme:{extend:{colors:{thai:{gold:'#D4A853','gold-light':'#E8C97A','gold-dark':'#B8922F',red:'#C75B39',teal:'#2A9D8F',cream:'#F0EBE3',dark:'#080E0C',surface:'#0F1A16',card:'#142420','card-hover':'#1A2E28',border:'#1E3029',muted:'#6B8177',free:'#4CAF50'}},fontFamily:{display:['Cormorant Garamond','serif'],body:['DM Sans','sans-serif']}}}}
 </script>
 <style>
-:root{--gold:#D4A853;--gold-light:#E8C97A;--teal:#2A9D8F;--red:#C75B39;--dark:#080E0C;--surface:#0F1A16;--card:#142420;--cream:#F0EBE3;--muted:#6B8177;--border:#1E3029}
+:root{--gold:#D4A853;--gold-light:#E8C97A;--teal:#2A9D8F;--red:#C75B39;--free:#4CAF50;--dark:#080E0C;--surface:#0F1A16;--card:#142420;--cream:#F0EBE3;--muted:#6B8177;--border:#1E3029}
 *{scrollbar-width:thin;scrollbar-color:var(--gold) var(--surface)}
-::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:var(--surface)}
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 body{font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 50%,rgba(212,168,83,.04) 0%,transparent 50%),radial-gradient(ellipse at 85% 20%,rgba(42,157,143,.03) 0%,transparent 50%),radial-gradient(ellipse at 50% 100%,rgba(199,91,57,.02) 0%,transparent 50%),var(--dark);color:var(--cream);min-height:100vh;overflow-x:hidden}
@@ -22,7 +22,7 @@ body{font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes barGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes barGrow{from{width:0}to{width:var(--target-w)}}
 .animate-fade-up{animation:fadeUp .8s ease-out both}
 .animate-float{animation:float 4s ease-in-out infinite}
 .btn-gold{background:linear-gradient(90deg,#D4A853 0%,#E8C97A 30%,#D4A853 50%,#B8922F 70%,#D4A853 100%);background-size:200% auto;animation:shimmer 4s ease-in-out infinite;color:#080E0C;font-weight:700;transition:all .3s}
@@ -43,22 +43,24 @@ select.input-field optgroup option{font-weight:400;font-size:.875rem;padding:4px
 .tab-btn:hover{color:var(--cream)}
 .tab-panel{display:none;animation:fadeIn .4s ease-out}
 .tab-panel.active{display:block}
-.aff-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:.78rem;font-weight:600;transition:all .25s;border:2px solid;cursor:pointer;text-decoration:none}
+.aff-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:.8rem;font-weight:600;transition:all .25s;border:2px solid;cursor:pointer;text-decoration:none}
 .aff-btn:hover{transform:translateY(-1px)}
 .aff-agoda{border-color:#E11D48;color:#E11D48}.aff-agoda:hover{background:#E11D48;color:#fff}
 .aff-booking{border-color:#5B9BD5;color:#5B9BD5}.aff-booking:hover{background:#003580;color:#fff}
 .aff-12go{border-color:#FF6F00;color:#FF6F00}.aff-12go:hover{background:#FF6F00;color:#fff}
 .aff-traveloka{border-color:#4E9AFF;color:#4E9AFF}.aff-traveloka:hover{background:#4E9AFF;color:#fff}
+.aff-saii{border-color:#C9A84C;color:#C9A84C}.aff-saii:hover{background:#8B7340;color:#fff}
 .aff-kkday{border-color:#FF5F00;color:#FF5F00}.aff-kkday:hover{background:#FF5F00;color:#fff}
 .aff-klook{border-color:#FF5722;color:#FF5722}.aff-klook:hover{background:#FF5722;color:#fff}
 .aff-gyg{border-color:#00B67A;color:#00B67A}.aff-gyg:hover{background:#00B67A;color:#fff}
 .journey-line{position:absolute;top:24px;left:24px;right:24px;height:2px;background:linear-gradient(90deg,var(--gold),var(--teal),var(--gold))}
 .journey-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--dark);position:relative;z-index:2;flex-shrink:0}
 .journey-dot.end{background:var(--teal);box-shadow:0 0 10px rgba(42,157,143,.4)}
-.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:600}
 .badge-best{background:rgba(42,157,143,.15);color:var(--teal);border:1px solid rgba(42,157,143,.3)}
 .badge-popular{background:rgba(212,168,83,.15);color:var(--gold);border:1px solid rgba(212,168,83,.3)}
-.price-bar{height:6px;border-radius:3px;background:var(--border);overflow:hidden}
+.badge-free{background:rgba(76,175,80,.15);color:var(--free);border:1px solid rgba(76,175,80,.3)}
+.price-bar{height:6px;border-radius:3px;background:var(--border);overflow:hidden;position:relative}
 .price-bar-fill{height:100%;border-radius:3px;transition:width 1s ease-out}
 .toast{position:fixed;bottom:30px;right:30px;z-index:999;padding:14px 24px;border-radius:10px;font-size:.9rem;font-weight:500;animation:fadeUp .4s ease-out;max-width:380px}
 .toast-error{background:rgba(199,91,57,.9);border:1px solid var(--red);color:#fff}
@@ -66,13 +68,32 @@ select.input-field optgroup option{font-weight:400;font-size:.875rem;padding:4px
 .toast-info{background:rgba(20,36,32,.95);border:1px solid var(--gold);color:var(--cream)}
 .pkg-card{transition:all .3s;border:1px solid var(--border)}
 .pkg-card:hover{transform:translateY(-4px);border-color:rgba(212,168,83,.3);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-.tl-node-circle{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;flex-shrink:0;transition:transform .2s}
-.tl-node-circle:hover{transform:scale(1.15)}
-.tl-bar{transform-origin:bottom;animation:barGrow .6s ease-out both}
-.tl-track{position:relative}
-.tl-line{position:absolute;top:20px;left:20px;right:20px;height:2px;border-radius:1px}
+.pkg-saver .pkg-accent{color:var(--teal)}
+.pkg-saver .pkg-border{border-color:rgba(42,157,143,.3)}
+.pkg-comfort .pkg-accent{color:var(--gold)}
+.pkg-comfort .pkg-border{border-color:rgba(212,168,83,.3)}
+.pkg-luxury .pkg-accent{color:var(--red)}
+.pkg-luxury .pkg-border{border-color:rgba(199,91,57,.3)}
+.tl-track{position:relative;display:flex;align-items:flex-start;padding:20px 0 10px;overflow-x:auto;overflow-y:visible;gap:0}
+.tl-track::before{content:'';position:absolute;top:32px;left:20px;right:20px;height:3px;background:linear-gradient(90deg,var(--gold),var(--teal),var(--free),var(--gold),var(--red));border-radius:2px;opacity:.35}
+.tl-day{display:flex;flex-direction:column;align-items:center;min-width:90px;position:relative;z-index:1;flex-shrink:0}
+.tl-node{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;color:var(--dark);position:relative;z-index:2;transition:transform .2s;cursor:default;flex-shrink:0}
+.tl-node:hover{transform:scale(1.3)}
+.tl-node.type-travel{background:var(--gold);box-shadow:0 0 8px rgba(212,168,83,.4)}
+.tl-node.type-paid{background:var(--teal);box-shadow:0 0 8px rgba(42,157,143,.4)}
+.tl-node.type-free{background:var(--free);box-shadow:0 0 8px rgba(76,175,80,.4)}
+.tl-node.type-rest{background:var(--muted);box-shadow:none}
+.tl-node.type-depart{background:var(--red);box-shadow:0 0 8px rgba(199,91,57,.4)}
+.tl-bar-wrap{width:28px;height:50px;background:rgba(30,48,41,.5);border-radius:3px;overflow:hidden;margin-top:6px;position:relative}
+.tl-bar-fill{position:absolute;bottom:0;left:0;right:0;border-radius:3px;animation:barGrow .8s ease-out both}
+.tl-label{font-size:.6rem;color:var(--muted);margin-top:4px;text-align:center;white-space:nowrap;line-height:1.2}
+.tl-activity{font-size:.55rem;color:var(--cream);margin-top:2px;text-align:center;white-space:nowrap;max-width:80px;overflow:hidden;text-overflow:ellipsis;line-height:1.2;opacity:.85}
+.tl-free-tag{font-size:.48rem;color:var(--free);font-weight:700;letter-spacing:.5px;margin-top:1px}
+.details-toggle{cursor:pointer;user-select:none}
+.details-toggle i{transition:transform .2s}
+.details-toggle.open i{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
-@media(max-width:768px){.tab-btn{padding:10px 14px;font-size:.8rem}.aff-btn{padding:6px 10px;font-size:.72rem}}
+@media(max-width:768px){.tab-btn{padding:10px 14px;font-size:.8rem}.aff-btn{padding:6px 12px;font-size:.72rem}.tl-day{min-width:74px}.tl-node{width:18px;height:18px;font-size:7px}.tl-bar-wrap{width:22px;height:38px}.tl-label{font-size:.5rem}.tl-activity{font-size:.48rem;max-width:60px}}
 </style>
 </head>
 <body class="antialiased">
@@ -135,7 +156,7 @@ select.input-field optgroup option{font-weight:400;font-size:.875rem;padding:4px
     <p class="text-center text-thai-muted text-xs mt-3"><i class="fa-solid fa-circle-info mr-1"></i> You'll be redirected to our trusted partners for booking</p>
   </div>
   <div class="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-thai-muted/40 text-xs animate-fade-up" style="animation-delay:.4s">
-    <span>Agoda</span><span class="text-thai-border">|</span><span>Booking.com</span><span class="text-thai-border">|</span><span>12Go</span><span class="text-thai-border">|</span><span>Traveloka</span><span class="text-thai-border">|</span><span>KKday</span><span class="text-thai-border">|</span><span>Klook</span><span class="text-thai-border">|</span><span>GetYourGuide</span>
+    <span>Agoda</span><span class="text-thai-border">|</span><span>Booking.com</span><span class="text-thai-border">|</span><span>12Go</span><span class="text-thai-border">|</span><span>Traveloka</span><span class="text-thai-border">|</span><span>SAii</span><span class="text-thai-border">|</span><span>KKday</span><span class="text-thai-border">|</span><span>Klook</span><span class="text-thai-border">|</span><span>GetYourGuide</span>
   </div>
 </section>
 
@@ -151,46 +172,42 @@ select.input-field optgroup option{font-weight:400;font-size:.875rem;padding:4px
   </div>
   <div class="border-b border-thai-border mb-6 overflow-x-auto">
     <div class="flex min-w-max">
-      <button class="tab-btn active" data-tab="transport" onclick="switchTab('transport')"><i class="fa-solid fa-van-shuttle mr-2"></i>Transport</button>
+      <button class="tab-btn" data-tab="transport" onclick="switchTab('transport')"><i class="fa-solid fa-van-shuttle mr-2"></i>Transport</button>
       <button class="tab-btn" data-tab="accommodation" onclick="switchTab('accommodation')"><i class="fa-solid fa-hotel mr-2"></i>Accommodation</button>
       <button class="tab-btn" data-tab="attractions" onclick="switchTab('attractions')"><i class="fa-solid fa-map-location-dot mr-2"></i>Attractions &amp; Route</button>
-      <button class="tab-btn" data-tab="packages" onclick="switchTab('packages')"><i class="fa-solid fa-box-open mr-2"></i>Travel Packages</button>
+      <button class="tab-btn active" data-tab="packages" onclick="switchTab('packages')"><i class="fa-solid fa-box-open mr-2"></i>Travel Packages</button>
     </div>
   </div>
-  <div id="panel-transport" class="tab-panel active"></div>
+  <div id="panel-transport" class="tab-panel"></div>
   <div id="panel-accommodation" class="tab-panel"></div>
   <div id="panel-attractions" class="tab-panel"></div>
-  <div id="panel-packages" class="tab-panel"></div>
+  <div id="panel-packages" class="tab-panel active"></div>
 </section>
 </main>
 
 <footer class="border-t border-thai-border py-8 px-4 text-center text-thai-muted text-xs">
   <p class="mb-2">Sawadee Travel Planner — Compare &amp; book with confidence through our trusted partners.</p>
-  <p class="opacity-60 mb-3">Prices shown are estimates based on current market data. Final prices are confirmed on partner sites.</p>
-  <p><a href="privacy.html" class="text-thai-gold hover:text-thai-cream transition-colors">Privacy Policy</a></p>
+  <p class="opacity-60">Prices shown are estimates based on current market data. Final prices are confirmed on partner sites.</p>
 </footer>
 <div id="toastContainer"></div>
 
 <script>
-// ═══════════════════════════════════════════════════════════
-// DATA: THAI CITIES
-// ═══════════════════════════════════════════════════════════
 const THAI_CITIES={
-  'bangkok':{name:'Bangkok',region:'Central',iata:'BKK',slug:'bangkok',desc:'Vibrant capital with temples, street food & nightlife'},
-  'chiang-mai':{name:'Chiang Mai',region:'North',iata:'CNX',slug:'chiang-mai',desc:'Cultural heart of the north with ancient temples'},
-  'phuket':{name:'Phuket',region:'South',iata:'HKT',slug:'phuket',desc:'Thailand\'s largest island with stunning beaches'},
-  'koh-samui':{name:'Koh Samui',region:'South',iata:'USM',slug:'koh-samui',desc:'Tropical island paradise with luxury resorts'},
-  'pattaya':{name:'Pattaya',region:'Central',iata:'BKK',slug:'pattaya',desc:'Beach resort city close to Bangkok'},
-  'krabi':{name:'Krabi',region:'South',iata:'KBV',slug:'krabi',desc:'Gateway to Phi Phi Islands and Railay Beach'},
-  'chiang-rai':{name:'Chiang Rai',region:'North',iata:'CEI',slug:'chiang-rai',desc:'Home to the famous White Temple'},
-  'ayutthaya':{name:'Ayutthaya',region:'Central',iata:'BKK',slug:'ayutthaya',desc:'UNESCO ancient capital with stunning ruins'},
-  'hua-hin':{name:'Hua Hin',region:'Central',iata:'BKK',slug:'hua-hin',desc:'Royal beach town with golf courses'},
-  'sukhothai':{name:'Sukhothai',region:'North',iata:'THQ',slug:'sukhothai',desc:'Birthplace of Thai civilization, UNESCO site'},
-  'koh-phangan':{name:'Koh Phangan',region:'South',iata:'USM',slug:'koh-phangan',desc:'Famous for Full Moon Parties and pristine beaches'},
-  'koh-tao':{name:'Koh Tao',region:'South',iata:'USM',slug:'koh-tao',desc:'World-class diving destination'},
-  'ko-lanta':{name:'Ko Lanta',region:'South',iata:'KBV',slug:'ko-lanta',desc:'Relaxed island with long beaches'},
-  'pai':{name:'Pai',region:'North',iata:'CNX',slug:'pai',desc:'Bohemian mountain town with hot springs'},
-  'udon-thani':{name:'Udon Thani',region:'Northeast',iata:'UTH',slug:'udon-thani',desc:'Gateway to northeastern Thailand'}
+  'bangkok':{name:'Bangkok',region:'Central',iata:'BKK',slug:'bangkok',lat:13.76,lng:100.50},
+  'chiang-mai':{name:'Chiang Mai',region:'North',iata:'CNX',slug:'chiang-mai',lat:18.79,lng:98.98},
+  'phuket':{name:'Phuket',region:'South',iata:'HKT',slug:'phuket',lat:7.88,lng:98.39},
+  'koh-samui':{name:'Koh Samui',region:'South',iata:'USM',slug:'koh-samui',lat:9.51,lng:100.01},
+  'pattaya':{name:'Pattaya',region:'Central',iata:'BKK',slug:'pattaya',lat:12.93,lng:100.88},
+  'krabi':{name:'Krabi',region:'South',iata:'KBV',slug:'krabi',lat:8.08,lng:98.91},
+  'chiang-rai':{name:'Chiang Rai',region:'North',iata:'CEI',slug:'chiang-rai',lat:19.91,lng:99.84},
+  'ayutthaya':{name:'Ayutthaya',region:'Central',iata:'BKK',slug:'ayutthaya',lat:14.37,lng:100.59},
+  'hua-hin':{name:'Hua Hin',region:'Central',iata:'BKK',slug:'hua-hin',lat:12.57,lng:99.96},
+  'sukhothai':{name:'Sukhothai',region:'North',iata:'THQ',slug:'sukhothai',lat:17.01,lng:99.83},
+  'koh-phangan':{name:'Koh Phangan',region:'South',iata:'USM',slug:'koh-phangan',lat:9.75,lng:100.03},
+  'koh-tao':{name:'Koh Tao',region:'South',iata:'USM',slug:'koh-tao',lat:10.10,lng:99.84},
+  'ko-lanta':{name:'Ko Lanta',region:'South',iata:'KBV',slug:'ko-lanta',lat:7.53,lng:99.05},
+  'pai':{name:'Pai',region:'North',iata:'CNX',slug:'pai',lat:19.36,lng:98.44},
+  'udon-thani':{name:'Udon Thani',region:'Northeast',iata:'UTH',slug:'udon-thani',lat:17.42,lng:102.78}
 };
 const INTL_CITIES={
   'singapore':{name:'Singapore',iata:'SIN',slug:'singapore',flightBase:5000},
@@ -216,11 +233,8 @@ const INTL_CITIES={
 };
 const ALL_CITIES={...THAI_CITIES,...INTL_CITIES};
 const THAI_BY_REGION={};
-Object.entries(THAI_CITIES).forEach(([k,v])=>{if(!THAI_BY_REGION[v.region])THAI_BY_REGION[v.region]=[];THAI_BY_REGION[v.region].push({key:k,...v});});
+Object.entries(THAI_CITIES).forEach(([k,v])=>{if(!THAI_BY_REGION[v.region])THAI_BY_REGION[v.region]=[];THAI_BY_REGION[v.region].push({key:k,...v})});
 
-// ═══════════════════════════════════════════════════════════
-// DATA: TRANSPORT ROUTES [type,icon,dur,minP,maxP,providers[]]
-// ═══════════════════════════════════════════════════════════
 const ROUTES={
   'bangkok-chiang-mai':[['Flight','fa-plane','1h 20m',800,3500,['12Go','Agoda']],['Train (2nd Class AC)','fa-train','11h',300,900,['12Go']],['Bus (VIP)','fa-bus','9h',250,650,['12Go']],['Private Transfer','fa-car','8h',4000,7000,['12Go']]],
   'bangkok-phuket':[['Flight','fa-plane','1h 25m',1000,4500,['12Go','Agoda']],['Bus + Ferry','fa-bus','12h',500,1200,['12Go']],['Train + Bus','fa-train','14h',400,1000,['12Go']],['Private Transfer','fa-car','10h',6000,10000,['12Go']]],
@@ -228,440 +242,557 @@ const ROUTES={
   'bangkok-pattaya':[['Bus','fa-bus','2h',120,250,['12Go']],['Private Transfer','fa-car','1h 30m',1200,2500,['12Go']],['Taxi','fa-taxi','1h 30m',1000,1800,['12Go']],['Train','fa-train','2h 30m',30,80,['12Go']]],
   'bangkok-krabi':[['Flight','fa-plane','1h 20m',900,4000,['12Go','Agoda']],['Bus','fa-bus','12h',500,1000,['12Go']],['Train + Bus','fa-train','15h',400,900,['12Go']],['Private Transfer','fa-car','10h',6000,11000,['12Go']]],
   'bangkok-chiang-rai':[['Flight','fa-plane','1h 30m',900,3200,['12Go','Agoda']],['Bus','fa-bus','12h',350,700,['12Go']],['Private Transfer','fa-car','9h',5000,8500,['12Go']]],
-  'bangkok-ayutthaya':[['Train','fa-train','1h 30m',20,60,['12Go']],['Bus','fa-bus','1h 30m',50,100,['12Go']],['Private Transfer','fa-car','1h',800,1500,['12Go']],['Minivan','fa-van','1h 15m',60,120,['12Go']]],
+  'bangkok-ayutthaya':[['Train','fa-train','1h 30m',20,60,['12Go']],['Bus','fa-bus','1h 30m',50,100,['12Go']],['Private Transfer','fa-car','1h',800,1500,['12Go']]],
   'bangkok-hua-hin':[['Train','fa-train','2h 45m',50,300,['12Go']],['Bus','fa-bus','2h 30m',150,300,['12Go']],['Private Transfer','fa-car','2h 15m',2000,3500,['12Go']]],
   'bangkok-sukhothai':[['Bus','fa-bus','7h',300,600,['12Go']],['Train + Bus','fa-train','9h',250,500,['12Go']],['Flight (via CNX)','fa-plane','3h',1500,4000,['12Go']]],
   'bangkok-udon-thani':[['Flight','fa-plane','1h 15m',700,2800,['12Go','Agoda']],['Train','fa-train','9h',200,600,['12Go']],['Bus','fa-bus','8h',250,500,['12Go']]],
-  'chiang-mai-chiang-rai':[['Bus','fa-bus','3h',150,350,['12Go']],['Private Transfer','fa-car','2h 45m',2000,3500,['12Go']],['Minivan','fa-van','3h',180,300,['12Go']]],
-  'chiang-mai-pai':[['Minivan','fa-van','3h 30m',250,400,['12Go']],['Bus','fa-bus','4h',200,350,['12Go']],['Private Transfer','fa-car','3h',2500,4000,['12Go']]],
+  'chiang-mai-chiang-rai':[['Bus','fa-bus','3h',150,350,['12Go']],['Private Transfer','fa-car','2h 45m',2000,3500,['12Go']]],
+  'chiang-mai-pai':[['Minivan','fa-van','3h 30m',250,400,['12Go']],['Bus','fa-bus','4h',200,350,['12Go']]],
   'chiang-mai-phuket':[['Flight','fa-plane','2h 15m',1500,5500,['12Go','Agoda']],['Bus','fa-bus','18h',800,1500,['12Go']]],
-  'phuket-krabi':[['Ferry + Bus','fa-ship','3h',300,600,['12Go']],['Private Transfer','fa-car','2h',1500,3000,['12Go']],['Minivan','fa-van','3h',250,450,['12Go']]],
+  'phuket-krabi':[['Ferry + Bus','fa-ship','3h',300,600,['12Go']],['Private Transfer','fa-car','2h',1500,3000,['12Go']]],
   'phuket-koh-samui':[['Flight','fa-plane','1h',1500,5000,['12Go','Agoda']],['Ferry + Bus','fa-ship','6h',600,1200,['12Go']]],
   'koh-samui-koh-phangan':[['Ferry','fa-ship','30m',200,400,['12Go']],['Speedboat','fa-ship','15m',400,800,['12Go']]],
   'koh-samui-koh-tao':[['Ferry','fa-ship','1h 45m',400,700,['12Go']],['Speedboat','fa-ship','1h',700,1200,['12Go']]],
-  'krabi-ko-lanta':[['Ferry + Car','fa-ship','2h',300,600,['12Go']],['Private Transfer','fa-car','1h 30m',1200,2500,['12Go']],['Minivan','fa-van','2h',200,400,['12Go']]],
-  'bangkok-koh-phangan':[['Flight + Ferry','fa-plane','4h',2000,6000,['12Go','Agoda']],['Bus + Ferry','fa-bus','16h',700,1500,['12Go']],['Train + Ferry','fa-train','18h',600,1300,['12Go']]],
+  'krabi-ko-lanta':[['Ferry + Car','fa-ship','2h',300,600,['12Go']],['Private Transfer','fa-car','1h 30m',1200,2500,['12Go']]],
+  'bangkok-koh-phangan':[['Flight + Ferry','fa-plane','4h',2000,6000,['12Go','Agoda']],['Bus + Ferry','fa-bus','16h',700,1500,['12Go']]],
   'bangkok-koh-tao':[['Flight + Ferry','fa-plane','4h 30m',2200,6500,['12Go','Agoda']],['Bus + Ferry','fa-bus','18h',800,1600,['12Go']]],
-  'bangkok-ko-lanta':[['Flight','fa-plane','1h 30m',1000,4200,['12Go','Agoda']],['Bus','fa-bus','14h',600,1200,['12Go']],['Private Transfer','fa-car','11h',7000,13000,['12Go']]],
+  'bangkok-ko-lanta':[['Flight','fa-plane','1h 30m',1000,4200,['12Go','Agoda']],['Bus','fa-bus','14h',600,1200,['12Go']]],
   'bangkok-pai':[['Flight + Bus','fa-plane','5h',1800,5000,['12Go','Agoda']],['Bus','fa-bus','14h',500,900,['12Go']]],
   'chiang-mai-krabi':[['Flight','fa-plane','2h',1800,5500,['12Go','Agoda']],['Bus','fa-bus','20h',900,1600,['12Go']]],
-  'chiang-mai-koh-samui':[['Flight','fa-plane','2h',2000,6000,['12Go','Agoda']],['Bus + Ferry','fa-bus','22h',1000,1800,['12Go']]],
+  'chiang-mai-koh-samui':[['Flight','fa-plane','2h',2000,6000,['12Go','Agoda']]],
   'pattaya-phuket':[['Flight','fa-plane','1h 30m',1200,4500,['12Go','Agoda']],['Bus','fa-bus','13h',600,1200,['12Go']]],
   'chiang-mai-pattaya':[['Flight','fa-plane','1h 30m',1000,3500,['12Go','Agoda']],['Bus','fa-bus','11h',400,800,['12Go']]]
 };
 
-// ═══════════════════════════════════════════════════════════
-// DATA: ATTRACTIONS [name,type,duration,priceTHB,desc]
-// ═══════════════════════════════════════════════════════════
 const ATTRACTIONS={
-  'bangkok':[['Grand Palace & Wat Phra Kaew','Cultural','2-3h',500,'The most sacred Buddhist temple in Thailand'],['Wat Pho (Reclining Buddha)','Cultural','1-2h',300,'Home to the 46-meter gold-plated reclining Buddha'],['Wat Arun (Temple of Dawn)','Cultural','1-2h',100,'Stunning riverside temple with porcelain mosaic spire'],['Chatuchak Weekend Market','Shopping','3-5h',0,'One of the world\'s largest open-air markets'],['Chao Phraya River Dinner Cruise','Experience','2h',1200,'Dine while cruising past illuminated temples'],['Thai Cooking Class','Experience','4h',1200,'Learn to cook authentic Thai dishes from scratch'],['Floating Market Tour','Experience','4h',500,'Traditional floating market with boat vendors'],['Jim Thompson House','Cultural','1-2h',200,'Museum of the famous Thai silk merchant']],
-  'chiang-mai':[['Doi Suthep Temple','Cultural','2h',50,'Hilltop temple with panoramic city views'],['Elephant Nature Park','Wildlife','Full day',2500,'Ethical elephant sanctuary in a lush valley'],['Night Bazaar','Shopping','2-3h',0,'Famous evening market with local crafts'],['Thai Massage Course','Experience','4h',1500,'Learn traditional northern Thai massage techniques'],['Doi Inthanon National Park','Nature','Full day',300,'Thailand\'s highest peak with waterfalls'],['Old City Temple Walk','Cultural','3h',0,'Explore ancient wats within the historic walls'],['Sunday Walking Street','Shopping','3h',0,'Massive weekly market through the old city'],['Chiang Mai Canyon','Adventure','2h',50,'Former quarry turned cliff-jumping spot']],
-  'phuket':[['Phi Phi Islands Boat Tour','Island','Full day',2000,'Visit Maya Bay, Monkey Beach & snorkeling'],['Phang Nga Bay (James Bond Island)','Island','Full day',1800,'Limestone karsts and hidden lagoons'],['Big Buddha','Cultural','1-2h',0,'45-meter marble Buddha on a hilltop'],['Scuba Diving (Day Trip)','Adventure','Full day',3500,'Explore coral reefs and marine life'],['Thai Cooking Class','Experience','4h',1500,'Market tour followed by hands-on cooking'],['Old Phuket Town Walk','Cultural','2h',0,'Sino-Portuguese architecture and colorful streets'],['Phuket FantaSea Show','Entertainment','3h',2200,'Cultural theme park with spectacular show'],['Patong Beach','Beach','Evening',0,'Famous beach and entertainment strip']],
-  'koh-samui':[['Ang Thong Marine Park','Island','Full day',2500,'42-island archipelago with emerald lagoons'],['Na Muang Waterfalls','Nature','2h',0,'Twin waterfalls in lush jungle setting'],['Fisherman\'s Village (Bophut)','Cultural','2h',0,'Charming beachfront village with boutiques'],['Temple of the Big Buddha','Cultural','1h',0,'12-meter golden Buddha on a small island'],['Koh Samui Cooking Class','Experience','4h',1500,'Farm-to-table Thai cooking experience'],['Sunset Cruise','Experience','3h',1800,'Sail around the island during golden hour']],
-  'krabi':[['Four Islands Tour','Island','Full day',1500,'Chicken Island, Tup Island, Poda Island & Phra Nang Cave'],['Railay Beach','Beach','Full day',0,'Accessible only by boat, dramatic limestone cliffs'],['Hot Springs & Emerald Pool','Nature','Half day',300,'Natural hot springs and crystal-clear pool'],['Rock Climbing at Railay','Adventure','Half day',1500,'World-class limestone rock climbing'],['Krabi Night Market','Food','2h',0,'Local seafood and street food experience']],
-  'chiang-rai':[['White Temple (Wat Rong Khun)','Cultural','1-2h',100,'Surreal contemporary Buddhist art masterpiece'],['Blue Temple','Cultural','1h',0,'Stunning blue interior with intricate artwork'],['Baan Dam (Black House)','Cultural','1-2h',80,'Eclectic dark art museum'],['Golden Triangle','Cultural','Half day',0,'Where Thailand, Laos & Myanmar meet'],['Doi Tung Royal Villa','Cultural','2h',150,'Former royal residence with beautiful gardens']],
-  'ayutthaya':[['Ayutthaya Historical Park','Cultural','3-5h',0,'UNESCO site with ruins of the ancient capital'],['Wat Mahathat','Cultural','1h',0,'Iconic Buddha head entwined in tree roots'],['Wat Chaiwatthanaram','Cultural','1h',50,'Stunning Khmer-style temple at sunset'],['Ayutthaya Boat Tour','Experience','2h',500,'Explore ruins from the river perspective']],
-  'hua-hin':[['Hua Hin Beach','Beach','Half day',0,'Long sandy beach with calm waters'],['Cicada Market','Shopping','3h',0,'Art market with live music and creative food'],['Huay Mongkol Temple','Cultural','1h',0,'Giant statue of the popular monk Luang Por Thuat'],['Kaeng Krachan National Park','Nature','Full day',300,'Thailand\'s largest national park']],
-  'sukhothai':[['Sukhothai Historical Park','Cultural','4-6h',150,'UNESCO site, birthplace of Thai civilization'],['Wat Mahathat','Cultural','1h',0,'Central temple with the iconic standing Buddha'],['Bicycle Tour of Ruins','Experience','3h',100,'Cycle through 13th-century temple ruins']],
-  'pai':[['Pai Canyon','Nature','2h',0,'Narrow ridges with dramatic valley views'],['Tha Pai Hot Springs','Nature','2h',300,'Natural hot springs in a forest setting'],['Wat Phra That Mae Yen','Cultural','1h',0,'Hilltop temple with a giant white Buddha'],['Pai Walking Street','Shopping','3h',0,'Evening market with bohemian atmosphere']],
+  'bangkok':[['Grand Palace & Wat Phra Kaew','Cultural','2-3h',500,'The most sacred Buddhist temple'],['Wat Pho (Reclining Buddha)','Cultural','1-2h',300,'46-meter gold-plated reclining Buddha'],['Wat Arun (Temple of Dawn)','Cultural','1-2h',100,'Riverside temple with porcelain mosaic spire'],['Chatuchak Weekend Market','Shopping','3-5h',0,'15,000+ stalls open-air market'],['Chao Phraya River Dinner Cruise','Experience','2h',1200,'Dine cruising past illuminated temples'],['Thai Cooking Class','Experience','4h',1200,'Cook authentic Thai dishes from scratch'],['Floating Market Tour','Experience','4h',500,'Traditional floating market with boat vendors'],['Jim Thompson House','Cultural','1-2h',200,'Famous Thai silk merchant museum']],
+  'chiang-mai':[['Doi Suthep Temple','Cultural','2h',50,'Hilltop temple with panoramic city views'],['Elephant Nature Park','Wildlife','Full day',2500,'Ethical elephant sanctuary'],['Night Bazaar','Shopping','2-3h',0,'Famous evening market with crafts and food'],['Thai Massage Course','Experience','4h',1500,'Traditional northern Thai massage techniques'],['Doi Inthanon National Park','Nature','Full day',300,'Thailand\'s highest peak with waterfalls'],['Old City Temple Walk','Cultural','3h',0,'Explore ancient wats within historic walls'],['Sunday Walking Street','Shopping','3h',0,'Massive weekly market in the old city'],['Chiang Mai Canyon','Adventure','2h',50,'Former quarry turned cliff-jumping spot']],
+  'phuket':[['Phi Phi Islands Boat Tour','Island','Full day',2000,'Maya Bay, Monkey Beach & snorkeling'],['Phang Nga Bay (James Bond Island)','Island','Full day',1800,'Limestone karsts and hidden lagoons'],['Big Buddha','Cultural','1-2h',0,'45-meter marble Buddha on a hilltop'],['Patong Beach & Nightlife','Beach','Evening',0,'Famous beach and entertainment strip'],['Scuba Diving (Day Trip)','Adventure','Full day',3500,'Explore coral reefs and marine life'],['Thai Cooking Class','Experience','4h',1500,'Market tour and hands-on cooking'],['Old Phuket Town Walk','Cultural','2h',0,'Sino-Portuguese architecture'],['Phuket FantaSea Show','Entertainment','3h',2200,'Cultural theme park spectacular show']],
+  'koh-samui':[['Ang Thong Marine Park','Island','Full day',2500,'42-island archipelago with emerald lagoons'],['Na Muang Waterfalls','Nature','2h',0,'Twin waterfalls in lush jungle'],['Fisherman\'s Village (Bophut)','Cultural','2h',0,'Charming beachfront village with boutiques'],['Temple of the Big Buddha','Cultural','1h',0,'12-meter golden Buddha'],['Koh Samui Cooking Class','Experience','4h',1500,'Farm-to-table Thai cooking'],['Sunset Cruise','Experience','3h',1800,'Sail around the island at golden hour']],
+  'krabi':[['Four Islands Tour','Island','Full day',1500,'Chicken Island, Tup Island, Poda Island'],['Railay Beach','Beach','Full day',0,'Dramatic limestone cliffs, boat access only'],['Hot Springs & Emerald Pool','Nature','Half day',300,'Natural hot springs and crystal-clear pool'],['Rock Climbing at Railay','Adventure','Half day',1500,'World-class limestone rock climbing'],['Krabi Night Market','Food','2h',0,'Local seafood and street food']],
+  'chiang-rai':[['White Temple (Wat Rong Khun)','Cultural','1-2h',100,'Surreal contemporary Buddhist art'],['Blue Temple','Cultural','1h',0,'Stunning blue interior with intricate artwork'],['Baan Dam (Black House)','Cultural','1-2h',80,'Eclectic dark art museum'],['Golden Triangle','Cultural','Half day',0,'Where Thailand, Laos & Myanmar meet'],['Doi Tung Royal Villa','Cultural','2h',150,'Royal residence with beautiful gardens']],
+  'ayutthaya':[['Ayutthaya Historical Park','Cultural','3-5h',0,'UNESCO ruins of the ancient capital'],['Wat Mahathat (Buddha in Tree)','Cultural','1h',0,'Iconic Buddha head in tree roots'],['Wat Chaiwatthanaram','Cultural','1h',50,'Stunning Khmer-style temple at sunset'],['Ayutthaya Boat Tour','Experience','2h',500,'Explore ruins from the river']],
+  'hua-hin':[['Hua Hin Beach','Beach','Half day',0,'Long sandy beach with calm waters'],['Cicada Market','Shopping','3h',0,'Art market with live music and creative food'],['Huay Mongkol Temple','Cultural','1h',0,'Giant statue of monk Luang Por Thuat'],['Kaeng Krachan National Park','Nature','Full day',300,'Thailand\'s largest national park']],
+  'sukhothai':[['Sukhothai Historical Park','Cultural','4-6h',150,'UNESCO birthplace of Thai civilization'],['Wat Mahathat','Cultural','1h',0,'Central temple with iconic standing Buddha'],['Bicycle Tour of Ruins','Experience','3h',100,'Cycle through 13th-century temple ruins']],
   'koh-phangan':[['Full Moon Party','Event','All night',500,'World-famous beach party on Haad Rin'],['Thong Nai Pan Beach','Beach','Half day',0,'Beautiful twin bays with white sand'],['Khao Ra Jungle Trek','Adventure','4h',0,'Hike to the island\'s highest peak'],['Yoga Retreat Session','Wellness','2h',500,'Beachfront yoga with ocean views']],
-  'koh-tao':[['Open Water Diving Course','Adventure','3-4 days',10000,'Get certified at one of the cheapest diving locations'],['Snorkeling Tour','Adventure','Half day',800,'Visit Nang Yuan Island and coral reefs'],['Sunset Viewpoint Hike','Nature','1h',0,'Panoramic views of the island at golden hour']],
-  'ko-lanta':[['Mu Ko Lanta National Park','Nature','Half day',200,'Protected marine park with mangrove forests'],['Old Town Lanta','Cultural','2h',0,'Charming Chinese-influenced fishing village'],['Beach Hopping','Beach','Full day',0,'Explore the island\'s many beautiful beaches']],
-  'pattaya':[['Nong Nooch Tropical Garden','Nature','Half day',500,'Beautifully landscaped gardens with cultural shows'],['Sanctuary of Truth','Cultural','2h',500,'Massive all-wood carving temple'],['Floating Market (4 Regions)','Experience','2h',200,'Replica floating market with regional food'],['Coral Island (Koh Larn)','Island','Half day',800,'Speedboat to nearby island for snorkeling']],
-  'udon-thani':[['Ban Chiang Archaeological Site','Cultural','2h',150,'UNESCO site, earliest Bronze Age settlements'],['Red Lotus Sea','Nature','2h',300,'Thousands of pink lotus flowers on the lake'],['UD Town Night Market','Food','2h',0,'Trendy night market with local specialties']]
+  'koh-tao':[['Open Water Diving Course','Adventure','3-4 days',10000,'Get certified at world\'s cheapest diving spot'],['Snorkeling Tour','Adventure','Half day',800,'Visit Nang Yuan Island and coral reefs'],['Sunset Viewpoint Hike','Nature','1h',0,'Panoramic island views at golden hour'],['Sairee Beach','Beach','Half day',0,'Main beach with restaurants and dive shops']],
+  'ko-lanta':[['Mu Ko Lanta National Park','Nature','Half day',200,'Protected marine park with mangroves'],['Old Town Lanta','Cultural','2h',0,'Chinese-influenced fishing village'],['Beach Hopping','Beach','Full day',0,'Explore the island\'s many beautiful beaches']],
+  'pattaya':[['Nong Nooch Tropical Garden','Nature','Half day',500,'Landscaped gardens with cultural shows'],['Sanctuary of Truth','Cultural','2h',500,'Massive all-wood carving temple'],['Floating Market (4 Regions)','Experience','2h',200,'Replica floating market with regional food'],['Coral Island (Koh Larn)','Island','Half day',800,'Speedboat to nearby island for snorkeling']],
+  'pai':[['Pai Canyon','Nature','2h',0,'Narrow ridges with dramatic valley views'],['Tha Pai Hot Springs','Nature','2h',300,'Natural hot springs in forest setting'],['Wat Phra That Mae Yen','Cultural','1h',0,'Hilltop temple with giant white Buddha'],['Pai Walking Street','Shopping','3h',0,'Evening market with bohemian atmosphere']],
+  'udon-thani':[['Ban Chiang Archaeological Site','Cultural','2h',150,'UNESCO earliest Bronze Age settlement'],['Red Lotus Sea','Nature','2h',300,'Thousands of pink lotus flowers on the lake'],['UD Town Night Market','Food','2h',0,'Trendy night market with local specialties']]
 };
 
 // ═══════════════════════════════════════════════════════════
-// DATA: WAYPOINTS, ACCOM PRICES, ETC.
+// FREE ATTRACTIONS / EVENTS / NIGHTLIFE (per city)
+// Used in timeline for stays > 7 nights
 // ═══════════════════════════════════════════════════════════
-const WAYPOINTS={
-  'bangkok-chiang-mai':[{city:'ayutthaya',stay:true,note:'Ancient capital, 1h from BKK'},{city:'sukhothai',stay:true,note:'Halfway, UNESCO ruins'}],
-  'bangkok-phuket':[{city:'hua-hin',stay:true,note:'Beach stopover'},{city:'krabi',stay:true,note:'Gateway to islands'}],
-  'bangkok-koh-samui':[{city:'hua-hin',stay:false,note:'Quick coastal stop'}],
-  'bangkok-krabi':[{city:'hua-hin',stay:true,note:'Coastal stopover'}],
-  'bangkok-chiang-rai':[{city:'ayutthaya',stay:false,note:'Ancient ruins'},{city:'chiang-mai',stay:true,note:'Overnight in Chiang Mai'}],
-  'bangkok-sukhothai':[{city:'ayutthaya',stay:false,note:'Ancient ruins'}],
-  'bangkok-pai':[{city:'chiang-mai',stay:true,note:'Transit via Chiang Mai'}],
-  'bangkok-koh-phangan':[{city:'koh-samui',stay:false,note:'Ferry from Samui'}],
-  'bangkok-koh-tao':[{city:'koh-samui',stay:false,note:'Ferry from Samui'}],
-  'bangkok-ko-lanta':[{city:'krabi',stay:false,note:'Ferry from Krabi'}],
-  'chiang-mai-krabi':[{city:'bangkok',stay:false,note:'Transit via Bangkok'}],
-  'chiang-mai-koh-samui':[{city:'bangkok',stay:false,note:'Transit via Bangkok'}],
-  'pattaya-phuket':[{city:'bangkok',stay:false,note:'Transit via Bangkok'}],
-  'chiang-mai-pattaya':[{city:'bangkok',stay:false,note:'Transit via Bangkok'}]
+const FREE_ACTIVITIES={
+  'bangkok':[
+    {name:'Khao San Road Nightlife',type:'Nightlife',icon:'fa-martini-glass',when:'evening'},
+    {name:'Chinatown (Yaowarat) Street Food',type:'Food',icon:'fa-bowl-food',when:'evening'},
+    {name:'Lumphini Park Morning Walk',type:'Nature',icon:'fa-tree',when:'morning'},
+    {name:'Asiatique Night Market',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Riverside Promenade Walk',type:'Nature',icon:'fa-water',when:'afternoon'},
+    {name:'Siam Square Window Shopping',type:'Shopping',icon:'fa-bag-shopping',when:'afternoon'},
+    {name:'Bang Rak Art Village',type:'Culture',icon:'fa-palette',when:'afternoon'},
+    {name:'Talad Rot Fai Night Market',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Sri Nakhon Khuean Khan Park',type:'Nature',icon:'fa-leaf',when:'morning'},
+    {name:'Wang Lang Market Food Tour',type:'Food',icon:'fa-utensils',when:'afternoon'}
+  ],
+  'chiang-mai':[
+    {name:'Nimmanhaemin Road Cafe Hopping',type:'Food',icon:'fa-mug-hot',when:'afternoon'},
+    {name:'Huay Keaw Waterfall Swim',type:'Nature',icon:'fa-water',when:'morning'},
+    {name:'Warorot Market Local Snacks',type:'Food',icon:'fa-bowl-food',when:'afternoon'},
+    {name:'Baan Kang Wat Art Village',type:'Culture',icon:'fa-palette',when:'afternoon'},
+    {name:'Chiang Mai Gate Food Stalls',type:'Food',icon:'fa-utensils',when:'evening'},
+    {name:'Monk Chat at Wat Suan Dok',type:'Culture',icon:'fa-comments',when:'morning'},
+    {name:'Ping River Sunset Walk',type:'Nature',icon:'fa-sun',when:'evening'},
+    {name:'MUANG Chiang Mai Craft Center',type:'Culture',icon:'fa-palette',when:'afternoon'}
+  ],
+  'phuket':[
+    {name:'Karon Beach Sunset',type:'Beach',icon:'fa-umbrella-beach',when:'evening'},
+    {name:'Phuket Old Town Evening Stroll',type:'Culture',icon:'fa-person-walking',when:'evening'},
+    {name:'Bangla Road Nightlife',type:'Nightlife',icon:'fa-martini-glass',when:'evening'},
+    {name:'Kata Viewpoint Sunrise',type:'Nature',icon:'fa-sun',when:'morning'},
+    {name:'Promthep Cape Sunset',type:'Nature',icon:'fa-sun',when:'evening'},
+    {name:'Phuket Weekend Market',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Surin Beach Lounge',type:'Beach',icon:'fa-umbrella-beach',when:'afternoon'},
+    {name:'Rawai Sea Gypsy Village',type:'Culture',icon:'fa-anchor',when:'afternoon'}
+  ],
+  'koh-samui':[
+    {name:'Chaweng Beach Night Market',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Lamai Beach Walk',type:'Beach',icon:'fa-umbrella-beach',when:'afternoon'},
+    {name:'Bophut Fisherman\'s Village Evening',type:'Culture',icon:'fa-person-walking',when:'evening'},
+    {name:'Hin Ta Hin Yai Rocks',type:'Nature',icon:'fa-mountain',when:'afternoon'},
+    {name:'Secret Buddha Garden Walk',type:'Culture',icon:'fa-tree',when:'morning'},
+    {name:'Maenam Beach Sunset',type:'Beach',icon:'fa-sun',when:'evening'}
+  ],
+  'krabi':[
+    {name:'Ao Nang Landmark Night Market',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Ao Nang Beach Evening Walk',type:'Beach',icon:'fa-umbrella-beach',when:'evening'},
+    {name:'Krabi Town Walking Street',type:'Culture',icon:'fa-person-walking',when:'evening'},
+    {name:'Tubkaek Beach Sunset',type:'Nature',icon:'fa-sun',when:'evening'},
+    {name:'Khao Khanap Nam Cave Walk',type:'Nature',icon:'fa-mountain',when:'morning'}
+  ],
+  'chiang-rai':[
+    {name:'Chiang Rai Night Bazaar',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Mae Fah Luang Art & Culture Park',type:'Culture',icon:'fa-palette',when:'afternoon'},
+    {name:'Kok River Riverside Walk',type:'Nature',icon:'fa-water',when:'evening'},
+    {name:'Singha Park Cycling',type:'Nature',icon:'fa-bicycle',when:'morning'}
+  ],
+  'ayutthaya':[
+    {name:'Ayutthaya Riverside Sunset',type:'Nature',icon:'fa-sun',when:'evening'},
+    {name:'Ayutthaya Night Market',type:'Food',icon:'fa-utensils',when:'evening'},
+    {name:'French-Thai Fusion Cafe Strip',type:'Food',icon:'fa-mug-hot',when:'afternoon'},
+    {name:' cycling Around the Ruins',type:'Culture',icon:'fa-bicycle',when:'morning'}
+  ],
+  'hua-hin':[],
+  'sukhothai':[],
+  'koh-phangan':[
+    {name:'Haad Rin Beach Sunset',type:'Beach',icon:'fa-umbrella-beach',when:'evening'},
+    {name:'Thong Sala Night Market',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Bottle Beach Hike',type:'Nature',icon:'fa-mountain',when:'morning'},
+    {name:'Haad Yao Beach Lounge',type:'Beach',icon:'fa-umbrella-beach',when:'afternoon'}
+  ],
+  'koh-tao':[
+    {name:'Sairee Beach Sunset Bars',type:'Nightlife',icon:'fa-martini-glass',when:'evening'},
+    {name:'Mae Haad Pier Walk',type:'Culture',icon:'fa-person-walking',when:'afternoon'},
+    {name:'Shark Bay Snorkeling (free)',type:'Nature',icon:'fa-fish',when:'morning'},
+    {name:'John Suwan Viewpoint Hike',type:'Nature',icon:'fa-mountain',when:'morning'}
+  ],
+  'ko-lanta':[
+    {name:'Long Beach Sunset',type:'Beach',icon:'fa-umbrella-beach',when:'evening'},
+    {name:'Lanta Old Town Evening Walk',type:'Culture',icon:'fa-person-walking',when:'evening'},
+    {name:'Kantiang Bay Beach',type:'Beach',icon:'fa-umbrella-beach',when:'afternoon'},
+    {name:'Lanta Animal Welfare Visit',type:'Culture',icon:'fa-paw',when:'afternoon'}
+  ],
+  'pattaya':[
+    {name:'Walking Street Nightlife',type:'Nightlife',icon:'fa-martini-glass',when:'evening'},
+    {name:'Pattaya Beach Promenade',type:'Beach',icon:'fa-umbrella-beach',when:'evening'},
+    {name:'Thepprasit Night Market',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Sanctuary of Truth Surroundings',type:'Culture',icon:'fa-landmark',when:'afternoon'}
+  ],
+  'pai':[
+    {name:'Pai Walking Street Evening',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Pai Canyon Sunset',type:'Nature',icon:'fa-sun',when:'evening'},
+    {name:'Santichon Chinese Village Walk',type:'Culture',icon:'fa-person-walking',when:'afternoon'},
+    {name:'Pai River Swimming',type:'Nature',icon:'fa-water',when:'afternoon'}
+  ],
+  'udon-thani':[
+    {name:'UD Town Night Market',type:'Food',icon:'fa-utensils',when:'evening'},
+    {name:'Nong Prajak Park Evening',type:'Nature',icon:'fa-tree',when:'evening'},
+    {name:'Udon Thani City Pillar Shrine',type:'Culture',icon:'fa-landmark',when:'morning'}
+  ],
+  'hua-hin':[
+    {name:'Cicada Market Evening',type:'Shopping',icon:'fa-store',when:'evening'},
+    {name:'Hua Hin Night Market',type:'Food',icon:'fa-utensils',when:'evening'},
+    {name:'Hua Hin Beach Sunset Walk',type:'Beach',icon:'fa-umbrella-beach',when:'evening'},
+    {name:'Rajabhakti Park Walk',type:'Culture',icon:'fa-landmark',when:'morning'}
+  ],
+  'sukhothai':[
+    {name:'Sukhothai Night Market',type:'Food',icon:'fa-utensils',when:'evening'},
+    {name:'Yom River Evening Walk',type:'Nature',icon:'fa-water',when:'evening'},
+    {name:'Sukhothai Town Cycling',type:'Culture',icon:'fa-bicycle',when:'morning'}
+  ]
 };
+
+const WAYPOINTS={
+  'bangkok-chiang-mai':[{city:'ayutthaya',km:80,stay:true,note:'1h from Bangkok'},{city:'sukhothai',km:420,stay:true,note:'Halfway point'}],
+  'bangkok-phuket':[{city:'hua-hin',km:200,stay:true,note:'Beach stopover'},{city:'krabi',km:780,stay:true,note:'Gateway to islands'}],
+  'bangkok-koh-samui':[{city:'hua-hin',km:200,stay:false,note:'Quick stop'}],
+  'bangkok-krabi':[{city:'hua-hin',km:200,stay:true,note:'Coastal stopover'}],
+  'bangkok-chiang-rai':[{city:'ayutthaya',km:80,stay:false,note:'Ancient capital'},{city:'chiang-mai',km:700,stay:true,note:'Overnight in Chiang Mai'}],
+  'bangkok-sukhothai':[{city:'ayutthaya',km:80,stay:false,note:'Ancient ruins'}],
+  'bangkok-pai':[{city:'chiang-mai',km:700,stay:true,note:'Transit via Chiang Mai'}],
+  'bangkok-koh-phangan':[{city:'koh-samui',km:0,stay:false,note:'Ferry from Samui'}],
+  'bangkok-koh-tao':[{city:'koh-samui',km:0,stay:false,note:'Ferry from Samui'}],
+  'bangkok-ko-lanta':[{city:'krabi',km:0,stay:false,note:'Ferry from Krabi'}],
+  'chiang-mai-krabi':[{city:'bangkok',km:700,stay:false,note:'Transit via Bangkok'}],
+  'chiang-mai-koh-samui':[{city:'bangkok',km:700,stay:false,note:'Transit via Bangkok'}],
+  'pattaya-phuket':[{city:'bangkok',km:150,stay:false,note:'Transit via Bangkok'}],
+  'chiang-mai-pattaya':[{city:'bangkok',km:700,stay:false,note:'Transit via Bangkok'}]
+};
+
 const ACCOM_PRICES={
   'bangkok':[400,800,900,2500,3000,15000],'chiang-mai':[300,600,700,2000,2500,12000],'phuket':[500,1000,1100,3000,3500,20000],'koh-samui':[500,1000,1100,3500,4000,25000],'pattaya':[400,800,900,2200,2500,10000],'krabi':[400,800,900,2500,3000,15000],'chiang-rai':[250,500,600,1500,2000,8000],'ayutthaya':[250,500,600,1500,1800,6000],'hua-hin':[400,800,900,2500,3000,15000],'sukhothai':[250,500,500,1200,1500,5000],'koh-phangan':[350,700,800,2500,3000,18000],'koh-tao':[300,600,700,2000,2500,12000],'ko-lanta':[350,700,800,2200,2500,12000],'pai':[200,400,450,1200,1500,5000],'udon-thani':[250,500,600,1500,1800,6000]
 };
 const DEFAULT_ACCOM=[400,800,900,2500,3000,15000];
+const SAI_CITIES=['phuket','koh-samui','koh-phangan'];
 
-// ═══════════════════════════════════════════════════════════
-// APP STATE & CURRENCY
-// ═══════════════════════════════════════════════════════════
 let state={departure:null,destination:null,checkIn:null,checkOut:null,currency:'THB',guests:2,rates:null,nights:0,rooms:1};
 const FALLBACK_RATES={THB:1,USD:0.028,EUR:0.026,GBP:0.022,JPY:4.3,CNY:0.20,TRY:0.90};
 
-async function fetchRates(){try{const r=await fetch('https://api.exchangerate-api.com/v4/latest/THB');if(!r.ok)throw 0;state.rates=(await r.json()).rates;return true;}catch(e){state.rates=FALLBACK_RATES;return false;}}
-function convert(thb){return state.currency==='THB'?thb:thb*(state.rates[state.currency]||1);}
-function fmtPrice(thb,showTHB=true){const s={THB:'฿',USD:'$',EUR:'€',GBP:'£',JPY:'¥',CNY:'¥',TRY:'₺'}[state.currency]||'';const c=convert(thb);const m=state.currency==='JPY'?Math.round(c).toLocaleString():c.toFixed(state.currency==='THB'?0:2).replace(/\B(?=(\d{3})+(?!\d))/g,',');if(showTHB&&state.currency!=='THB')return`${s}${m} <span class="text-thai-muted text-xs">(฿${thb.toLocaleString()})</span>`;return`${s}${m}`;}
-function fmtPriceRaw(thb){const s={THB:'฿',USD:'$',EUR:'€',GBP:'£',JPY:'¥',CNY:'¥',TRY:'₺'}[state.currency]||'';const c=convert(thb);return state.currency==='JPY'?`${s}${Math.round(c).toLocaleString()}`:`${s}${c.toFixed(state.currency==='THB'?0:2)}`;}
+async function fetchRates(){try{const r=await fetch('https://api.exchangerate-api.com/v4/latest/THB');if(!r.ok)throw 0;state.rates=(await r.json()).rates;return true}catch(e){state.rates=FALLBACK_RATES;return false}}
+function convert(t){return state.currency==='THB'?t:t*(state.rates[state.currency]||1)}
+function fmtPrice(t,s=true){const sy={THB:'฿',USD:'$',EUR:'€',GBP:'£',JPY:'¥',CNY:'¥',TRY:'₺'}[state.currency]||'';const c=convert(t);const m=state.currency==='JPY'?Math.round(c).toLocaleString():c.toFixed(state.currency==='THB'?0:2).replace(/\B(?=(\d{3})+(?!\d))/g,',');return s&&state.currency!=='THB'?`${sy}${m} <span class="text-thai-muted text-xs">(฿${t.toLocaleString()})</span>`:`${sy}${m}`}
+function fmtPriceRaw(t){const sy={THB:'฿',USD:'$',EUR:'€',GBP:'£',JPY:'¥',CNY:'¥',TRY:'₺'}[state.currency]||'';const c=convert(t);return state.currency==='JPY'?`${sy}${Math.round(c).toLocaleString()}`:`${sy}${c.toFixed(state.currency==='THB'?0:2)}`}
 
-// ═══════════════════════════════════════════════════════════
-// AFFILIATE URL BUILDERS — Add your tags at >>> markers <<<
-// ═══════════════════════════════════════════════════════════
-function agodaUrl(c,ci,co,r,a){return`https://www.agoda.com/en-en/search?ss=${encodeURIComponent(ALL_CITIES[c].name+' Thailand')}&checkin=${ci}&checkout=${co}&rooms=${r}&adults=${a}`;}
-function bookingUrl(c,ci,co,r,a){return`https://www.booking.com/searchresults.html?ss=${encodeURIComponent(ALL_CITIES[c].name+', Thailand')}&checkin=${ci}&checkout=${co}&group_adults=${a}&no_rooms=${r}`;}
-function travelokaUrl(c,ci,co,r,a){return`https://www.traveloka.com/en-us/hotel/search?spec=${ci}-${co}-1-${a}-${r}&city=${encodeURIComponent(ALL_CITIES[c].name)}`;}
-function go12Url(f,t,d,p){return`https://12go.asia/en/search?from=${ALL_CITIES[f].slug||ALL_CITIES[f].iata.toLowerCase()}&to=${ALL_CITIES[t].slug||ALL_CITIES[t].iata.toLowerCase()}&date=${d}&pax=${p}`;}
-function agodaFlightUrl(fi,ti,d,a){return`https://www.agoda.com/en-en/flights/search?dep=${fi}&arr=${ti}&date=${d}&adults=${a}&cabin=Economy`;}
-function klookUrl(k){return`https://www.klook.com/en-US/search/results?keyword=${encodeURIComponent(k+' Thailand')}`;}
-function kkdayUrl(k){return`https://www.kkday.com/en-us/search?keyword=${encodeURIComponent(k)}`;}
-function gygUrl(k){return`https://www.getyourguide.com/search?q=${encodeURIComponent(k+' Thailand')}`;}
-function affBtn(cls,label,url){return`<a href="${url}" target="_blank" rel="noopener noreferrer" class="aff-btn aff-${cls}"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>${label}</a>`;}
+function agodaUrl(c,ci,co,r,a){return`https://www.agoda.com/en-en/search?ss=${encodeURIComponent(ALL_CITIES[c].name+' Thailand')}&checkin=${ci}&checkout=${co}&rooms=${r}&adults=${a}`}
+function bookingUrl(c,ci,co,r,a){return`https://www.booking.com/searchresults.html?ss=${encodeURIComponent(ALL_CITIES[c].name+', Thailand')}&checkin=${ci}&checkout=${co}&group_adults=${a}&no_rooms=${r}`}
+function travelokaUrl(c,ci,co,r,a){return`https://www.traveloka.com/en-us/hotel/search?spec=${ci}-${co}-1-${a}-${r}&city=${encodeURIComponent(ALL_CITIES[c].name)}`}
+function saiiUrl(c){return c==='phuket'?'https://www.sairesorts.com/la-phuket/':c==='koh-samui'?'https://www.sairesorts.com/samui/':c==='koh-phangan'?'https://www.sairesorts.com/phi-phi-island/':'https://www.sairesorts.com/'}
+function go12Url(f,t,d,p){return`https://12go.asia/en/search?from=${ALL_CITIES[f].slug||ALL_CITIES[f].iata.toLowerCase()}&to=${ALL_CITIES[t].slug||ALL_CITIES[t].iata.toLowerCase()}&date=${d}&pax=${p}`}
+function agodaFlightUrl(fi,ti,d,a){return`https://www.agoda.com/en-en/flights/search?dep=${fi}&arr=${ti}&date=${d}&adults=${a}&cabin=Economy`}
+function klookUrl(k){return`https://www.klook.com/en-US/search/results?keyword=${encodeURIComponent(k+' Thailand')}`}
+function kkdayUrl(k){return`https://www.kkday.com/en-us/search?keyword=${encodeURIComponent(k)}`}
+function gygUrl(k){return`https://www.getyourguide.com/search?q=${encodeURIComponent(k+' Thailand')}`}
 
-// ═══════════════════════════════════════════════════════════
-// DROPDOWNS, UI HELPERS
-// ═══════════════════════════════════════════════════════════
 function populateDropdowns(){
-  const d=document.getElementById('departureSelect'),ds=document.getElementById('destinationSelect');
+  const d=document.getElementById('departureSelect'),s=document.getElementById('destinationSelect');
   let dh='<option value="" disabled selected>Choose departure city</option>';
-  ['Central','North','South','Northeast'].forEach(r=>{const cs=THAI_BY_REGION[r];if(!cs)return;dh+=`<optgroup label="Thailand — ${r}">`;cs.forEach(c=>{dh+=`<option value="${c.key}">${c.name} (${c.iata})</option>`;});dh+='</optgroup>';});
-  dh+='<optgroup label="International">';Object.entries(INTL_CITIES).forEach(([k,v])=>{dh+=`<option value="${k}">${v.name} (${v.iata})</option>`;});dh+='</optgroup>';d.innerHTML=dh;
-  let th='<option value="" disabled selected>Choose destination in Thailand</option>';
-  ['Central','North','South','Northeast'].forEach(r=>{const cs=THAI_BY_REGION[r];if(!cs)return;th+=`<optgroup label="${r}">`;cs.forEach(c=>{th+=`<option value="${c.key}">${c.name} (${c.iata})</option>`;});th+='</optgroup>';});ds.innerHTML=th;
+  ['Central','North','South','Northeast'].forEach(r=>{const cs=THAI_BY_REGION[r];if(!cs)return;dh+=`<optgroup label="Thailand — ${r}">`;cs.forEach(c=>{dh+=`<option value="${c.key}">${c.name} (${c.iata})</option>`});dh+='</optgroup>'});
+  dh+='<optgroup label="International">';Object.entries(INTL_CITIES).forEach(([k,v])=>{dh+=`<option value="${k}">${v.name} (${v.iata})</option>`});dh+='</optgroup>';
+  d.innerHTML=dh;
+  let sh='<option value="" disabled selected>Choose destination in Thailand</option>';
+  ['Central','North','South','Northeast'].forEach(r=>{const cs=THAI_BY_REGION[r];if(!cs)return;sh+=`<optgroup label="${r}">`;cs.forEach(c=>{sh+=`<option value="${c.key}">${c.name} (${c.iata})</option>`});sh+='</optgroup>'});
+  s.innerHTML=sh;
 }
-function adjustGuests(d){const i=document.getElementById('guestsInput');i.value=Math.max(1,Math.min(20,parseInt(i.value)+d));}
-function swapCities(){const d=document.getElementById('departureSelect'),s=document.getElementById('destinationSelect');if(!s.value||!THAI_CITIES[s.value])return;const t=d.value;d.value=s.value;s.value=THAI_CITIES[t]?t:'bangkok';}
-function showToast(m,t='info'){const c=document.getElementById('toastContainer'),e=document.createElement('div');e.className=`toast toast-${t}`;e.innerHTML=`<i class="fa-solid ${t==='error'?'fa-circle-exclamation':t==='success'?'fa-circle-check':'fa-circle-info'} mr-2"></i>${m}`;c.appendChild(e);setTimeout(()=>{e.style.opacity='0';e.style.transition='opacity .3s';setTimeout(()=>e.remove(),300);},4000);}
-function switchTab(id){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+id));}
-function getNights(){if(!state.checkIn||!state.checkOut)return 0;return Math.max(0,Math.round((new Date(state.checkOut)-new Date(state.checkIn))/864e5));}
-function getRooms(g){return Math.max(1,Math.ceil(g/2));}
-function isThaiCity(k){return!!THAI_CITIES[k];}
-function formatDate(d){return new Date(d+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
-function truncStr(s,n){return s.length>n?s.substring(0,n-1)+'…':s;}
+
+function adjustGuests(d){const i=document.getElementById('guestsInput');i.value=Math.max(1,Math.min(20,parseInt(i.value)+d))}
+function swapCities(){const d=document.getElementById('departureSelect'),s=document.getElementById('destinationSelect');if(!s.value||!THAI_CITIES[s.value])return;const t=d.value;d.value=s.value;s.value=THAI_CITIES[t]?t:'bangkok'}
+function showToast(m,t='info'){const c=document.getElementById('toastContainer'),e=document.createElement('div');e.className=`toast toast-${t}`;e.innerHTML=`<i class="fa-solid ${t==='error'?'fa-circle-exclamation':t==='success'?'fa-circle-check':'fa-circle-info'} mr-2"></i>${m}`;c.appendChild(e);setTimeout(()=>{e.style.opacity='0';e.style.transition='opacity .3s';setTimeout(()=>e.remove(),300)},4000)}
+function switchTab(id){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+id))}
+function getNights(){if(!state.checkIn||!state.checkOut)return 0;return Math.max(0,Math.round((new Date(state.checkOut)-new Date(state.checkIn))/864e5))}
+function getRooms(g){return Math.max(1,Math.ceil(g/2))}
+function isThaiCity(k){return!!THAI_CITIES[k]}
+function affBtn(c,l,u){return`<a href="${u}" target="_blank" rel="noopener noreferrer" class="aff-btn aff-${c}"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>${l}</a>`}
+function formatDate(d){return new Date(d+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}
+
+function validateForm(){
+  const d=document.getElementById('departureSelect').value,t=document.getElementById('destinationSelect').value,ci=document.getElementById('checkIn').value,co=document.getElementById('checkOut').value;
+  if(!d){showToast('Please select a departure city','error');return false}
+  if(!t){showToast('Please select a destination city','error');return false}
+  if(d===t){showToast('Departure and destination must be different','error');return false}
+  if(!ci){showToast('Please select a check-in date','error');return false}
+  if(!co){showToast('Please select a check-out date','error');return false}
+  if(new Date(co)<=new Date(ci)){showToast('Check-out must be after check-in','error');return false}
+  return true;
+}
+
+async function performSearch(){
+  if(!validateForm())return;
+  state.departure=document.getElementById('departureSelect').value;
+  state.destination=document.getElementById('destinationSelect').value;
+  state.checkIn=document.getElementById('checkIn').value;
+  state.checkOut=document.getElementById('checkOut').value;
+  state.currency=document.getElementById('currencySelect').value;
+  state.guests=parseInt(document.getElementById('guestsInput').value);
+  state.nights=getNights();state.rooms=getRooms(state.guests);
+  document.getElementById('resultsSection').classList.remove('hidden');
+  renderSummary();renderTransport();renderAccommodation();renderAttractions();renderPackages();
+  setTimeout(()=>document.getElementById('resultsSection').scrollIntoView({behavior:'smooth',block:'start'}),100);
+  switchTab('packages');
+}
+
+function renderSummary(){
+  const dc=ALL_CITIES[state.departure],tc=ALL_CITIES[state.destination];
+  document.getElementById('summaryRoute').innerHTML=`${dc.name} <i class="fa-solid fa-arrow-right text-thai-muted text-sm mx-2"></i> ${tc.name}`;
+  document.getElementById('summaryDates').textContent=`${formatDate(state.checkIn)} — ${formatDate(state.checkOut)}`;
+  document.getElementById('summaryNights').textContent=`${state.nights} night${state.nights!==1?'s':''}`;
+  document.getElementById('summaryGuests').textContent=`${state.guests} guest${state.guests!==1?'s':''} · ${state.rooms} room${state.rooms!==1?'s':''}`;
+  document.getElementById('summaryRate').innerHTML=state.currency!=='THB'?`<i class="fa-solid fa-coins mr-1 text-thai-gold"></i> 1 THB = ${state.rates[state.currency].toFixed(state.currency==='JPY'?2:4)} ${state.currency}`:'';
+}
+
+function renderTransport(){
+  const p=document.getElementById('panel-transport'),dep=state.departure,dest=state.destination,isD=isThaiCity(dep);let h='';
+  if(isD){const rk=`${dep}-${dest}`,rvk=`${dest}-${dep}`;let o=ROUTES[rk]||ROUTES[rvk]||[];const rv=!!ROUTES[rvk]&&!ROUTES[rk];
+    if(!o.length){h=`<div class="glass rounded-xl p-8 text-center"><i class="fa-solid fa-route text-3xl text-thai-muted mb-4"></i><p class="text-thai-cream mb-2">No direct route data. Search on partners:</p><div class="flex flex-wrap justify-center gap-3 mt-4">${affBtn('12go','12Go',go12Url(dep,dest,state.checkIn,state.guests))}${affBtn('agoda','Agoda Flights',agodaFlightUrl(ALL_CITIES[dep].iata,ALL_CITIES[dest].iata,state.checkIn,state.guests))}</div></div>`}
+    else{let mP=Infinity,mI=-1;o.forEach((x,i)=>{if(x[3]<mP){mP=x[3];mI=i}});h='<div class="grid gap-4">';o.forEach((opt,i)=>{const[t,ic,dur,mn,mx,pr]=opt,b=i===mI,fs=rv?dest:dep,ts=rv?dep:dest;h+=`<div class="glass rounded-xl p-5 sm:p-6 hover:border-thai-gold/30 transition-all ${b?'ring-1 ring-thai-teal/30':''}"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4"><div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-thai-gold/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid ${ic} text-thai-gold text-lg"></i></div><div><div class="flex items-center gap-2 flex-wrap"><h3 class="text-thai-cream font-semibold">${t}</h3>${b?'<span class="badge badge-best"><i class="fa-solid fa-star text-[8px]"></i> Best Value</span>':''}</div><p class="text-thai-muted text-sm mt-1"><i class="fa-regular fa-clock mr-1"></i>${dur}</p></div></div><div class="sm:text-right"><div class="text-thai-cream font-bold text-lg">${fmtPrice(mn)} <span class="text-thai-muted font-normal text-sm">— ${fmtPrice(mx)}</span></div><p class="text-thai-muted text-xs mt-1">per person</p></div></div><div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-thai-border">${pr.includes('12Go')?affBtn('12go','12Go',go12Url(fs,ts,state.checkIn,state.guests)):''}${pr.includes('Agoda')?affBtn('agoda','Agoda Flights',agodaFlightUrl(ALL_CITIES[fs]?.iata||'BKK',ALL_CITIES[ts]?.iata||'BKK',state.checkIn,state.guests)):''}</div></div>`});h+='</div>'}}
+  else{const dc=ALL_CITIES[dep],tc=ALL_CITIES[dest],b=dc.flightBase||8000;h=`<div class="glass rounded-xl p-6 mb-4"><div class="flex items-center gap-3 mb-2"><div class="w-12 h-12 rounded-lg bg-thai-gold/10 flex items-center justify-center"><i class="fa-solid fa-plane text-thai-gold text-lg"></i></div><div><h3 class="text-thai-cream font-semibold">International Flight</h3><p class="text-thai-muted text-sm">${dc.iata} <i class="fa-solid fa-arrow-right text-xs mx-1"></i> ${tc.iata}</p></div></div><div class="mt-3 text-thai-cream font-bold text-lg">${fmtPrice(Math.round(b*.6))} <span class="text-thai-muted font-normal text-sm">— ${fmtPrice(Math.round(b*1.8))}</span></div><p class="text-thai-muted text-xs mb-4">per person, round-trip estimate</p><div class="flex flex-wrap gap-2 pt-4 border-t border-thai-border">${affBtn('agoda','Agoda Flights',agodaFlightUrl(dc.iata,tc.iata,state.checkIn,state.guests))}${affBtn('booking','Booking.com',bookingUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}</div></div><p class="text-thai-muted text-sm"><i class="fa-solid fa-circle-info mr-1 text-thai-gold"></i> Prices vary by airline, season, and booking advance.</p>`}
+  p.innerHTML=h;
+}
+
+function renderAccommodation(){
+  const p=document.getElementById('panel-accommodation'),dest=state.destination,pr=ACCOM_PRICES[dest]||DEFAULT_ACCOM,[bMn,bMx,mMn,mMx,lMn,lMx]=pr,c=ALL_CITIES[dest],hS=SAI_CITIES.includes(dest);
+  const tiers=[{n:'Budget',i:'fa-bed',c:'teal',mn:bMn,mx:bMx,d:'Clean guesthouses and hostels with essential amenities. Great for travelers who prioritize experiences over rooms.'},{n:'Mid-Range',i:'fa-star',c:'gold',mn:mMn,mx:mMx,d:'Comfortable 3-4 star hotels with pools, restaurants, and convenient locations. The sweet spot for most travelers.'},{n:'Luxury',i:'fa-gem',c:'red',mn:lMn,mx:lMx,d:'Premium 5-star resorts with world-class service, spa, fine dining, and stunning views.'}];
+  const cm={teal:'#2A9D8F',gold:'#D4A853',red:'#C75B39'};
+  let h=`<div class="mb-6"><h2 class="font-display text-2xl font-semibold text-thai-cream">${c.name} — ${state.nights} Night${state.nights!==1?'s':''}</h2><p class="text-thai-muted text-sm mt-1">${state.rooms} room${state.rooms!==1?'s':''} · ${state.guests} guest${state.guests!==1?'s':''}</p></div><div class="grid gap-5">`;
+  tiers.forEach(t=>{const tMn=t.mn*state.nights,tMx=t.mx*state.nights,bW=Math.max(10,(t.mx/lMx)*100);h+=`<div class="glass rounded-xl p-5 sm:p-6"><div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4"><div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:${cm[t.c]}15"><i class="fa-solid ${t.i} text-lg" style="color:${cm[t.c]}"></i></div><div><h3 class="text-thai-cream font-semibold text-lg">${t.n}</h3><p class="text-thai-muted text-sm mt-1 max-w-md">${t.d}</p><div class="mt-3 flex items-baseline gap-1"><span class="text-thai-cream font-bold">${fmtPrice(t.mn)}</span><span class="text-thai-muted text-sm">— ${fmtPrice(t.mx)}</span><span class="text-thai-muted text-xs ml-1">/ night</span></div><div class="mt-2 w-64"><div class="price-bar"><div class="price-bar-fill" style="width:${bW}%;background:${cm[t.c]}"></div></div></div><p class="text-thai-cream text-sm mt-2 font-medium">Total: ${fmtPrice(tMn)} — ${fmtPrice(tMx)}</p></div></div></div><div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-thai-border">${affBtn('agoda','Agoda',agodaUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}${affBtn('booking','Booking.com',bookingUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}${affBtn('traveloka','Traveloka',travelokaUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}${hS?affBtn('saii','SAii Resorts',saiiUrl(dest)):''}</div></div>`});
+  h+='</div>';p.innerHTML=h;
+}
+
+function renderAttractions(){
+  const p=document.getElementById('panel-attractions'),dep=state.departure,dest=state.destination,isD=isThaiCity(dep);let h='';
+  if(isD){const rk=`${dep}-${dest}`,rvk=`${dest}-${dep}`,wps=WAYPOINTS[rk]||WAYPOINTS[rvk]||[];if(wps.length){const rv=!!WAYPOINTS[rvk]&&!WAYPOINTS[rk],o=rv?[...wps].reverse():wps;h+=`<div class="mb-8"><h2 class="font-display text-2xl font-semibold text-thai-cream mb-2">Your Route</h2><p class="text-thai-muted text-sm mb-6">Discover attractions at each stop</p><div class="relative"><div class="hidden sm:block journey-line"></div><div class="space-y-6 sm:space-y-8">`;h+=jNode(dep,'Departure',false,false);o.forEach(w=>h+=jNode(w.city,w.note,w.stay,true));h+=jNode(dest,'Destination',true,false,true);h+='</div></div></div>'}else h+=`<p class="text-thai-muted mb-6">Direct route — no major stops.</p>`}else h+=`<p class="text-thai-muted mb-6">Flying from ${ALL_CITIES[dep].name}. Here's what awaits:</p>`;
+  const da=ATTRACTIONS[dest]||[];if(da.length){const ti={Cultural:'fa-landmark',Nature:'fa-leaf',Beach:'fa-umbrella-beach',Island:'fa-water',Adventure:'fa-person-hiking',Shopping:'fa-bag-shopping',Experience:'fa-wand-magic-sparkles',Entertainment:'fa-masks-theater',Wildlife:'fa-paw',Food:'fa-utensils',Event:'fa-music',Wellness:'fa-spa',Volunteer:'fa-hand-holding-heart'};h+=`<h2 class="font-display text-2xl font-semibold text-thai-cream mb-2">Top Attractions in ${ALL_CITIES[dest].name}</h2><p class="text-thai-muted text-sm mb-5">Book tours and tickets through partners</p><div class="grid gap-3">`;da.forEach(a=>{const[nm,tp,dur,pr,ds]=a,ic=ti[tp]||'fa-map-pin';h+=`<div class="glass rounded-xl p-4 sm:p-5 hover:border-thai-gold/20 transition-all"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3"><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-lg bg-thai-gold/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid ${ic} text-thai-gold text-sm"></i></div><div><h3 class="text-thai-cream font-medium text-sm">${nm}</h3><p class="text-thai-muted text-xs mt-0.5">${ds}</p><p class="text-thai-muted text-xs mt-1"><i class="fa-regular fa-clock mr-1"></i>${dur} · ${tp}</p></div></div><div class="flex items-center gap-3 sm:flex-col sm:items-end"><span class="text-thai-gold font-bold">${pr===0?'Free':fmtPrice(pr,false)}</span><div class="flex gap-1.5">${affBtn('klook','',klookUrl(nm))}${affBtn('gyg','',gygUrl(nm))}</div></div></div></div>`});h+='</div>'}
+  p.innerHTML=h;
+}
+
+function jNode(ck,lb,sa,iw,ie=false){const c=ALL_CITIES[ck],at=ATTRACTIONS[ck]||[],dc=ie?'journey-dot end':'journey-dot';let h=`<div class="flex gap-4 sm:gap-6"><div class="flex flex-col items-center flex-shrink-0"><div class="${dc}"></div></div><div class="flex-1 pb-2"><div class="flex items-center gap-2 flex-wrap"><h3 class="text-thai-cream font-semibold text-lg">${c.name}</h3><span class="badge ${ie?'badge-popular':'badge-best'}">${lb}</span></div>`;if(at.length){h+='<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">';at.slice(0,4).forEach(a=>{h+=`<div class="bg-thai-dark/50 rounded-lg p-3 flex items-start justify-between gap-3"><div><p class="text-thai-cream text-sm font-medium">${a[0]}</p><p class="text-thai-muted text-xs mt-0.5"><i class="fa-regular fa-clock mr-1"></i>${a[2]} · ${a[1]}</p></div><span class="text-thai-gold text-sm font-semibold whitespace-nowrap">${a[3]===0?'Free':fmtPrice(a[3],false)}</span></div>`});h+='</div>'}h+=`<div class="flex flex-wrap gap-2 mt-3">${affBtn('klook','Klook',klookUrl(c.name))}${affBtn('kkday','KKday',kkdayUrl(c.name))}${affBtn('gyg','GetYourGuide',gygUrl(c.name))}</div>`;if(sa&&ACCOM_PRICES[ck]){h+=`<div class="mt-3 pt-3 border-t border-thai-border/50"><p class="text-thai-muted text-xs mb-2"><i class="fa-solid fa-hotel mr-1"></i> Stay here:</p><div class="flex flex-wrap gap-2">${affBtn('agoda','Agoda',agodaUrl(ck,state.checkIn,state.checkOut,state.rooms,state.guests))}${affBtn('booking','Booking.com',bookingUrl(ck,state.checkIn,state.checkOut,state.rooms,state.guests))}${SAI_CITIES.includes(ck)?affBtn('saii','SAii',saiiUrl(ck)):''}</div></div>`}h+='</div></div>';return h}
 
 // ═══════════════════════════════════════════════════════════
-// SEARCH
-// ═══════════════════════════════════════════════════════════
-function validateForm(){const d=document.getElementById('departureSelect').value,s=document.getElementById('destinationSelect').value,ci=document.getElementById('checkIn').value,co=document.getElementById('checkOut').value;if(!d){showToast('Please select a departure city','error');return false;}if(!s){showToast('Please select a destination city','error');return false;}if(d===s){showToast('Departure and destination must be different','error');return false;}if(!ci){showToast('Please select a check-in date','error');return false;}if(!co){showToast('Please select a check-out date','error');return false;}if(new Date(co)<=new Date(ci)){showToast('Check-out must be after check-in','error');return false;}return true;}
-async function performSearch(){if(!validateForm())return;state.departure=document.getElementById('departureSelect').value;state.destination=document.getElementById('destinationSelect').value;state.checkIn=document.getElementById('checkIn').value;state.checkOut=document.getElementById('checkOut').value;state.currency=document.getElementById('currencySelect').value;state.guests=parseInt(document.getElementById('guestsInput').value);state.nights=getNights();state.rooms=getRooms(state.guests);document.getElementById('resultsSection').classList.remove('hidden');renderSummary();renderTransport();renderAccommodation();renderAttractions();renderPackages();setTimeout(()=>document.getElementById('resultsSection').scrollIntoView({behavior:'smooth',block:'start'}),100);switchTab('packages');}
-function renderSummary(){const dc=ALL_CITIES[state.departure],tc=ALL_CITIES[state.destination];document.getElementById('summaryRoute').innerHTML=`${dc.name} <i class="fa-solid fa-arrow-right text-thai-muted text-sm mx-2"></i> ${tc.name}`;document.getElementById('summaryDates').textContent=`${formatDate(state.checkIn)} — ${formatDate(state.checkOut)}`;document.getElementById('summaryNights').textContent=`${state.nights} night${state.nights!==1?'s':''}`;document.getElementById('summaryGuests').textContent=`${state.guests} guest${state.guests!==1?'s':''} · ${state.rooms} room${state.rooms!==1?'s':''}`;document.getElementById('summaryRate').innerHTML=state.currency!=='THB'?`<i class="fa-solid fa-coins mr-1 text-thai-gold"></i> 1 THB = ${state.rates[state.currency].toFixed(state.currency==='JPY'?2:4)} ${state.currency}`:'';}
-
-// ─── TRANSPORT ───
-function renderTransport(){const p=document.getElementById('panel-transport'),dep=state.departure,dest=state.destination,isDom=isThaiCity(dep);let h='';if(isDom){const rk=`${dep}-${dest}`,rvk=`${dest}-${dep}`;let opts=ROUTES[rk]||ROUTES[rvk]||[];const rev=!!ROUTES[rvk]&&!ROUTES[rk];if(!opts.length){h=`<div class="glass rounded-xl p-8 text-center"><i class="fa-solid fa-route text-3xl text-thai-muted mb-4"></i><p class="text-thai-cream mb-4">No direct route data for this pair. Search on our partners:</p><div class="flex flex-wrap justify-center gap-3">${affBtn('12go','Search on 12Go',go12Url(dep,dest,state.checkIn,state.guests))}${affBtn('agoda','Flights on Agoda',agodaFlightUrl(ALL_CITIES[dep].iata,ALL_CITIES[dest].iata,state.checkIn,state.guests))}</div></div>`;}else{let minP=Infinity,minI=-1;opts.forEach((o,i)=>{if(o[3]<minP){minP=o[3];minI=i;}});h='<div class="grid gap-4">';opts.forEach((opt,i)=>{const[type,icon,dur,minPr,maxPr,provs]=opt,best=i===minI,fromS=rev?dest:dep,toS=rev?dep:dest;h+=`<div class="glass rounded-xl p-5 sm:p-6 hover:border-thai-gold/30 transition-all ${best?'ring-1 ring-thai-teal/30':''}"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4"><div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg bg-thai-gold/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid ${icon} text-thai-gold text-lg"></i></div><div><div class="flex items-center gap-2 flex-wrap"><h3 class="text-thai-cream font-semibold">${type}</h3>${best?'<span class="badge badge-best"><i class="fa-solid fa-star text-[8px]"></i> Best Value</span>':''}</div><p class="text-thai-muted text-sm mt-1"><i class="fa-regular fa-clock mr-1"></i>${dur}</p></div></div><div class="sm:text-right"><div class="text-thai-cream font-bold text-lg">${fmtPrice(minPr)} <span class="text-thai-muted font-normal text-sm">— ${fmtPrice(maxPr)}</span></div><p class="text-thai-muted text-xs mt-1">per person</p></div></div><div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-thai-border">${provs.includes('12Go')?affBtn('12go','Compare on 12Go',go12Url(fromS,toS,state.checkIn,state.guests)):''}${provs.includes('Agoda')?affBtn('agoda','Flights on Agoda',agodaFlightUrl(ALL_CITIES[fromS]?.iata||'BKK',ALL_CITIES[toS]?.iata||'BKK',state.checkIn,state.guests)):''}</div></div>`;});h+='</div>';}}else{const dc=ALL_CITIES[dep],tc=ALL_CITIES[dest],base=dc.flightBase||8000;h=`<div class="glass rounded-xl p-6 mb-4"><div class="flex items-center gap-3 mb-2"><div class="w-12 h-12 rounded-lg bg-thai-gold/10 flex items-center justify-center"><i class="fa-solid fa-plane text-thai-gold text-lg"></i></div><div><h3 class="text-thai-cream font-semibold">International Flight</h3><p class="text-thai-muted text-sm">${dc.iata} <i class="fa-solid fa-arrow-right text-xs mx-1"></i> ${tc.iata} · Duration varies by route</p></div></div><div class="mt-3 text-thai-cream font-bold text-lg">${fmtPrice(Math.round(base*.6))} <span class="text-thai-muted font-normal text-sm">— ${fmtPrice(Math.round(base*1.8))}</span></div><p class="text-thai-muted text-xs mb-4">per person, round-trip estimate</p><div class="flex flex-wrap gap-2 pt-4 border-t border-thai-border">${affBtn('agoda','Search Flights on Agoda',agodaFlightUrl(dc.iata,tc.iata,state.checkIn,state.guests))}${affBtn('booking','Search on Booking.com',bookingUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}</div></div><p class="text-thai-muted text-sm"><i class="fa-solid fa-circle-info mr-1 text-thai-gold"></i> International flight prices vary by airline, season, and booking advance.</p>`;}p.innerHTML=h;}
-
-// ─── ACCOMMODATION ───
-function renderAccommodation(){const p=document.getElementById('panel-accommodation'),dest=state.destination,pr=ACCOM_PRICES[dest]||DEFAULT_ACCOM,[bMin,bMax,mMin,mMax,lMin,lMax]=pr,c=ALL_CITIES[dest],tiers=[{name:'Budget',icon:'fa-bed',color:'teal',min:bMin,max:bMax,desc:'Clean guesthouses and hostels with essential amenities. Great for travelers who prioritize experiences over rooms.'},{name:'Mid-Range',icon:'fa-star',color:'gold',min:mMin,max:mMax,desc:'Comfortable 3-4 star hotels with pools, restaurants, and convenient locations. The sweet spot for most travelers.'},{name:'Luxury',icon:'fa-gem',color:'red',min:lMin,max:lMax,desc:'Premium 5-star resorts with world-class service, spa, fine dining, and stunning views.'}],cm={teal:'#2A9D8F',gold:'#D4A853',red:'#C75B39'};let h=`<div class="mb-6"><h2 class="font-display text-2xl font-semibold text-thai-cream">${c.name} — ${state.nights} Night${state.nights!==1?'s':''}</h2><p class="text-thai-muted text-sm mt-1">${state.rooms} room${state.rooms!==1?'s':''} · ${state.guests} guest${state.guests!==1?'s':''}</p></div><div class="grid gap-5">`;tiers.forEach(t=>{const tM=t.min*state.nights,tX=t.max*state.nights,bW=Math.max(10,(t.max/lMax)*100);h+=`<div class="glass rounded-xl p-5 sm:p-6"><div class="flex items-start gap-4"><div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:${cm[t.color]}15"><i class="fa-solid ${t.icon} text-lg" style="color:${cm[t.color]}"></i></div><div class="flex-1"><h3 class="text-thai-cream font-semibold text-lg">${t.name}</h3><p class="text-thai-muted text-sm mt-1">${t.desc}</p><div class="mt-3 flex items-baseline gap-1"><span class="text-thai-cream font-bold">${fmtPrice(t.min)}</span><span class="text-thai-muted text-sm">— ${fmtPrice(t.max)}</span><span class="text-thai-muted text-xs ml-1">/ night</span></div><div class="mt-2 w-64"><div class="price-bar"><div class="price-bar-fill" style="width:${bW}%;background:${cm[t.color]}"></div></div></div><p class="text-thai-cream text-sm mt-2 font-medium">Total: ${fmtPrice(tM)} — ${fmtPrice(tX)}</p></div></div><div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-thai-border">${affBtn('agoda','Agoda',agodaUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}${affBtn('booking','Booking.com',bookingUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}${affBtn('traveloka','Traveloka',travelokaUrl(dest,state.checkIn,state.checkOut,state.rooms,state.guests))}</div></div>`;});h+='</div>';p.innerHTML=h;}
-
-// ─── ATTRACTIONS ───
-function renderAttractions(){const p=document.getElementById('panel-attractions'),dep=state.departure,dest=state.destination,isDom=isThaiCity(dep),dn=ALL_CITIES[dest].name;let h='';if(isDom){const rk=`${dep}-${dest}`,rvk=`${dest}-${dep}`,wps=WAYPOINTS[rk]||WAYPOINTS[rvk]||[];if(wps.length){const rev=!!WAYPOINTS[rvk]&&!WAYPOINTS[rk],ord=rev?[...wps].reverse():wps;h+=`<div class="mb-8"><h2 class="font-display text-2xl font-semibold text-thai-cream mb-2">Your Route</h2><p class="text-thai-muted text-sm mb-6">Discover attractions at each stop</p><div class="relative"><div class="hidden sm:block journey-line"></div><div class="space-y-6 sm:space-y-8">`;h+=jNode(dep,'Departure',false);ord.forEach(w=>h+=jNode(w.city,w.note,w.stay));h+=jNode(dest,'Destination',true,true);h+='</div></div></div>';}else h+=`<p class="text-thai-muted mb-6">Direct route between ${ALL_CITIES[dep].name} and ${dn}.</p>`;}else h+=`<p class="text-thai-muted mb-6">Flying from ${ALL_CITIES[dep].name} to ${dn}:</p>`;const da=ATTRACTIONS[dest]||[];if(da.length){const ti={Cultural:'fa-landmark',Nature:'fa-leaf',Beach:'fa-umbrella-beach',Island:'fa-water',Adventure:'fa-person-hiking',Shopping:'fa-bag-shopping',Experience:'fa-wand-magic-sparkles',Entertainment:'fa-masks-theater',Wildlife:'fa-paw',Food:'fa-utensils',Event:'fa-music',Wellness:'fa-spa',Volunteer:'fa-hand-holding-heart'};h+=`<h2 class="font-display text-2xl font-semibold text-thai-cream mb-2">Top Attractions in ${dn}</h2><p class="text-thai-muted text-sm mb-5">Book tours and tickets through our partners</p><div class="grid gap-3">`;da.forEach(a=>{const[n,type,dur,price,desc]=a,ic=ti[type]||'fa-map-pin';h+=`<div class="glass rounded-xl p-4 sm:p-5 hover:border-thai-gold/20 transition-all"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3"><div class="flex items-start gap-3"><div class="w-10 h-10 rounded-lg bg-thai-gold/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid ${ic} text-thai-gold text-sm"></i></div><div><h3 class="text-thai-cream font-medium text-sm">${n}</h3><p class="text-thai-muted text-xs mt-0.5">${desc}</p><p class="text-thai-muted text-xs mt-1"><i class="fa-regular fa-clock mr-1"></i>${dur} · ${type}</p></div></div><div class="flex items-center gap-3 sm:flex-col sm:items-end"><span class="text-thai-gold font-bold">${price===0?'Free':fmtPrice(price,false)}</span><div class="flex gap-1.5">${affBtn('klook','',klookUrl(n))}${affBtn('gyg','',gygUrl(n))}</div></div></div></div>`;});h+='</div>';}p.innerHTML=h;}
-function jNode(ck,label,showAcc,isEnd=false){const c=ALL_CITIES[ck],at=ATTRACTIONS[ck]||[],dc=isEnd?'journey-dot end':'journey-dot';let h=`<div class="flex gap-4 sm:gap-6"><div class="flex flex-col items-center flex-shrink-0"><div class="${dc}"></div></div><div class="flex-1 pb-2"><div class="flex items-center gap-2 flex-wrap"><h3 class="text-thai-cream font-semibold text-lg">${c.name}</h3><span class="badge ${isEnd?'badge-popular':'badge-best'}">${label}</span></div>`;if(at.length){h+='<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">';at.slice(0,4).forEach(a=>{h+=`<div class="bg-thai-dark/50 rounded-lg p-3 flex items-start justify-between gap-3"><div><p class="text-thai-cream text-sm font-medium">${a[0]}</p><p class="text-thai-muted text-xs mt-0.5"><i class="fa-regular fa-clock mr-1"></i>${a[2]} · ${a[1]}</p></div><span class="text-thai-gold text-sm font-semibold whitespace-nowrap">${a[3]===0?'Free':fmtPrice(a[3],false)}</span></div>`;});h+='</div>';if(at.length>4)h+=`<p class="text-thai-muted text-xs mt-2">+ ${at.length-4} more</p>`;}h+=`<div class="flex flex-wrap gap-2 mt-3">${affBtn('klook','Klook',klookUrl(c.name))}${affBtn('kkday','KKday',kkdayUrl(c.name))}${affBtn('gyg','GetYourGuide',gygUrl(c.name))}</div>`;if(showAcc&&ACCOM_PRICES[ck]){h+=`<div class="mt-3 pt-3 border-t border-thai-border/50"><p class="text-thai-muted text-xs mb-2"><i class="fa-solid fa-hotel mr-1"></i> Stay here:</p><div class="flex flex-wrap gap-2">${affBtn('agoda','Agoda',agodaUrl(ck,state.checkIn,state.checkOut,state.rooms,state.guests))}${affBtn('booking','Booking.com',bookingUrl(ck,state.checkIn,state.checkOut,state.rooms,state.guests))}</div></div>`;}h+='</div></div>';return h;}
-
-// ═══════════════════════════════════════════════════════════
-// PACKAGES — with detailed info & timeline graph
+// PACKAGES TAB — WITH DETAILED TIMELINE
 // ═══════════════════════════════════════════════════════════
 function renderPackages(){
   const panel=document.getElementById('panel-packages');
-  const dep=state.departure,dest=state.destination,isDom=isThaiCity(dep);
+  const dep=state.departure,dest=state.destination,isD=isThaiCity(dep);
   const pr=ACCOM_PRICES[dest]||DEFAULT_ACCOM;
-  const [bMin,bMax,mMin,mMax,lMin,lMax]=pr;
+  const [bMn,bMx,mMn,mMx,lMn,lMx]=pr;
   const dc=ALL_CITIES[dep],tc=ALL_CITIES[dest];
   const attrs=ATTRACTIONS[dest]||[];
+  const freeActs=FREE_ACTIVITIES[dest]||[];
   const n=state.nights,g=state.guests,r=state.rooms;
+  const hS=SAI_CITIES.includes(dest);
+  const longStay=n>7;
 
-  // Transport cost per tier
-  let tSaver,tComfort,tLuxury,tLabelSaver,tLabelComfort,tLabelLuxury;
-  if(isDom){
-    const rk=`${dep}-${dest}`,rvk=`${dest}-${dep}`,opts=ROUTES[rk]||ROUTES[rvk]||[];
-    if(opts.length){const s=[...opts].sort((a,b)=>a[3]-b[3]);tSaver=s[0][3];tLabelSaver=s[0][0];tComfort=s[Math.min(1,s.length-1)][3];tLabelComfort=s[Math.min(1,s.length-1)][0];tLuxury=s[0][4];tLabelLuxury='Premium '+s[0][0];}
-    else{tSaver=500;tComfort=1000;tLuxury=3000;tLabelSaver='Bus/Train';tLabelComfort='Flight';tLabelLuxury='Private Transfer';}
-  }else{
-    const base=dc.flightBase||8000;
-    tSaver=Math.round(base*.6);tLabelSaver='Economy Flight';
-    tComfort=Math.round(base);tLabelComfort='Premium Economy';
-    tLuxury=Math.round(base*1.6);tLabelLuxury='Business Class';
+  // Transport estimates
+  let tS,tC,tL;
+  if(isD){const rk=`${dep}-${dest}`,rvk=`${dest}-${dep}`,o=ROUTES[rk]||ROUTES[rvk]||[];if(o.length){const s=[...o].sort((a,b)=>a[3]-b[3]);tS=s[0][3];tC=s[Math.min(1,s.length-1)][3];tL=s[0][4]}else{tS=500;tC=1000;tL=3000}}else{const b=dc.flightBase||8000;tS=Math.round(b*.6);tC=Math.round(b);tL=Math.round(b*1.6)}
+
+  // Paid attraction selections per tier
+  const paid=attrs.filter(a=>a[3]>0).sort((a,b)=>a[3]-b[3]);
+  const aS=paid.slice(0,2).reduce((s,a)=>s+a[3],0);
+  const aC=paid.slice(0,4).reduce((s,a)=>s+a[3],0);
+  const aL=paid.slice(0,6).reduce((s,a)=>s+a[3],0);
+
+  // Build day-by-day timeline for each tier
+  function buildTimeline(accomRate,mealRate,paidAttrList,freeActList,tierName){
+    const days=[];
+    const totalDays=n+1; // day 0 = arrival, day n = departure
+    let paidIdx=0,freeIdx=0;
+
+    // Determine rhythm based on stay length and available activities
+    // For long stays: alternate paid-free-rest-paid-free-rest
+    // For short stays: travel-paid-rest-depart
+    const hasFree=freeActList.length>0;
+    const hasPaid=paidAttrList.length>0;
+
+    for(let i=0;i<=totalDays-1;i++){
+      let type,label,icon,activity='',activityType='',dayCost=accomRate*r+mealRate*g;
+
+      if(i===0){
+        // Arrival day
+        type='travel';label='Arrive';icon='fa-plane';
+        activity=`Travel to ${tc.name}`;
+        activityType='Transport';
+        dayCost+=tS; // transport on arrival
+      } else if(i===totalDays-1){
+        // Departure day
+        type='depart';label='Depart';icon='fa-plane-departure';
+        activity='Check out & head home';
+        activityType='Transport';
+      } else if(longStay && hasFree){
+        // Long stay rhythm: paid → free → rest → paid → free → rest ...
+        const cyclePos=(i-1)%3;
+        if(cyclePos===0 && hasPaid && paidIdx<paidAttrList.length){
+          type='paid';label=`Day ${i}`;icon='fa-ticket';
+          activity=paidAttrList[paidIdx][0];
+          activityType=paidAttrList[paidIdx][1];
+          dayCost+=paidAttrList[paidIdx][3]*g;
+          paidIdx++;
+        } else if(cyclePos===1 && hasFree && freeIdx<freeActList.length){
+          type='free';label=`Day ${i}`;icon=freeActList[freeIdx].icon;
+          activity=freeActList[freeIdx].name;
+          activityType=freeActList[freeIdx].type;
+          // Free activity — no extra cost beyond base accom+meals
+          freeIdx++;
+        } else {
+          type='rest';label=`Day ${i}`;icon='fa-umbrella-beach';
+          activity='Free time to explore';
+          activityType='Leisure';
+        }
+      } else {
+        // Short stay rhythm
+        const cyclePos=(i-1)%2;
+        if(cyclePos===0 && hasPaid && paidIdx<paidAttrList.length){
+          type='paid';label=`Day ${i}`;icon='fa-ticket';
+          activity=paidAttrList[paidIdx][0];
+          activityType=paidAttrList[paidIdx][1];
+          dayCost+=paidAttrList[paidIdx][3]*g;
+          paidIdx++;
+        } else {
+          type='rest';label=`Day ${i}`;icon='fa-umbrella-beach';
+          activity='Free time to explore';
+          activityType='Leisure';
+        }
+      }
+      days.push({type,label,icon,activity,activityType,dayCost});
+    }
+    return days;
   }
 
-  const paidAttrs=attrs.filter(a=>a[3]>0).sort((a,b)=>a[3]-b[3]);
-  const freeAttrs=attrs.filter(a=>a[3]===0);
+  const tlS=buildTimeline(bMn,300,paid.slice(0,2),freeActs,'Saver');
+  const tlC=buildTimeline(mMn,700,paid.slice(0,4),freeActs,'Comfort');
+  const tlL=buildTimeline(lMn,2000,paid.slice(0,6),freeActs,'Luxury');
+
+  function renderTimeline(days,maxCost){
+    let h='<div class="tl-track">';
+    days.forEach((d,i)=>{
+      const pct=Math.max(5,Math.min(100,(d.dayCost/maxCost)*100));
+      const colorMap={travel:'var(--gold)',paid:'var(--teal)',free:'var(--free)',rest:'var(--muted)',depart:'var(--red)'};
+      const barColor=colorMap[d.type]||'var(--muted)';
+      h+=`<div class="tl-day">
+        <div class="tl-label">${d.label}</div>
+        <div class="tl-node type-${d.type}" title="${d.activity}"><i class="fa-solid ${d.icon}"></i></div>
+        <div class="tl-bar-wrap"><div class="tl-bar-fill" style="--target-w:${pct}%;background:${barColor};animation-delay:${i*0.08}s"></div></div>
+        <div class="tl-activity">${d.activity}</div>
+        ${d.type==='free'?'<div class="tl-free-tag">FREE</div>':''}
+      </div>`;
+    });
+    h+='</div>';
+    return h;
+  }
+
+  // Calculate max day cost across all timelines for consistent bar scaling
+  const allDays=[...tlS,...tlC,...tlL];
+  const maxDayCost=Math.max(...allDays.map(d=>d.dayCost),1);
+
+  // Count free days per timeline
+  function countFree(days){return days.filter(d=>d.type==='free').length}
 
   const pkgs=[
-    {
-      key:'saver',name:'Saver',icon:'fa-seedling',color:'#2A9D8F',colorBg:'rgba(42,157,143,.12)',
-      bestFor:'Solo travelers, backpackers, first-timers',
-      pace:'Relaxed',paceIcon:'fa-leaf',vibe:'Authentic local experience',
-      desc:`Maximize your time and money in ${tc.name}. This plan keeps costs low with budget guesthouses, the cheapest reliable transport, and a mix of free temples and markets with 1-2 paid highlights. You'll eat where locals eat and explore at a comfortable pace.`,
-      transport:tSaver,transportLabel:tLabelSaver,accom:bMin,mealPerDay:300,
-      attrCount:2,attrList:paidAttrs.slice(0,2),
+    {cls:'pkg-saver',name:'Saver',icon:'fa-seedling',accent:'teal',color:'#2A9D8F',
+      bestFor:'Solo travelers, backpackers, first-timers',pace:'Relaxed',
+      desc:`A smart, wallet-friendly way to experience the best of ${tc.name}. You\'ll stay in clean, well-reviewed guesthouses in prime locations — close to night markets and public transit. The focus is on authentic experiences: street food stalls, temple visits, and ${longStay?'free evening events like night markets and beach walks':'the city\'s iconic free attractions'}. ${longStay?`With ${countFree(tlS)} free activity days woven into your schedule, you get a full cultural immersion without the price tag.`:'Perfect for travelers who\'d rather spend on experiences than rooms.'}`,
       highlights:[
-        {icon:'fa-utensils',text:'Street food at local markets — authentic and affordable'},
-        {icon:'fa-bed',text:'Clean guesthouses with fan/AC and free WiFi'},
-        {icon:'fa-landmark',text:'Free temple visits, walking tours, and public beaches'},
-        {icon:'fa-bus',text:'Songthaews and local buses to get around like a local'}
+        {i:'fa-bed',t:`Guesthouse in central ${tc.name} — clean, AC, WiFi`},
+        {i:'fa-utensils',t:'Street food & local eateries — authentic and cheap'},
+        {i:'fa-bus',t:isD?'Public buses or shared minivans':'Economy class flights'},
+        {i:'fa-ticket',t:`Top ${paid.slice(0,2).length} must-see paid attractions`},
+        ...(longStay?[{i:'fa-gift',t:`${countFree(tlS)} free nights: markets, beach walks, nightlife`}]:[])
       ],
-      whatToPack:'Light backpack, comfortable walking shoes, light rain jacket, power bank, reusable water bottle',
-      tips:'Download Grab for cheap rides. Visit free attractions early morning to avoid heat. Eat at street stalls for 40-80 THB meals.'
-    },
-    {
-      key:'comfort',name:'Comfort',icon:'fa-couch',color:'#D4A853',colorBg:'rgba(212,168,83,.12)',
-      bestFor:'Couples, small groups, value-seekers',
-      pace:'Balanced',paceIcon:'fa-scale-balanced',vibe:'Convenience meets experience',
-      desc:`The sweet spot for most travelers to ${tc.name}. Well-located 3-4 star hotels, efficient transport, and a curated mix of the top 4 paid attractions plus free gems. You'll enjoy restaurant dining without overspending and have time for both planned activities and spontaneous discovery.`,
-      transport:tComfort,transportLabel:tLabelComfort,accom:mMin,mealPerDay:700,
-      attrCount:4,attrList:paidAttrs.slice(0,4),
+      transport:tS,accom:bMn,attr:aS,meals:300,tl:tlS,
+      pack:'Light backpack, comfortable walking shoes, sunscreen, light rain jacket, power bank',
+      tips:`Arrive early at popular free attractions like night markets (6-7 PM). Eat where locals eat — street food carts near universities are cheapest and best. Download Grab for cheap rides. Many temples are free before 8 AM.`},
+    {cls:'pkg-comfort',name:'Comfort',icon:'fa-couch',accent:'gold',color:'#D4A853',
+      bestFor:'Couples, small groups, return visitors',pace:'Balanced',
+      desc:`The ideal balance of comfort and value for ${tc.name}. You\'ll stay in well-located 3-4 star hotels with pools, room service, and easy access to attractions. Transport is convenient — ${isD?'private transfers between cities':'direct flights with good airlines'}. ${longStay?`The schedule alternates between curated paid experiences and ${countFree(tlC)} free discovery days, giving you structure without over-scheduling. Think guided temple tours one day, sunset beach walks the next.`:'You\'ll hit the top sights with pre-booked tickets and have free time to wander at your own pace.'}`,
       highlights:[
-        {icon:'fa-hotel',text:'3-4 star hotels with pool, AC, and great location'},
-        {icon:'fa-ticket',text:'Skip-the-line tickets to the top 4 attractions'},
-        {icon:'fa-wine-glass',text:'Mix of local restaurants and popular dining spots'},
-        {icon:'fa-taxi',text:'Grab taxis and private transfers between spots'}
+        {i:'fa-hotel',t:`3-4 star hotel near ${tc.name} highlights — pool, breakfast`},
+        {i:'fa-utensils',t:'Mix of restaurants and street food — best of both'},
+        {i:'fa-car',t:isD?'Private transfers or premium buses':'Direct flights, preferred airlines'},
+        {i:'fa-ticket',t:`Top ${paid.slice(0,4).length} attractions with skip-the-line access`},
+        ...(longStay?[{i:'fa-gift',t:`${countFree(tlC)} free days: night markets, cafe hopping, beach sunsets`}]:[])
       ],
-      whatToPack:'Smart casual clothes, swimwear, sunscreen, nice outfit for dinner out, day bag',
-      tips:'Book popular attractions 1-2 days ahead. Use Grab for reliable rides. Try one cooking class — it\'s worth every baht.'
-    },
-    {
-      key:'luxury',name:'Luxury',icon:'fa-crown',color:'#C75B39',colorBg:'rgba(199,91,57,.12)',
-      bestFor:'Couples, honeymooners, experience collectors',
-      pace:'Immersive',paceIcon:'fa-gem',vibe:'Premium all-the-way',
-      desc:`An unforgettable premium experience in ${tc.name}. 5-star beachfront resorts with spa access, the best transport option available, private guided tours to top attractions, and fine dining at award-winning restaurants. Every detail is handled so you can focus on making memories.`,
-      transport:tLuxury,transportLabel:tLabelLuxury,accom:lMin,mealPerDay:2000,
-      attrCount:Math.min(6,paidAttrs.length),attrList:paidAttrs.slice(0,6),
+      transport:tC,accom:mMn,attr:aC,meals:700,tl:tlC,
+      pack:'Casual smart wardrobe, swimsuit, daypack, camera, light sweater for AC spaces',
+      tips:`Book popular attractions online 2-3 days ahead for discounts. Ask your hotel concierge for local free events happening during your stay — many temples have free evening meditation sessions. Rent a scooter for day trips (if comfortable) to save on transport.`},
+    {cls:'pkg-luxury',name:'Luxury',icon:'fa-crown',accent:'red',color:'#C75B39',
+      bestFor:'Honeymooners, families, special occasions',pace:'Leisurely',
+      desc:`Premium all-the-way in ${tc.name}. ${hS?`SAii Resorts offers an extraordinary beachfront experience with world-class spa, infinity pools, and personalized service. `:''}You\'ll stay in 5-star properties with every amenity, take private tours with expert guides, and dine at the finest restaurants. ${longStay?`Even with luxury, ${countFree(tlL)} free activity days are included — but reimagined: private beach access at golden hour, sunset cocktails at rooftop bars, and VIP-access cultural events. The rhythm is deliberate: immersive paid experiences balanced with unhurried free days to absorb it all.`:'Every moment is curated — from airport pickup to your last sunset dinner.'}`,
       highlights:[
-        {icon:'fa-spa',text:'5-star beachfront resort with spa, infinity pool, and suite'},
-        {icon:'fa-user-tie',text:'Private guided tours with expert local guides'},
-        {icon:'fa-champagne-glasses',text:'Fine dining at award-winning and rooftop restaurants'},
-        {icon:'fa-car',text:'Private chauffeur or premium car service throughout'}
+        {i:'fa-gem',t:hS?`SAii Resort or 5-star beachfront — suite, spa, infinity pool`:`5-star resort in ${tc.name} — suite, spa, ocean view`},
+        {i:'fa-utensils',t:'Fine dining, rooftop bars, and curated food tours'},
+        {i:'fa-car',t:isD?'Private chauffeur, premium class':'Business class flights, private transfers'},
+        {i:'fa-ticket',t:`Top ${paid.slice(0,6).length} VIP experiences with private guides`},
+        ...(longStay?[{i:'fa-gift',t:`${countFree(tlL)} free luxury moments: private beach, sunset bars, art galleries`}]:[])
       ],
-      whatToPack:'Resort wear, elegant dinner outfits, premium sunscreen, sunglasses, camera',
-      tips:'Request hotel pickup from airport. Book private tours for flexibility. Ask the concierge for hidden-gem restaurant recommendations.'
-    }
+      transport:tL,accom:lMn,attr:aL,meals:2000,tl:tlL,
+      pack:'Resort wear, elegant dinner outfits, designer sunglasses, premium sunscreen, Kindle',
+      tips:`Contact your resort\'s guest experience team before arrival — they can arrange private temple visits at sunrise (free but exclusive). Many high-end bars offer complimentary sunset views. Ask about chef\'s table experiences, which often include market tours.`}
   ];
 
-  // Generate timeline days for each package
+  let h=`<div class="mb-6">
+    <h2 class="font-display text-2xl font-semibold text-thai-cream">Travel Packages</h2>
+    <p class="text-thai-muted text-sm mt-1">Curated for ${g} guest${g!==1?'s':''} · ${n} night${n!==1?'s':''}${longStay?' · <span class="text-thai-free font-medium">Extended stay — includes free events & nightlife in timeline</span>':''}</p>
+  </div>`;
+
+  // Timeline legend
+  h+=`<div class="glass rounded-xl p-4 mb-6">
+    <p class="text-thai-muted text-xs font-medium mb-3 uppercase tracking-wider">Timeline Legend</p>
+    <div class="flex flex-wrap gap-4 sm:gap-6 text-xs">
+      <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-thai-gold inline-block"></span> Travel Day</span>
+      <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-thai-teal inline-block"></span> Paid Activity</span>
+      ${longStay?'<span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-thai-free inline-block"></span> Free Event / Nightlife</span>':''}
+      <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-thai-muted inline-block"></span> Free Time</span>
+      <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-thai-red inline-block"></span> Departure</span>
+      <span class="flex items-center gap-2 ml-auto"><i class="fa-solid fa-chart-simple text-thai-muted"></i> Bar height = daily cost</span>
+    </div>
+  </div>`;
+
+  h+='<div class="grid grid-cols-1 xl:grid-cols-3 gap-5">';
+
   pkgs.forEach(pkg=>{
-    pkg.days=generateTimeline(pkg,dest,attrs,paidAttrs,freeAttrs,n,g,r,isDom,dc,tc);
-  });
+    const tT=pkg.transport*g,aT=pkg.accom*n*r,atT=pkg.attr*g,mT=pkg.meals*n*g,grand=tT+aT+atT+mT;
+    const freeCount=countFree(pkg.tl);
+    const uid='det-'+pkg.cls;
 
-  // Render
-  let html=`<div class="mb-6">
-    <h2 class="font-display text-3xl font-semibold text-thai-cream">Travel Packages</h2>
-    <p class="text-thai-muted text-sm mt-1">Curated ${n}-night itineraries for ${g} guest${g!==1?'s':''}. Each includes a day-by-day timeline, cost breakdown, and direct booking links.</p>
-  </div>
-  <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">`;
-
-  pkgs.forEach(pkg=>{
-    const days=pkg.days;
-    const maxDayCost=Math.max(...days.map(d=>d.cost),1);
-    const tTotal=pkg.transport*g;
-    const aTotal=pkg.accom*n*r;
-    const attrTotal=pkg.attrList.reduce((s,a)=>s+a[3],0)*g;
-    const mealTotal=pkg.mealPerDay*n*g;
-    const grand=tTotal+aTotal+attrTotal+mealTotal;
-
-    html+=`<div class="pkg-card glass rounded-2xl overflow-hidden flex flex-col">
-      <!-- Header -->
-      <div class="p-6 pb-4" style="background:linear-gradient(135deg,${pkg.colorBg},transparent)">
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:${pkg.color}22;border:1.5px solid ${pkg.color}44">
-              <i class="fa-solid ${pkg.icon} text-xl" style="color:${pkg.color}"></i>
-            </div>
-            <div>
-              <h3 class="text-thai-cream font-bold text-xl leading-tight">${pkg.name}</h3>
-              <p class="text-thai-muted text-xs">Per person estimate</p>
-            </div>
-          </div>
-          <div class="text-right">
-            <div class="font-bold text-2xl" style="color:${pkg.color}">${fmtPrice(grand,false)}</div>
-          </div>
-        </div>
-        <!-- Meta badges -->
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="badge" style="background:${pkg.colorBg};color:${pkg.color};border:1px solid ${pkg.color}33"><i class="fa-solid fa-users text-[8px] mr-1"></i>${pkg.bestFor}</span>
-          <span class="badge" style="background:${pkg.colorBg};color:${pkg.color};border:1px solid ${pkg.color}33"><i class="fa-solid ${pkg.paceIcon} text-[8px] mr-1"></i>${pkg.pace} pace</span>
-        </div>
-        <p class="text-thai-muted text-sm leading-relaxed">${pkg.desc}</p>
+    h+=`<div class="pkg-card ${pkg.cls} pkg-border glass rounded-xl p-5 sm:p-6 flex flex-col">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-11 h-11 rounded-lg flex items-center justify-center" style="background:${pkg.color}15"><i class="fa-solid ${pkg.icon} text-lg pkg-accent"></i></div>
+        <div><h3 class="text-thai-cream font-bold text-lg">${pkg.name}</h3><p class="text-thai-muted text-xs">Per person estimate</p></div>
       </div>
 
-      <!-- Timeline Graph -->
-      <div class="px-4 py-4 border-t border-thai-border/50">
-        <div class="flex items-center gap-2 mb-3">
-          <i class="fa-solid fa-timeline text-xs" style="color:${pkg.color}"></i>
-          <span class="text-thai-cream text-xs font-semibold tracking-wide uppercase">Trip Timeline</span>
-        </div>
-        <div class="overflow-x-auto rounded-lg pb-2" style="background:rgba(8,14,12,.5);border:1px solid rgba(30,48,41,.5)">
-          <div class="tl-track px-3 pt-4 pb-3" style="min-width:${days.length*130}px">
-            <!-- Connecting line -->
-            <div class="tl-line" style="background:linear-gradient(90deg,${pkg.color}44,${pkg.color}22,${pkg.color}44)"></div>
-            <div class="flex">
-              ${days.map((day,i)=>{
-                const typeConf={
-                  travel:{icon:'fa-plane-departure',color:'#D4A853',bg:'rgba(212,168,83,.12)'},
-                  activity:{icon:'fa-landmark',color:'#2A9D8F',bg:'rgba(42,157,143,.12)'},
-                  free:{icon:'fa-compass',color:'#6B8177',bg:'rgba(107,129,119,.12)'},
-                  depart:{icon:'fa-plane-arrival',color:'#C75B39',bg:'rgba(199,91,57,.12)'}
-                };
-                const tc2=typeConf[day.type]||typeConf.free;
-                const barH=Math.max(6,(day.cost/maxDayCost)*56);
-                const isLast=i===days.length-1;
-                return`<div class="flex flex-col items-center flex-shrink-0" style="width:130px;${isLast?'margin-right:0':''}">
-                  <span class="text-[10px] text-thai-muted font-medium mb-2 tracking-wide">${day.label}</span>
-                  <div class="tl-node-circle" style="background:${tc2.bg};border:2px solid ${tc2.color}">
-                    <i class="fa-solid ${tc2.icon} text-xs" style="color:${tc2.color}"></i>
-                  </div>
-                  <p class="text-[11px] text-thai-cream mt-2 text-center font-medium leading-tight px-1" style="max-width:110px">${truncStr(day.title,22)}</p>
-                  <p class="text-[9px] text-thai-muted mt-0.5 text-center px-1">${truncStr(day.subtitle,28)}</p>
-                  <div class="mt-3 flex flex-col items-center">
-                    <div class="tl-bar rounded-t-md w-7" style="height:${barH}px;background:linear-gradient(180deg,${tc2.color},${tc2.color}30);animation-delay:${i*80}ms"></div>
-                    <span class="text-[9px] mt-1 font-medium" style="color:${tc2.color}">${fmtPriceRaw(day.cost)}</span>
-                  </div>
-                </div>`;
-              }).join('')}
-            </div>
-          </div>
-        </div>
-        <!-- Legend -->
-        <div class="flex flex-wrap gap-x-4 gap-y-1 mt-2 justify-center">
-          <span class="flex items-center gap-1.5 text-[10px] text-thai-muted"><span class="w-2 h-2 rounded-full" style="background:#D4A853"></span>Travel</span>
-          <span class="flex items-center gap-1.5 text-[10px] text-thai-muted"><span class="w-2 h-2 rounded-full" style="background:#2A9D8F"></span>Activity</span>
-          <span class="flex items-center gap-1.5 text-[10px] text-thai-muted"><span class="w-2 h-2 rounded-full" style="background:#6B8177"></span>Free Time</span>
-          <span class="flex items-center gap-1.5 text-[10px] text-thai-muted"><span class="w-2 h-2 rounded-full" style="background:#C75B39"></span>Departure</span>
-          <span class="flex items-center gap-1.5 text-[10px] text-thai-muted"><i class="fa-solid fa-chart-simple text-[8px]"></i>Cost per day</span>
-        </div>
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        <span class="badge badge-best text-[.65rem]"><i class="fa-solid fa-user-group text-[7px] mr-1"></i>${pkg.bestFor}</span>
+        <span class="badge badge-popular text-[.65rem]"><i class="fa-solid fa-gauge text-[7px] mr-1"></i>${pkg.pace} pace</span>
+        ${longStay&&freeCount?`<span class="badge badge-free text-[.65rem]"><i class="fa-solid fa-gift text-[7px] mr-1"></i>${freeCount} free days</span>`:''}
       </div>
 
-      <!-- Highlights -->
-      <div class="px-6 py-4 border-t border-thai-border/50">
-        <p class="text-xs font-semibold text-thai-cream mb-3 tracking-wide uppercase"><i class="fa-solid fa-sparkles mr-1" style="color:${pkg.color}"></i>Trip Highlights</p>
-        <div class="grid grid-cols-1 gap-2">
-          ${pkg.highlights.map(h=>`<div class="flex items-start gap-2.5"><i class="fa-solid ${h.icon} text-[10px] mt-1 flex-shrink-0" style="color:${pkg.color}"></i><span class="text-thai-muted text-xs leading-relaxed">${h.text}</span></div>`).join('')}
-        </div>
+      <p class="text-thai-muted text-sm mb-4 leading-relaxed">${pkg.desc}</p>
+
+      <!-- TIMELINE -->
+      <div class="mb-4 p-3 rounded-lg bg-thai-dark/40 border border-thai-border/50">
+        <p class="text-thai-cream text-xs font-semibold mb-2 uppercase tracking-wider">${n+1}-Day Timeline</p>
+        ${renderTimeline(pkg.tl,maxDayCost)}
       </div>
 
-      <!-- Cost Breakdown -->
-      <div class="px-6 py-4 border-t border-thai-border/50">
-        <p class="text-xs font-semibold text-thai-cream mb-3 tracking-wide uppercase"><i class="fa-solid fa-receipt mr-1" style="color:${pkg.color}"></i>Cost Breakdown</p>
+      <!-- HIGHLIGHTS -->
+      <div class="mb-4">
+        <p class="text-thai-muted text-xs font-medium mb-2 uppercase tracking-wider">Trip Highlights</p>
         <div class="space-y-2">
-          <div class="flex justify-between text-xs"><span class="text-thai-muted"><i class="fa-solid fa-van-shuttle mr-2 w-3.5 text-center" style="color:${pkg.color}"></i>${pkg.transportLabel}</span><span class="text-thai-cream font-medium">${fmtPrice(tTotal,false)}</span></div>
-          <div class="flex justify-between text-xs"><span class="text-thai-muted"><i class="fa-solid fa-hotel mr-2 w-3.5 text-center" style="color:${pkg.color}"></i>${pkg.accom.toLocaleString()} × ${n} nights × ${r} room${r>1?'s':''}</span><span class="text-thai-cream font-medium">${fmtPrice(aTotal,false)}</span></div>
-          <div class="flex justify-between text-xs"><span class="text-thai-muted"><i class="fa-solid fa-ticket mr-2 w-3.5 text-center" style="color:${pkg.color}"></i>${pkg.attrCount} activit${pkg.attrCount!==1?'ies':'y'} × ${g} guest${g>1?'s':''}</span><span class="text-thai-cream font-medium">${fmtPrice(attrTotal,false)}</span></div>
-          <div class="flex justify-between text-xs"><span class="text-thai-muted"><i class="fa-solid fa-utensils mr-2 w-3.5 text-center" style="color:${pkg.color}"></i>Meals ${pkg.mealPerDay.toLocaleString()}/day × ${n} days × ${g}</span><span class="text-thai-cream font-medium">${fmtPrice(mealTotal,false)}</span></div>
-          <div class="border-t border-thai-border pt-2 mt-2 flex justify-between"><span class="text-thai-cream font-semibold text-sm">Estimated Total</span><span class="font-bold text-lg" style="color:${pkg.color}">${fmtPrice(grand,false)}</span></div>
+          ${pkg.highlights.map(hl=>`<div class="flex items-start gap-2"><i class="fa-solid ${hl.i} text-xs pkg-accent mt-0.5 w-4 text-center"></i><span class="text-thai-cream text-xs leading-relaxed">${hl.t}</span></div>`).join('')}
         </div>
       </div>
 
-      <!-- Practical Info -->
-      <div class="px-6 py-4 border-t border-thai-border/50">
-        <details class="group">
-          <summary class="flex items-center gap-2 cursor-pointer text-xs font-semibold text-thai-cream tracking-wide uppercase list-none">
-            <i class="fa-solid fa-suitcase-rolling" style="color:${pkg.color}"></i>Practical Info
-            <i class="fa-solid fa-chevron-down text-thai-muted text-[8px] ml-auto transition-transform group-open:rotate-180"></i>
-          </summary>
-          <div class="mt-3 space-y-3">
-            <div><p class="text-[10px] text-thai-muted uppercase font-semibold mb-1 tracking-wider">What to Pack</p><p class="text-xs text-thai-muted leading-relaxed">${pkg.whatToPack}</p></div>
-            <div><p class="text-[10px] text-thai-muted uppercase font-semibold mb-1 tracking-wider">Insider Tips</p><p class="text-xs text-thai-muted leading-relaxed">${pkg.tips}</p></div>
-          </div>
-        </details>
+      <!-- COST BREAKDOWN -->
+      <div class="space-y-2.5 mb-4 pb-4 border-b border-thai-border">
+        <div class="flex justify-between text-sm"><span class="text-thai-muted"><i class="fa-solid fa-van-shuttle mr-2 w-4 text-center"></i>Transport</span><div class="text-right"><span class="text-thai-cream">${fmtPrice(tT,false)}</span><span class="text-thai-muted text-[.6rem] block">${fmtPriceRaw(pkg.transport)} × ${g}</span></div></div>
+        <div class="flex justify-between text-sm"><span class="text-thai-muted"><i class="fa-solid fa-hotel mr-2 w-4 text-center"></i>Accommodation</span><div class="text-right"><span class="text-thai-cream">${fmtPrice(aT,false)}</span><span class="text-thai-muted text-[.6rem] block">${fmtPriceRaw(pkg.accom)} × ${n} nights × ${r} room${r>1?'s':''}</span></div></div>
+        <div class="flex justify-between text-sm"><span class="text-thai-muted"><i class="fa-solid fa-ticket mr-2 w-4 text-center"></i>Activities</span><div class="text-right"><span class="text-thai-cream">${fmtPrice(atT,false)}</span><span class="text-thai-muted text-[.6rem] block">${paid.slice(0,pkg.name==='Saver'?2:pkg.name==='Comfort'?4:6).length} attractions × ${g}</span></div></div>
+        <div class="flex justify-between text-sm"><span class="text-thai-muted"><i class="fa-solid fa-utensils mr-2 w-4 text-center"></i>Food & Drinks</span><div class="text-right"><span class="text-thai-cream">${fmtPrice(mT,false)}</span><span class="text-thai-muted text-[.6rem] block">${fmtPriceRaw(pkg.meals)} × ${n} nights × ${g}</span></div></div>
+        ${longStay&&freeCount?`<div class="flex justify-between text-sm"><span class="text-thai-free"><i class="fa-solid fa-gift mr-2 w-4 text-center"></i>Free Activities</span><span class="text-thai-free font-medium">${freeCount} days included</span></div>`:''}
+        <div class="flex justify-between pt-2 border-t border-thai-border"><span class="text-thai-cream font-semibold">Estimated Total</span><span class="pkg-accent font-bold text-xl">${fmtPrice(grand,false)}</span></div>
       </div>
 
-      <!-- Affiliate Buttons -->
-      <div class="px-6 py-5 border-t border-thai-border/50 mt-auto" style="background:linear-gradient(0deg,${pkg.colorBg},transparent)">
-        <p class="text-[10px] text-thai-muted mb-3 text-center">Book each component with our partners</p>
+      <!-- COLLAPSIBLE PRACTICAL INFO -->
+      <div class="mb-4">
+        <div class="details-toggle flex items-center justify-between text-thai-muted text-xs font-medium uppercase tracking-wider cursor-pointer py-1" onclick="this.classList.toggle('open');const c=document.getElementById('${uid}');c.style.display=c.style.display==='none'?'block':'none'">
+          <span>Practical Info</span><i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </div>
+        <div id="${uid}" style="display:none" class="mt-3 space-y-3">
+          <div><p class="text-thai-cream text-xs font-semibold mb-1"><i class="fa-solid fa-suitcase-rolling mr-1 text-thai-gold"></i> What to Pack</p><p class="text-thai-muted text-xs leading-relaxed">${pkg.pack}</p></div>
+          <div><p class="text-thai-cream text-xs font-semibold mb-1"><i class="fa-solid fa-lightbulb mr-1 text-thai-gold"></i> Insider Tips</p><p class="text-thai-muted text-xs leading-relaxed">${pkg.tips}</p></div>
+        </div>
+      </div>
+
+      <!-- AFFILIATE BUTTONS -->
+      <div class="mt-auto space-y-2">
         <div class="flex flex-wrap gap-2">
           ${affBtn('agoda','Hotels',agodaUrl(dest,state.checkIn,state.checkOut,r,g))}
-          ${isDom?affBtn('12go','Transport',go12Url(dep,dest,state.checkIn,g)):affBtn('agoda','Flights',agodaFlightUrl(dc.iata,tc.iata,state.checkIn,g))}
+          ${isD?affBtn('12go','Transport',go12Url(dep,dest,state.checkIn,g)):affBtn('agoda','Flights',agodaFlightUrl(dc.iata,tc.iata,state.checkIn,g))}
+        </div>
+        <div class="flex flex-wrap gap-2">
           ${affBtn('klook','Activities',klookUrl(tc.name))}
           ${affBtn('gyg','Tours',gygUrl(tc.name))}
+          ${pkg.name==='Comfort'?affBtn('traveloka','Traveloka',travelokaUrl(dest,state.checkIn,state.checkOut,r,g)):''}
+          ${pkg.name==='Comfort'?affBtn('booking','Booking.com',bookingUrl(dest,state.checkIn,state.checkOut,r,g)):''}
         </div>
-        ${pkg.key==='comfort'?`<div class="mt-2">${affBtn('traveloka','Compare on Traveloka',travelokaUrl(dest,state.checkIn,state.checkOut,r,g))}${affBtn('booking','Booking.com',bookingUrl(dest,state.checkIn,state.checkOut,r,g))}</div>`:''}
+        ${hS&&pkg.name==='Luxury'?`<div class="mt-1">${affBtn('saii','SAii Luxury Resorts',saiiUrl(dest))}</div>`:''}
       </div>
     </div>`;
   });
 
-  html+='</div>';
-  html+=`<p class="text-thai-muted text-xs mt-6 text-center max-w-2xl mx-auto leading-relaxed"><i class="fa-solid fa-circle-info mr-1 text-thai-gold"></i> All prices are estimates based on current market data. Timeline cost bars show relative daily spend distribution. Click through to each partner for exact live pricing and to complete your booking.</p>`;
-  panel.innerHTML=html;
-}
-
-// Generate day-by-day timeline data for a package
-function generateTimeline(pkg,dest,attrs,paidAttrs,freeAttrs,nights,guests,rooms,isDom,dc,tc){
-  const days=[];
-  const mealCost=pkg.mealPerDay*guests;
-  const accomPerNight=pkg.accom*rooms;
-
-  // Day 1: Travel
-  const tCost=pkg.transport*guests;
-  days.push({
-    type:'travel',
-    label:'Day 1',
-    title:pkg.transportLabel,
-    subtitle:`${dc.name} → ${tc.name}`,
-    cost:Math.round(tCost+mealCost*0.5)
-  });
-
-  // Middle days (Days 2 to nights)
-  let paidIdx=0;
-  const freeEvery=pkg.key==='saver'?2:pkg.key==='comfort'?4:99;
-
-  for(let i=1;i<nights;i++){
-    const dayNum=i+1;
-    const isFreeDay=pkg.key!=='luxury'&&(dayNum%freeEvery===0);
-    let dayCost=Math.round(accomPerNight+mealCost);
-
-    if(isFreeDay||paidIdx>=pkg.attrList.length){
-      // Free exploration day
-      const fa=freeAttrs.length?freeAttrs[(dayNum-2)%freeAttrs.length]:null;
-      days.push({
-        type:'free',
-        label:`Day ${dayNum}`,
-        title:fa?truncStr(fa[0],24):'Explore Freely',
-        subtitle:fa?fa[1]:'Wander & discover',
-        cost:dayCost
-      });
-    }else{
-      const attr=pkg.attrList[paidIdx];
-      dayCost+=attr[3]*guests;
-      days.push({
-        type:'activity',
-        label:`Day ${dayNum}`,
-        title:truncStr(attr[0],24),
-        subtitle:attr[1]+' · '+attr[2],
-        cost:dayCost
-      });
-      paidIdx++;
-    }
-  }
-
-  // Last day: Departure
-  days.push({
-    type:'depart',
-    label:`Day ${nights+1}`,
-    title:isDom?'Check out & Depart':'Flight Home',
-    subtitle:`${tc.name} → ${dc.name}`,
-    cost:Math.round(accomPerNight*0.3+mealCost*0.5)
-  });
-
-  return days;
+  h+='</div>';
+  h+=`<p class="text-thai-muted text-xs mt-5 text-center"><i class="fa-solid fa-circle-info mr-1"></i> Package totals are estimates. ${longStay?'Green "FREE" timeline days include night markets, beach walks, nightlife, and cultural events at no extra cost. ':''}Click through to each partner for exact prices.</p>`;
+  panel.innerHTML=h;
 }
 
 // ═══════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════
 async function init(){
-  const today=new Date(),ci=new Date(today),co=new Date(today);
-  ci.setDate(ci.getDate()+7);co.setDate(co.getDate()+11);
-  const ts=today.toISOString().split('T')[0];
+  const today=new Date(),ci=new Date(today);ci.setDate(ci.getDate()+7),co=new Date(ci);co.setDate(co.getDate()+4);
   document.getElementById('checkIn').value=ci.toISOString().split('T')[0];
   document.getElementById('checkOut').value=co.toISOString().split('T')[0];
-  document.getElementById('checkIn').min=ts;
-  document.getElementById('checkOut').min=ts;
-  document.getElementById('checkIn').addEventListener('change',function(){document.getElementById('checkOut').min=this.value;if(document.getElementById('checkOut').value&&document.getElementById('checkOut').value<=this.value){const nd=new Date(this.value);nd.setDate(nd.getDate()+1);document.getElementById('checkOut').value=nd.toISOString().split('T')[0];}});
+  const ts=today.toISOString().split('T')[0];
+  document.getElementById('checkIn').min=ts;document.getElementById('checkOut').min=ts;
+  document.getElementById('checkIn').addEventListener('change',function(){document.getElementById('checkOut').min=this.value;if(document.getElementById('checkOut').value&&document.getElementById('checkOut').value<=this.value){const nd=new Date(this.value);nd.setDate(nd.getDate()+1);document.getElementById('checkOut').value=nd.toISOString().split('T')[0]}});
   populateDropdowns();
   const ok=await fetchRates();
-  const btn=document.getElementById('searchBtn');
-  btn.disabled=false;
-  btn.innerHTML='<i class="fa-solid fa-magnifying-glass mr-2"></i> Search & Compare Prices';
+  const btn=document.getElementById('searchBtn');btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-magnifying-glass mr-2"></i> Search & Compare Prices';
   if(!ok)showToast('Using cached exchange rates. Prices may vary slightly.','info');
-  document.getElementById('currencySelect').addEventListener('change',function(){state.currency=this.value;if(!document.getElementById('resultsSection').classList.contains('hidden')){renderSummary();renderTransport();renderAccommodation();renderAttractions();renderPackages();}});
+  document.getElementById('currencySelect').addEventListener('change',function(){state.currency=this.value;if(!document.getElementById('resultsSection').classList.contains('hidden')){renderSummary();renderTransport();renderAccommodation();renderAttractions();renderPackages()}});
 }
 document.addEventListener('DOMContentLoaded',init);
 </script>
