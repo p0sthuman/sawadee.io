@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Frequently Asked Questions about Sawadee Thailand Travel Planner. Learn how to use our tool and understand our pricing.">
+<meta property="og:title" content="FAQs — Sawadee Thailand Travel Planner">
+<meta property="og:description" content="Get answers to common questions about Sawadee and how to plan your Thailand trip.">
+<meta property="og:type" content="website">
+<title>FAQs — Sawadee Thailand Travel Planner</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23D4A853'>ส</text></svg>" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{thai:{gold:'#D4A853','gold-light':'#E8C97A','gold-dark':'#B8922F',red:'#C75B39',teal:'#2A9D8F',cream:'#F0EBE3',dark:'#080E0C',surface:'#0F1A16',card:'#142420','card-hover':'#1A2E28',border:'#1E3029',muted:'#6B8177',free:'#4CAF50'}},fontFamily:{display:['Cormorant Garamond','serif'],body:['DM Sans','sans-serif']}}}}
+</script>
+<style>
+:root{--gold:#D4A853;--gold-light:#E8C97A;--teal:#2A9D8F;--red:#C75B39;--free:#4CAF50;--dark:#080E0C;--surface:#0F1A16;--card:#142420;--cream:#F0EBE3;--muted:#6B8177;--border:#1E3029}
+body{font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 15% 50%,rgba(212,168,83,.04) 0%,transparent 50%),radial-gradient(ellipse at 85% 20%,rgba(42,157,143,.03) 0%,transparent 50%),var(--dark);color:var(--cream);min-height:100vh;overflow-x:hidden}
+.font-display{font-family:'Cormorant Garamond',serif}
+.glass{background:rgba(15,26,22,.85);backdrop-filter:blur(20px);border:1px solid rgba(212,168,83,.12)}
+.faq-item{cursor:pointer}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease-out}
+.faq-item.open .faq-answer{max-height:500px}
+.faq-item.open .faq-icon{transform:rotate(180deg)}
+.faq-icon{transition:transform .3s}
+.animate-fade-up{animation:fadeUp .8s ease-out both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body class="antialiased">
+
+<header class="fixed top-0 left-0 right-0 z-40 glass" style="border-top:none;border-left:none;border-right:none">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+  <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-thai-gold to-thai-gold-dark flex items-center justify-center"><i class="fa-solid fa-sun text-thai-dark text-sm"></i></div>
+    <span class="font-display text-2xl font-semibold text-thai-gold tracking-wide">Sawadee</span>
+  </a>
+  <a href="/" class="text-sm text-thai-muted hover:text-thai-gold transition-colors"><i class="fa-solid fa-arrow-left mr-1"></i> Back to Planner</a>
+</div>
+</header>
+
+<main class="pt-24 pb-20">
+<div class="max-w-3xl mx-auto px-4 sm:px-6">
+  
+  <div class="mb-12 animate-fade-up">
+    <h1 class="font-display text-5xl sm:text-6xl font-light text-thai-cream mb-6">Frequently Asked Questions</h1>
+    <p class="text-thai-muted text-lg">Get answers to common questions about using Sawadee and planning your Thailand trip.</p>
+  </div>
+
+  <div class="space-y-4 animate-fade-up" style="animation-delay:.1s">
+    
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">Is Sawadee free to use?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">Yes, Sawadee is completely free. We don't charge you for using our planner or for redirecting you to our partners. We earn small referral commissions from partners when you book, which helps us keep the service free.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">How accurate are the prices shown?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">Prices we display are <strong>historical averages for budgeting purposes only</strong>. They help you estimate costs, but actual prices vary by season, demand, booking advance, and other factors. <strong>Always confirm final prices on the partner's website</strong> before booking.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">Do I have to book through the partner links?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">No. Sawadee is a planning tool—we simply recommend options and redirect you. You're free to search independently on any booking platform. We just make it faster by aggregating options in one place.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">Does Sawadee handle payments?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">No. Sawadee never handles payments. All bookings and payments occur directly on the partner's website (Agoda, Booking.com, 12Go, etc.). We simply redirect you and don't process any transactions.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">What cities in Thailand does Sawadee cover?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">We cover 15+ major Thai cities including Bangkok, Chiang Mai, Phuket, Koh Samui, Krabi, Chiang Rai, Ayutthaya, Hua Hin, Sukhothai, Koh Phangan, Koh Tao, Ko Lanta, Pai, Udon Thani, and Pattaya. We also support international departure cities like Singapore, Bangkok, Hong Kong, Tokyo, and more.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">Can I plan a multi-city trip?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">Currently, Sawadee helps you plan one main route at a time. Our Travel Packages tab shows suggested itineraries, waypoints, and multi-leg trips. For complex multi-city routes, you can run multiple searches and combine results.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">What payment methods do the partners accept?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">Each partner has their own payment options. Agoda and Booking.com typically accept credit cards, debit cards, and PayPal. 12Go accepts cards and bank transfers. Please check the specific partner's site for all accepted payment methods.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">Can I get travel insurance through Sawadee?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">Sawadee doesn't offer travel insurance directly. However, many partner sites (like Agoda and Booking.com) offer optional insurance at checkout. We recommend purchasing travel insurance independently before your trip.</p>
+      </div>
+    </div>
+
+    <div class="faq-item glass rounded-xl p-6 group hover:border-thai-gold/30 transition-all" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-semibold text-thai-cream">Is my data safe?</h3>
+        <i class="fa-solid fa-chevron-down faq-icon text-thai-gold"></i>
+      </div>
+      <div class="faq-answer pt-4 border-t border-thai-border/30 mt-4">
+        <p class="text-thai-muted">Sawadee doesn't store your personal or payment information. We only process search parameters locally in your browser. When you click through to a partner, their privacy policy and security practices apply. See our <a href="/privacy.html" class="text-thai-gold hover:text-thai-gold-light">Privacy Policy</a> for details.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="glass rounded-xl p-8 mt-12 animate-fade-up" style="animation-delay:.3s">
+    <h3 class="text-2xl font-display font-semibold text-thai-gold mb-4"><i class="fa-solid fa-envelope mr-2"></i> Still have questions?</h3>
+    <p class="text-thai-cream mb-4">Can't find the answer? <a href="/contact.html" class="text-thai-gold hover:text-thai-gold-light font-semibold">Contact us</a> and we'll be happy to help.</p>
+  </section>
+
+</div>
+</main>
+
+<footer class="border-t border-thai-border py-8 px-4 text-center text-thai-muted text-xs">
+  <div class="max-w-7xl mx-auto mb-6">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-left text-xs">
+      <div><a href="/about.html" class="hover:text-thai-gold transition-colors">About Sawadee</a></div>
+      <div><a href="/faqs.html" class="hover:text-thai-gold transition-colors">FAQs</a></div>
+      <div><a href="/contact.html" class="hover:text-thai-gold transition-colors">Contact</a></div>
+      <div><a href="/privacy.html" class="hover:text-thai-gold transition-colors">Privacy Policy</a></div>
+    </div>
+  </div>
+  <p class="mb-3">Sawadee Travel Planner — Compare &amp; book with confidence through our trusted partners.</p>
+  <p class="opacity-50">© 2024 Sawadee. All rights reserved. This site uses affiliate links.</p>
+</footer>
+
+<script>
+function toggleFaq(element) {
+  element.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>

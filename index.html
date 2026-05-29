@@ -177,8 +177,31 @@ select.input-field optgroup option{font-weight:400;font-size:.875rem;padding:4px
     <button id="searchBtn" onclick="performSearch()" class="btn-gold w-full py-4 rounded-xl text-base tracking-wide" disabled><i class="fa-solid fa-magnifying-glass mr-2"></i> Loading exchange rates...</button>
     <p class="text-center text-thai-muted text-xs mt-3"><i class="fa-solid fa-circle-info mr-1"></i> You'll be redirected to our trusted partners for booking</p>
   </div>
-  <div class="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-thai-muted/40 text-xs animate-fade-up" style="animation-delay:.4s">
-    <span>Agoda</span><span class="text-thai-border">|</span><span>Booking.com</span><span class="text-thai-border">|</span><span>12Go</span><span class="text-thai-border">|</span><span>KKday</span><span class="text-thai-border">|</span><span>Klook</span><span class="text-thai-border">|</span><span>GetYourGuide</span>
+  <div class="mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-8 animate-fade-up" style="animation-delay:.4s">
+    <div class="flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity" title="Agoda">
+      <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none"><text x="50%" y="65%" text-anchor="middle" font-size="24" font-weight="bold" fill="#E11D48" font-family="Arial">A</text></svg>
+      <span class="text-xs font-medium text-thai-muted">Agoda</span>
+    </div>
+    <div class="flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity" title="Booking.com">
+      <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="24" rx="2" fill="#003580"/><text x="50%" y="65%" text-anchor="middle" font-size="20" font-weight="bold" fill="white" font-family="Arial">b</text></svg>
+      <span class="text-xs font-medium text-thai-muted">Booking.com</span>
+    </div>
+    <div class="flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity" title="12Go">
+      <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" fill="#FF6F00"/><text x="50%" y="65%" text-anchor="middle" font-size="16" font-weight="bold" fill="white" font-family="Arial">12</text></svg>
+      <span class="text-xs font-medium text-thai-muted">12Go</span>
+    </div>
+    <div class="flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity" title="Klook">
+      <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="#FF5722"/><text x="50%" y="65%" text-anchor="middle" font-size="20" font-weight="bold" fill="white" font-family="Arial">K</text></svg>
+      <span class="text-xs font-medium text-thai-muted">Klook</span>
+    </div>
+    <div class="flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity" title="KKday">
+      <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="#FF5F00"/><text x="50%" y="65%" text-anchor="middle" font-size="18" font-weight="bold" fill="white" font-family="Arial">KK</text></svg>
+      <span class="text-xs font-medium text-thai-muted">KKday</span>
+    </div>
+    <div class="flex items-center gap-1 opacity-60 hover:opacity-100 transition-opacity" title="GetYourGuide">
+      <svg class="w-6 h-6" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="#00B67A"/><text x="50%" y="65%" text-anchor="middle" font-size="18" font-weight="bold" fill="white" font-family="Arial">G</text></svg>
+      <span class="text-xs font-medium text-thai-muted">GYG</span>
+    </div>
   </div>
 </section>
 
@@ -210,9 +233,9 @@ select.input-field optgroup option{font-weight:400;font-size:.875rem;padding:4px
 <footer class="border-t border-thai-border py-8 px-4 text-center text-thai-muted text-xs">
   <div class="max-w-7xl mx-auto mb-6">
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-left text-xs">
-      <div><a href="#" class="hover:text-thai-gold transition-colors">About Sawadee</a></div>
-      <div><a href="#" class="hover:text-thai-gold transition-colors">FAQs</a></div>
-      <div><a href="#" class="hover:text-thai-gold transition-colors">Contact</a></div>
+      <div><a href="/about.html" class="hover:text-thai-gold transition-colors">About Sawadee</a></div>
+      <div><a href="/faqs.html" class="hover:text-thai-gold transition-colors">FAQs</a></div>
+      <div><a href="/contact.html" class="hover:text-thai-gold transition-colors">Contact</a></div>
       <div><a href="/privacy.html" class="hover:text-thai-gold transition-colors">Privacy Policy</a></div>
     </div>
   </div>
